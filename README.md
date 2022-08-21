@@ -1,9 +1,8 @@
 ## READ ME🤖
 ## Dev requirements
-First, make sure your working directory is cat
-`cd cat`
-Then, do `npm i` to install all dependencies in the project.
-🐈 All set for development.
+First, make sure your working directory is cat, so run the following command `cd cat`  
+Then, do `npm i` to install all dependencies in the project.  
+🐈 All set for development.  
 ## Getting Started running the app
 
 First, run the development server:
