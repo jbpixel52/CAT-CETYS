@@ -1,0 +1,34 @@
+[{
+    "NOMBRE_CARRERA": {
+        "CETYS": "PROGRAMA ACADÉMICO",
+        "CASEI": ""
+    },
+    "NOMBRE_MATERIA": {
+        "CETYS": "Nombre de la asignatura",
+        "CASEI": ""
+    },
+    "NIVEL_ACADEMICO": {
+        "CETYS": "Línea curricular",
+        "CASEI": ""
+    },
+    "CODIGO_MATERIA": {
+        "CETYS": "Clave",
+        "CASEI": ""
+    },
+    "SEMESTRE": {
+        "CETYS": "Perido/Ciclo",
+        "CASEI": ""
+    },
+    "HORAS_TOTALES_CON_DOCENTE": {
+        "CETYS": "Número de horas con docente al semestre (HDT+HDP)",
+        "CASEI": null
+    },
+    "HORAS_TOTALES_INDEPENDIENTES": {
+        "CETYS": "Número de horas de estudio independiente al semestre (HI)",
+        "CASEI": null
+    },
+    "HORAS_TOTALES_SEMESTRALES": {
+        "CETYS": "Número total de horas al semestre",
+        "CASEI": null
+    }
+}]
