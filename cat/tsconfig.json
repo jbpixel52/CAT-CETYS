@@ -1,6 +1,20 @@
-{
+{  "extends": "ts-node/node16/tsconfig.json",
+
+  // Most ts-node options can be specified here using their programmatic names.
+  "ts-node": {
+    // It is faster to skip typechecking.
+    // Remove if you want ts-node to do typechecking.
+    "transpileOnly": true,
+    "files": true,
+    "compilerOptions": {
+      "esModuleInterop": true
+      // compilerOptions specified here will override those declared below,
+      // but *only* in ts-node.  Useful if you want ts-node and tsc to use
+      // different options with a single tsconfig.json.
+    }
+  },
   "compilerOptions": {
-    "target": "es6",
+    "target": "ES6",
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -18,9 +32,10 @@
     "outDir": "dist",
     "sourceMap": true,
     "types":[
-      "jest"
+      "jest",
+      "node"
     ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "client.tss"],
   "exclude": ["node_modules"]
 }
