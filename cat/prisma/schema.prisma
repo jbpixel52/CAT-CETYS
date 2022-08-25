@@ -7,11 +7,90 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-type GlobalesCartasCodigoMateria {
+type GlobalesCartasNombreMateria {
   CASEI String
   CETYS String
 }
 
+type GlobalesCartasNombreCarrera {
+  CASEI String
+  CETYS String
+}
+
+type GlobalesCartasRequisitos {
+  CASEI String
+  CETYS String
+}
+
+type GlobalesCartasClaveMateria {
+  CASEI String
+  CETYS String
+}
+
+type GlobalesCartasSemestre {
+  CASEI String
+  CETYS String
+}
+
+type GlobalesCartasTipoMateria {
+  CASEI String
+  CETYS String
+}
+
+type GlobalesTotalHorasClase {
+  CASEI String?
+  CETYS String
+}
+
+type GlobalesObjetivosCurso {
+  CASEI String
+  CETYS String
+}
+
+type GlobalesAportacionCursoPE {
+  CASEI String
+  CETYS String
+}
+
+type GlobalesAportacionCursoCACEI {
+  CASEI String
+  CETYS String
+}
+
+type GlobalesDatosRelevantesCurso {
+  CASEI String
+  CETYS String
+}
+
+type GlobalesTemasCurso {
+  CASEI String
+  CETYS String
+}
+
+type GlobalesEstrategiasEnsenanza {
+  CASEI String
+  CETYS String
+}
+
+type GlobalesEstrategiasEvaluacion {
+  CASEI String
+  CETYS String
+}
+
+type GlobalesPracticas {
+  CASEI String
+  CETYS String
+}
+
+type GlobalesBibliografia {
+  CASEI String
+  CETYS String
+}
+
+type GlobalesProfesor {
+  CASEI String
+  CETYS String
+}
 
 model Cartas {
   id String @id @default(auto()) @map("_id") @db.ObjectId
@@ -19,5 +98,22 @@ model Cartas {
 
 model globales_Cartas {
   id                           String                                   @id @default(auto()) @map("_id") @db.ObjectId
-  CODIGO_MATERIA               GlobalesCartasCodigoMateria
+  NOMBRE_MATERIA               GlobalesCartasNombreMateria              //CASEI 2
+  REQUISITOS_MATERIA           GlobalesCartasRequisitos                 //CASEI 3
+  NOMBRE_CARRERA               GlobalesCartasNombreCarrera              //
+  CLAVE_MATERIA                GlobalesCartasClaveMateria               //CASEI 1
+  SEMESTRE                     GlobalesCartasSemestre                   //CASEI 4
+  TIPO_CURSO                   GlobalesCartasTipoMateria                //CASEI 5
+  TOTAL_HORAS_CLASE            GlobalesTotalHorasClase                  //CASEI 6
+  OBJETIVOS_CURSO              GlobalesObjetivosCurso                   //CASEI 7
+  APORTACION_CURSO_PE          GlobalesAportacionCursoPE                //CASEI 8
+  APORTACION_CURSO_CACEI       GlobalesAportacionCursoCACEI             //CASEI 9
+  DATOS_RELEVANTES_CURSO       GlobalesDatosRelevantesCurso             //CASEI 10
+  TEMAS_CURSO                  GlobalesTemasCurso                       //CASEI 11
+  ESTRATEGIAS_ENSENANZA        GlobalesEstrategiasEnsenanza             //CASEI 12
+  ESTRATEGIAS_EVALUACION       GlobalesEstrategiasEvaluacion            //CASEI 13
+  PRACTICAS                    GlobalesPracticas                        //CASEI 14
+  BIBLIOGRAFIA                 GlobalesBibliografia                     //CASEI 15
+  PROFESOR                     GlobalesProfesor                         //CASEI 16      
 }
+
