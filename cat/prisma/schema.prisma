@@ -10,86 +10,115 @@ datasource db {
 type GlobalesCartasNombreMateria {
   CASEI String
   CETYS String
+  ABET  String
 }
 
 type GlobalesCartasNombreCarrera {
   CASEI String
   CETYS String
+  ABET  String
 }
 
 type GlobalesCartasRequisitos {
   CASEI String
   CETYS String
+  ABET  String
 }
 
 type GlobalesCartasClaveMateria {
   CASEI String
   CETYS String
+  ABET  String
 }
 
 type GlobalesCartasSemestre {
   CASEI String
   CETYS String
+  ABET  String
+}
+
+type GlobalesCartasNivelAcademico {
+  CASEI String
+  CETYS String
+  ABET  String
 }
 
 type GlobalesCartasTipoMateria {
   CASEI String
   CETYS String
+  ABET  String
 }
 
 type GlobalesTotalHorasClase {
-  CASEI String?
+  CASEI String
   CETYS String
+  ABET  String
 }
 
 type GlobalesObjetivosCurso {
   CASEI String
   CETYS String
+  ABET  String
 }
 
 type GlobalesAportacionCursoPE {
   CASEI String
   CETYS String
+  ABET  String
 }
 
 type GlobalesAportacionCursoCACEI {
   CASEI String
   CETYS String
+  ABET  String
+}
+
+type GlobalesInformacionEspecifica {
+  CASEI String
+  CETYS String
+  ABET  String
 }
 
 type GlobalesDatosRelevantesCurso {
   CASEI String
   CETYS String
+  ABET  String
 }
 
 type GlobalesTemasCurso {
   CASEI String
   CETYS String
+  ABET  String
 }
 
 type GlobalesEstrategiasEnsenanza {
   CASEI String
   CETYS String
+  ABET  String
 }
 
 type GlobalesEstrategiasEvaluacion {
   CASEI String
   CETYS String
+  ABET  String
 }
 
 type GlobalesPracticas {
   CASEI String
   CETYS String
+  ABET  String
 }
 
 type GlobalesBibliografia {
   CASEI String
   CETYS String
+  ABET  String
 }
 
-type GlobalesProfesor {
+type GlobalesProfesorado {
   CASEI String
   CETYS String
+  ABET  String
 }
 
 model Cartas {
@@ -98,22 +127,24 @@ model Cartas {
 
 model globales_Cartas {
   id                           String                                   @id @default(auto()) @map("_id") @db.ObjectId
-  NOMBRE_MATERIA               GlobalesCartasNombreMateria              //CASEI 2
+  NOMBRE_MATERIA               GlobalesCartasNombreMateria              //CASEI 2  | ABET 1 | CETYS GENERALES
   REQUISITOS_MATERIA           GlobalesCartasRequisitos                 //CASEI 3
   NOMBRE_CARRERA               GlobalesCartasNombreCarrera              //
-  CLAVE_MATERIA                GlobalesCartasClaveMateria               //CASEI 1
+  CLAVE_MATERIA                GlobalesCartasClaveMateria               //CASEI 1  | ABET 1
   SEMESTRE                     GlobalesCartasSemestre                   //CASEI 4
+  NIVEL_ACADEMICO              GlobalesCartasNivelAcademico             //         |        | CETYS GENERALES
   TIPO_CURSO                   GlobalesCartasTipoMateria                //CASEI 5
   TOTAL_HORAS_CLASE            GlobalesTotalHorasClase                  //CASEI 6
-  OBJETIVOS_CURSO              GlobalesObjetivosCurso                   //CASEI 7
+  OBJETIVOS_CURSO              GlobalesObjetivosCurso                   //CASEI 7  | ABET 6
   APORTACION_CURSO_PE          GlobalesAportacionCursoPE                //CASEI 8
   APORTACION_CURSO_CACEI       GlobalesAportacionCursoCACEI             //CASEI 9
+  INFORMACION_ESPECIFICA       GlobalesInformacionEspecifica
   DATOS_RELEVANTES_CURSO       GlobalesDatosRelevantesCurso             //CASEI 10
-  TEMAS_CURSO                  GlobalesTemasCurso                       //CASEI 11
+  TEMAS_CURSO                  GlobalesTemasCurso                       //CASEI 11 | ABET 7
   ESTRATEGIAS_ENSENANZA        GlobalesEstrategiasEnsenanza             //CASEI 12
   ESTRATEGIAS_EVALUACION       GlobalesEstrategiasEvaluacion            //CASEI 13
   PRACTICAS                    GlobalesPracticas                        //CASEI 14
-  BIBLIOGRAFIA                 GlobalesBibliografia                     //CASEI 15
-  PROFESOR                     GlobalesProfesor                         //CASEI 16      
+  BIBLIOGRAFIA                 GlobalesBibliografia                     //CASEI 15 | ABET 4
+  PROFESORADO                  GlobalesProfesorado                      //CASEI 16      
 }
 
