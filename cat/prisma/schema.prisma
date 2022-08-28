@@ -49,6 +49,12 @@ type GlobalesCartasTipoMateria {
   ABET  String
 }
 
+type GlobalesEjes {
+  CASEI String[]
+  CETYS String[]
+  ABET  String[]
+}
+
 type GlobalesModalidad {
   CASEI String
   CETYS String
@@ -139,6 +145,12 @@ type GlobalesDatosRelevantesCurso {
   ABET  String
 }
 
+type GlobalesUnidad {
+  CASEI String
+  CETYS String
+  ABET  String
+}
+
 type GlobalesTemasCurso {
   CASEI String
   CETYS String
@@ -163,9 +175,16 @@ type GlobalesPracticas {
   ABET  String
 }
 
+type RecursosCETYS{
+  BASICA         String
+  COMPLEMENTARIA String
+  ELECTRONICOS   String
+  APOYOS         String
+}
+
 type GlobalesBibliografia {
   CASEI String
-  CETYS String
+  CETYS RecursosCETYS
   ABET  String
 }
 
@@ -181,6 +200,7 @@ model Cartas {
 
 model globales_Cartas {
   id                                     String                                      @id @default(auto()) @map("_id") @db.ObjectId
+  //version                                Int                                         @unique @db.Int 
   NOMBRE_MATERIA                         GlobalesCartasNombreMateria                 //CASEI 2   | ABET 1  | CETYS GENERALES
   REQUISITOS_MATERIA                     GlobalesCartasRequisitos                    //CASEI 3 
   NOMBRE_CARRERA                         GlobalesCartasNombreCarrera                 // 
@@ -188,6 +208,7 @@ model globales_Cartas {
   SEMESTRE                               GlobalesCartasSemestre                      //CASEI 4 
   NIVEL_ACADEMICO                        GlobalesCartasNivelAcademico                //          |         | CETYS GENERALES
   TIPO_CURSO                             GlobalesCartasTipoMateria                   //CASEI 5 
+  EJES                                   GlobalesEjes                                //CASEi 6-
   MODALIDAD                              GlobalesModalidad                           //          |         | CETYS GENERALES
   INSTALACIONES                          GlobalesInstalaciones                       //                    | CETYS GENERALES
   IDIOMA                                 GlobalesCartasIdioma                        //                    | CETYS GENERALES
@@ -198,12 +219,13 @@ model globales_Cartas {
   HORAS_CLASE_INDEPENDIENTES_SEMANALES   GlobalesHorasClaseIndependientesSemanales   //          |         | CETYS GENERALES
   HORAS_CLASE_TOTALES                    GlobalesHorasClaseTotales                   //          |         | CETYS GENERALES
   HORAS_CLASE_TOTALES_SEMANALES          GlobalesHorasClaseTotalesSemanales          //          |         | CETYS GENERALES
-  OBJETIVOS_CURSO                        GlobalesObjetivosCurso                      //CASEI 7   | ABET 6
+  OBJETIVOS_CURSO                        GlobalesObjetivosCurso                      //CASEI 7   | ABET 6  | CETYS PROPOSITO Y COMPETENCIA
   APORTACION_CURSO_PE                    GlobalesAportacionCursoPE                   //CASEI 8 
   APORTACION_CURSO_CACEI                 GlobalesAportacionCursoCACEI                //CASEI 9 
   INFORMACION_ESPECIFICA                 GlobalesInformacionEspecifica   
   DATOS_RELEVANTES_CURSO                 GlobalesDatosRelevantesCurso                //CASEI 10 
-  TEMAS_CURSO                            GlobalesTemasCurso                          //CASEI 11  | ABET 7
+  UNIDAD                                 GlobalesUnidad
+  TEMAS_CURSO                            GlobalesTemasCurso                          //CASEI 11  | ABET 7  | CETYS UNIDADES
   ESTRATEGIAS_ENSENANZA                  GlobalesEstrategiasEnsenanza                //CASEI 12 
   ESTRATEGIAS_EVALUACION                 GlobalesEstrategiasEvaluacion               //CASEI 13 
   PRACTICAS                              GlobalesPracticas                           //CASEI 14 
