@@ -48,9 +48,54 @@ async function makeEquivalenceTable() {
               CASEI: "5. Tipo de curso",
               ABET: noValueGlobal
             },
-            TOTAL_HORAS_CLASE:{
-              CETYS: "Total CETYS",
+            MODALIDAD:{
+              CETYS: "Modalidad: ",
+              CASEI: noValueGlobal,
+              ABET: noValueGlobal
+            },
+            IDIOMA:{
+              CETYS: "Idioma de impartición",
+              CASEI: noValueGlobal,
+              ABET: noValueGlobal
+            },
+            CREDITOS:{
+              CETYS: "Créditos (CR)",
+              CASEI: noValueGlobal,
+              ABET: "2.	Credits, contact hours, and categorization of credits"
+            },
+            INSTALACIONES:{
+              CETYS: "Instalaciones",
+              CASEI: noValueGlobal,
+              ABET: noValueGlobal
+            },
+            HORAS_CLASE:{
+              CETYS: "Número de horas con docente al semestre (HDT+HDP)",
               CASEI: "6. Horas totales",
+              ABET: noValueGlobal
+            },
+            HORAS_CLASE_SEMANALES:{
+              CETYS: "Número de horas teóricas y prácticas con docente semanal (HTs y  HPs)",
+              CASEI: "10.a Horas a la semana",
+              ABET: noValueGlobal
+            },
+            HORAS_CLASE_INDEPENDIENTES:{
+              CETYS: "Número de horas de estudio independiente al semestre (HI)",
+              CASEI: noValueGlobal,
+              ABET: noValueGlobal
+            },
+            HORAS_CLASE_INDEPENDIENTES_SEMANALES:{
+              CETYS: "Número de horas de estudio independiente semanal (HIs)",
+              CASEI: noValueGlobal,
+              ABET: noValueGlobal
+            },
+            HORAS_CLASE_TOTALES:{
+              CETYS: "Número total de horas al semestre HT (HDT+HDP+HI)",
+              CASEI: noValueGlobal,
+              ABET: noValueGlobal
+            },
+            HORAS_CLASE_TOTALES_SEMANALES:{
+              CETYS: "Total de horas a la semana (HTs+HPs+HIs)",
+              CASEI: noValueGlobal,
               ABET: noValueGlobal
             },
             OBJETIVOS_CURSO:{
@@ -59,12 +104,12 @@ async function makeEquivalenceTable() {
               ABET:  "6. Specific goals for the course"
             },
             APORTACION_CURSO_CACEI:{
-              CETYS: "Aportacion CETYS CACEI",
+              CETYS: noValueGlobal,
               CASEI: "9. Aportación del curso a los atributos de egreso del CACEI",
               ABET: noValueGlobal
             },
             APORTACION_CURSO_PE:{
-              CETYS: "Aportacion CETYS PE",
+              CETYS: noValueGlobal,
               CASEI: "8. Aportación del curso a los atributos de egreso del PE",
               ABET: noValueGlobal
             },
@@ -94,17 +139,17 @@ async function makeEquivalenceTable() {
               ABET: noValueGlobal
             },
             PRACTICAS:{
-              CETYS: "Practicas CETYS",
+              CETYS: noValueGlobal,
               CASEI: "14. Prácticas",
               ABET: noValueGlobal
             },
             BIBLIOGRAFIA:{
-              CETYS: "Biblio CETYS",
+              CETYS: "Recursos bibliográficos, apoyos y recursos didácticos",
               CASEI: "15. Bibliografía",
               ABET:   "4. Text book, title, author, and year"
             },
             PROFESORADO:{
-              CETYS: "Profesor CETYS",
+              CETYS: "Perfil del docente",
               CASEI: "16. Profesores",
               ABET:  "3.	Instructor's or course coordinator's name"
             },

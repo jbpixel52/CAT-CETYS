@@ -49,7 +49,61 @@ type GlobalesCartasTipoMateria {
   ABET  String
 }
 
-type GlobalesTotalHorasClase {
+type GlobalesModalidad {
+  CASEI String
+  CETYS String
+  ABET  String
+}
+
+type GlobalesCartasIdioma {
+  CASEI String
+  CETYS String
+  ABET  String
+}
+
+type GlobalesCreditos {
+  CASEI String
+  CETYS String
+  ABET  String
+}
+
+type GlobalesInstalaciones {
+  CASEI String
+  CETYS String
+  ABET  String
+}
+
+type GlobalesHorasClase {
+  CASEI String
+  CETYS String
+  ABET  String
+}
+
+type GlobalesHorasClaseSemanales {
+  CASEI String
+  CETYS String
+  ABET  String
+}
+
+type GlobalesHorasClaseIndependientes {
+  CASEI String
+  CETYS String
+  ABET  String
+}
+
+type GlobalesHorasClaseIndependientesSemanales {
+  CASEI String
+  CETYS String
+  ABET  String
+}
+
+type GlobalesHorasClaseTotales {
+  CASEI String
+  CETYS String
+  ABET  String
+}
+
+type GlobalesHorasClaseTotalesSemanales {
   CASEI String
   CETYS String
   ABET  String
@@ -126,25 +180,34 @@ model Cartas {
 }
 
 model globales_Cartas {
-  id                           String                                   @id @default(auto()) @map("_id") @db.ObjectId
-  NOMBRE_MATERIA               GlobalesCartasNombreMateria              //CASEI 2  | ABET 1 | CETYS GENERALES
-  REQUISITOS_MATERIA           GlobalesCartasRequisitos                 //CASEI 3
-  NOMBRE_CARRERA               GlobalesCartasNombreCarrera              //
-  CLAVE_MATERIA                GlobalesCartasClaveMateria               //CASEI 1  | ABET 1
-  SEMESTRE                     GlobalesCartasSemestre                   //CASEI 4
-  NIVEL_ACADEMICO              GlobalesCartasNivelAcademico             //         |        | CETYS GENERALES
-  TIPO_CURSO                   GlobalesCartasTipoMateria                //CASEI 5
-  TOTAL_HORAS_CLASE            GlobalesTotalHorasClase                  //CASEI 6
-  OBJETIVOS_CURSO              GlobalesObjetivosCurso                   //CASEI 7  | ABET 6
-  APORTACION_CURSO_PE          GlobalesAportacionCursoPE                //CASEI 8
-  APORTACION_CURSO_CACEI       GlobalesAportacionCursoCACEI             //CASEI 9
-  INFORMACION_ESPECIFICA       GlobalesInformacionEspecifica
-  DATOS_RELEVANTES_CURSO       GlobalesDatosRelevantesCurso             //CASEI 10
-  TEMAS_CURSO                  GlobalesTemasCurso                       //CASEI 11 | ABET 7
-  ESTRATEGIAS_ENSENANZA        GlobalesEstrategiasEnsenanza             //CASEI 12
-  ESTRATEGIAS_EVALUACION       GlobalesEstrategiasEvaluacion            //CASEI 13
-  PRACTICAS                    GlobalesPracticas                        //CASEI 14
-  BIBLIOGRAFIA                 GlobalesBibliografia                     //CASEI 15 | ABET 4
-  PROFESORADO                  GlobalesProfesorado                      //CASEI 16      
+  id                                     String                                      @id @default(auto()) @map("_id") @db.ObjectId
+  NOMBRE_MATERIA                         GlobalesCartasNombreMateria                 //CASEI 2   | ABET 1  | CETYS GENERALES
+  REQUISITOS_MATERIA                     GlobalesCartasRequisitos                    //CASEI 3 
+  NOMBRE_CARRERA                         GlobalesCartasNombreCarrera                 // 
+  CLAVE_MATERIA                          GlobalesCartasClaveMateria                  //CASEI 1   | ABET 1
+  SEMESTRE                               GlobalesCartasSemestre                      //CASEI 4 
+  NIVEL_ACADEMICO                        GlobalesCartasNivelAcademico                //          |         | CETYS GENERALES
+  TIPO_CURSO                             GlobalesCartasTipoMateria                   //CASEI 5 
+  MODALIDAD                              GlobalesModalidad                           //          |         | CETYS GENERALES
+  INSTALACIONES                          GlobalesInstalaciones                       //                    | CETYS GENERALES
+  IDIOMA                                 GlobalesCartasIdioma                        //                    | CETYS GENERALES
+  CREDITOS                               GlobalesCreditos                            //          | ABET 2  | CETYS GENERALES
+  HORAS_CLASE                            GlobalesHorasClase                          //CASEI 6   |         | CETYS GENERALES
+  HORAS_CLASE_SEMANALES                  GlobalesHorasClaseSemanales                 //CASEI 10a |         | CETYS GENERALES
+  HORAS_CLASE_INDEPENDIENTES             GlobalesHorasClaseIndependientes            //          |         | CETYS GENERALES
+  HORAS_CLASE_INDEPENDIENTES_SEMANALES   GlobalesHorasClaseIndependientesSemanales   //          |         | CETYS GENERALES
+  HORAS_CLASE_TOTALES                    GlobalesHorasClaseTotales                   //          |         | CETYS GENERALES
+  HORAS_CLASE_TOTALES_SEMANALES          GlobalesHorasClaseTotalesSemanales          //          |         | CETYS GENERALES
+  OBJETIVOS_CURSO                        GlobalesObjetivosCurso                      //CASEI 7   | ABET 6
+  APORTACION_CURSO_PE                    GlobalesAportacionCursoPE                   //CASEI 8 
+  APORTACION_CURSO_CACEI                 GlobalesAportacionCursoCACEI                //CASEI 9 
+  INFORMACION_ESPECIFICA                 GlobalesInformacionEspecifica   
+  DATOS_RELEVANTES_CURSO                 GlobalesDatosRelevantesCurso                //CASEI 10 
+  TEMAS_CURSO                            GlobalesTemasCurso                          //CASEI 11  | ABET 7
+  ESTRATEGIAS_ENSENANZA                  GlobalesEstrategiasEnsenanza                //CASEI 12 
+  ESTRATEGIAS_EVALUACION                 GlobalesEstrategiasEvaluacion               //CASEI 13 
+  PRACTICAS                              GlobalesPracticas                           //CASEI 14 
+  BIBLIOGRAFIA                           GlobalesBibliografia                        //CASEI 15  | ABET 4
+  PROFESORADO                            GlobalesProfesorado                         //CASEI 16  |         | CETYS PROFESOR     
 }
 
