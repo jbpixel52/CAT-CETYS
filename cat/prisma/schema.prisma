@@ -121,6 +121,41 @@ type GlobalesObjetivosCurso {
   ABET  String
 }
 
+type GlobalesCompetenciasCETYS{
+  GENERAL String
+  UNIDAD  String
+}
+
+type GlobalesCompetencias {
+  CASEI String
+  CETYS GlobalesCompetenciasCETYS
+  ABET  String
+}
+
+type GlobalesMetodosActividades {
+  CASEI String
+  CETYS String
+  ABET  String
+}
+
+type GlobalesActividadesIndependientes {
+  CASEI String
+  CETYS String
+  ABET  String
+}
+
+type GlobalesMetodologiaEvaluacion {
+  CASEI String
+  CETYS String
+  ABET  String
+}
+
+type GlobalesInstrumentosMedicion {
+  CASEI String
+  CETYS String
+  ABET  String
+}
+
 type GlobalesAportacionCursoPE {
   CASEI String
   CETYS String
@@ -134,6 +169,12 @@ type GlobalesAportacionCursoCACEI {
 }
 
 type GlobalesInformacionEspecifica {
+  CASEI String
+  CETYS String
+  ABET  String
+}
+
+type GlobalesEvidencias {
   CASEI String
   CETYS String
   ABET  String
@@ -170,6 +211,18 @@ type GlobalesEstrategiasEvaluacion {
 }
 
 type GlobalesPracticas {
+  CASEI String
+  CETYS String
+  ABET  String
+}
+
+type GlobalesRetroalimentacion {
+  CASEI String
+  CETYS String
+  ABET  String
+}
+
+type GlobalesCriteriosEvaluacion {
   CASEI String
   CETYS String
   ABET  String
@@ -220,15 +273,23 @@ model globales_Cartas {
   HORAS_CLASE_TOTALES                    GlobalesHorasClaseTotales                   //          |         | CETYS GENERALES
   HORAS_CLASE_TOTALES_SEMANALES          GlobalesHorasClaseTotalesSemanales          //          |         | CETYS GENERALES
   OBJETIVOS_CURSO                        GlobalesObjetivosCurso                      //CASEI 7   | ABET 6  | CETYS PROPOSITO Y COMPETENCIA
+  COMPETENCIAS                           GlobalesCompetencias                        //          |         | CETYS UNIDADES Y COMPETENCIA
+  METODOS_ACTIVIDADES                    GlobalesMetodosActividades                  //          |         | CETYS Metodos y actividades
+  ACTIVIDADES_INDEPENDIENTES             GlobalesActividadesIndependientes           //          |         | CETYS Metodos y actividades
+  METODOLOGIA_EVALUACION                 GlobalesMetodologiaEvaluacion               //          |         | CETYS Evaluacion
+  INSTRUMENTOS_MEDICION_APRENDIZAJE      GlobalesInstrumentosMedicion                //          |         | CETSY Evaluacion
   APORTACION_CURSO_PE                    GlobalesAportacionCursoPE                   //CASEI 8 
   APORTACION_CURSO_CACEI                 GlobalesAportacionCursoCACEI                //CASEI 9 
-  INFORMACION_ESPECIFICA                 GlobalesInformacionEspecifica   
+  INFORMACION_ESPECIFICA                 GlobalesInformacionEspecifica
+  EVIDENCIAS                             GlobalesEvidencias                          //          |         | CETYS COMPETENCIA
   DATOS_RELEVANTES_CURSO                 GlobalesDatosRelevantesCurso                //CASEI 10 
   UNIDAD                                 GlobalesUnidad
   TEMAS_CURSO                            GlobalesTemasCurso                          //CASEI 11  | ABET 7  | CETYS UNIDADES
   ESTRATEGIAS_ENSENANZA                  GlobalesEstrategiasEnsenanza                //CASEI 12 
   ESTRATEGIAS_EVALUACION                 GlobalesEstrategiasEvaluacion               //CASEI 13 
   PRACTICAS                              GlobalesPracticas                           //CASEI 14 
+  RETROALIMENTACION                      GlobalesRetroalimentacion                   //          |         | CETYS RETROALIMENTACION
+  CRITERIOS_EVALUACION                   GlobalesCriteriosEvaluacion                 //          |         | CETYS EVALUACION
   BIBLIOGRAFIA                           GlobalesBibliografia                        //CASEI 15  | ABET 4
   PROFESORADO                            GlobalesProfesorado                         //CASEI 16  |         | CETYS PROFESOR     
 }

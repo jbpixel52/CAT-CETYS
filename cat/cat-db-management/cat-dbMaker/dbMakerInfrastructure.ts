@@ -1,4 +1,5 @@
 import { PrismaClient } from '@prisma/client'
+import { notNull } from 'jest-mock-extended';
 
 
 const prisma = new PrismaClient()
@@ -50,9 +51,9 @@ async function makeEquivalenceTable() {
           },
           EJES:{
             CETYS: [noValueGlobal],
-            CASEI: "5. Tipo de curso",
-            ABET: [noValueGlobal,"Ciencias Básicas", "Ciencias de la Ingeniería", "Ingeniería Aplicada",
-                  "Diseño en Ingeniería", "C. Sociales y Humanidades", "C. Económ. Administrat", "Otros Cursos"]
+            CASEI: ["Ciencias Básicas", "Ciencias de la Ingeniería", "Ingeniería Aplicada",
+            "Diseño en Ingeniería", "C. Sociales y Humanidades", "C. Económ. Administrat", "Otros Cursos"],
+            ABET: [noValueGlobal]
           },
           MODALIDAD:{
             CETYS: "Modalidad: ",
@@ -109,6 +110,34 @@ async function makeEquivalenceTable() {
             CASEI: "7. Objetivos del curso \n Principales resultados de aprendizaje (indicadores de los AE)",
             ABET:  "6. Specific goals for the course"
           },
+          COMPETENCIAS:{
+            CETYS: {
+              GENERAL: "Competencia general de la asignatura",
+              UNIDAD: "Competencias de la unidad"
+            },
+            CASEI: noValueGlobal,
+            ABET:  noValueGlobal
+          },
+          METODOS_ACTIVIDADES:{
+            CETYS: "Métodos y actividades de aprendizaje bajo conducción del docente",
+            CASEI: noValueGlobal,
+            ABET:  noValueGlobal
+          },
+          ACTIVIDADES_INDEPENDIENTES:{
+            CETYS: "Actividades de aprendizaje independientes ",
+            CASEI: noValueGlobal,
+            ABET:  noValueGlobal
+          },
+          METODOLOGIA_EVALUACION:{
+            CETYS: "Metodología de evaluación",
+            CASEI: noValueGlobal,
+            ABET:  noValueGlobal
+          },
+          INSTRUMENTOS_MEDICION_APRENDIZAJE:{
+            CETYS: "Instrumentos para la medición del aprendizaje",
+            CASEI: noValueGlobal,
+            ABET:  noValueGlobal
+          },
           APORTACION_CURSO_CACEI:{
             CETYS: noValueGlobal,
             CASEI: "9. Aportación del curso a los atributos de egreso del CACEI",
@@ -128,6 +157,11 @@ async function makeEquivalenceTable() {
             CETYS: noValueGlobal,
             CASEI: noValueGlobal,
             ABET: "5.	Specific course information"
+          },
+          EVIDENCIAS:{
+            CETYS: "Evidencias de desempeño",
+            CASEI: noValueGlobal,
+            ABET: noValueGlobal
           },
           UNIDAD:{
             CETYS: "Unidad de competencia ",
@@ -152,6 +186,16 @@ async function makeEquivalenceTable() {
           PRACTICAS:{
             CETYS: noValueGlobal,
             CASEI: "14. Prácticas",
+            ABET: noValueGlobal
+          },
+          RETROALIMENTACION:{
+            CETYS: noValueGlobal,
+            CASEI: noValueGlobal,
+            ABET: noValueGlobal
+          },
+          CRITERIOS_EVALUACION:{
+            CETYS: noValueGlobal,
+            CASEI: noValueGlobal,
             ABET: noValueGlobal
           },
           BIBLIOGRAFIA:{
