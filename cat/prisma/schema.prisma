@@ -294,3 +294,7 @@ model globales_Cartas {
   PROFESORADO                            GlobalesProfesorado                         //CASEI 16  |         | CETYS PROFESOR     
 }
 
+model Campo{
+  id                                     String                                      @id @default(auto()) @map("_id") @db.ObjectId
+  NOMBRE_CAMPO                           String
+}
