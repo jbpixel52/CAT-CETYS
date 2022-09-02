@@ -12,7 +12,8 @@ export default function Home() {
       router.push('/login')
     })
     }else{
-      //continue to to main menu
+      //  GO TO MAIN PAGE FOR THE USER
+        router.push('/desk')
     }
 }
 
