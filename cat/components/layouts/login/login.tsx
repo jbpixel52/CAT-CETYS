@@ -4,3 +4,4 @@ const App = ({ message }: AppProps) => <div>{message}</div>;
 
 
 export { App }
+
