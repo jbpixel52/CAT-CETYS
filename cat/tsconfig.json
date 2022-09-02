@@ -1,41 +1,54 @@
-{  "extends": "ts-node/node16/tsconfig.json",
-
+{
+  "extends": "ts-node/node16/tsconfig.json",
   // Most ts-node options can be specified here using their programmatic names.
   "ts-node": {
     // It is faster to skip typechecking.
     // Remove if you want ts-node to do typechecking.
     "transpileOnly": true,
+    "esm": true,
     "files": true,
     "compilerOptions": {
-      "esModuleInterop": true
+      "esModuleInterop": true,
+      "module": "CommonJS"
       // compilerOptions specified here will override those declared below,
       // but *only* in ts-node.  Useful if you want ts-node and tsc to use
       // different options with a single tsconfig.json.
     }
   },
   "compilerOptions": {
-    "target": "ES6",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "ESNext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": true,
+    "strict": false,
+    "module": "CommonJS",
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "jsxImportSource": "@emotion/react",
+    // "jsxImportSource": "@emotion/react",
     "incremental": true,
     "outDir": "dist",
     "sourceMap": true,
-    "types":[
+    "types": [
       "jest",
       "node"
     ]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "client.tss"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "client.tss"
+, "pages/index.js"  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
