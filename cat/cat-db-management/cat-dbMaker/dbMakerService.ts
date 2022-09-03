@@ -1,8 +1,10 @@
 export {}
 import { prisma } from "@prisma/client";
 import { DbMakerInfrastructure } from "./dbMakerInfrastructure"
+import { CampoTemplete} from "../campoTemplete"
 
 let dbMakerInfrastructure = new DbMakerInfrastructure;
+let campoTemplete = new CampoTemplete();
 
 export class DbMakerService{
 

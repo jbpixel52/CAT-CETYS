@@ -1,10 +1,12 @@
 export {}
 import { prisma } from "@prisma/client";
 import { DbMakerService } from "./dbMakerService";
+import { CampoTemplete} from "../campoTemplete"
 
 let dbMakerService = new DbMakerService();
 
-class DbMakerApplication{
+
+export class DbMakerApplication{
 
     public dbMakerApplication(){
 
