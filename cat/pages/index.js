@@ -5,8 +5,10 @@ export default function Home() {
   const { data: session } = useSession();
   const router = useRouter()
   if (!session) {
-    console.log('Client is logged out');
-    return(<Login/>)
+    return(
+    
+    <Login/>
+    )
        
     }else{
       //  GO TO MAIN PAGE FOR THE USER

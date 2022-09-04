@@ -12,12 +12,7 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+
 import {Header} from '../header/header';
 import { useSession } from 'next-auth/react';
 import { Avatar } from '@mui/material';
@@ -107,7 +102,7 @@ export default function PersistentDrawerLeft() {
                       <Header title='CAT🙀'></Header>
           </Stack>
         <SearchBar></SearchBar>
-        <Avatar  sx={{ width: "2", height:"2"}} alt={session?.user?.name} src={session?.user?.image!} />
+        <Avatar onmouseOver={()=>{console.log('HOVERED OVER PROFILE PHOTO')}} sx={{ width: "2", height:"2"}} alt={session?.user?.name} src={session?.user?.image!} />
         </Toolbar>
       </AppBar>
       <Drawer

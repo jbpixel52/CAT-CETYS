@@ -1,7 +1,7 @@
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useRouter } from "next/router";
 import Image from 'next/image';
-import { Avatar, Button, Paper } from "@mui/material";
+import { Avatar, Button, Paper,Typography } from "@mui/material";
 export default function Login() {
   const { data: session } = useSession();
   const router = useRouter();
@@ -19,9 +19,9 @@ export default function Login() {
     )
   } else {
 
-    return (<div>
-      Not signed in <br />
+    return (<Paper>
+      <Typography>Not signed in.</Typography> 
       <Button variant="contained" onClick={() => signIn()}>Sign in</Button>
-    </div>)
+    </Paper>)
   }
 }
