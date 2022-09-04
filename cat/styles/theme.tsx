@@ -14,7 +14,8 @@ let theme = createTheme({
 theme = createTheme(theme, {
   palette: {
     info: {
-      main: theme.palette.secondary.main,
+      main: theme.palette.primary.main,
+      secondary: theme.palette.secondary.main
     },
   },
 });
