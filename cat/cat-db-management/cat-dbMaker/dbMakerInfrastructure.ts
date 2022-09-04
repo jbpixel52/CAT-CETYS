@@ -9,10 +9,12 @@ const enum fieldTypes {
   simple = "1 a 1",
   oneToList = "1 a lista",
   oneToTable = "1 a tabla",
+  twoToTable = "2 a tabla",
   selectionWOName = "Seleccion s/nombre",
   selectionWName = "Seleccion c/nombre",
   sectionTitle = "Titulo seccion"
 }
+
 
 export class DbMakerInfrastructure{
 
@@ -20,22 +22,22 @@ export class DbMakerInfrastructure{
 
   }
 
-  public MakeField(){
+  public async MakeField(){
     // Connect the client
     prisma.$connect()
     console.log('Connected to database');
   
-    prisma.camposBase.create({
+    await prisma.camposBase.create({
       data:
       {
         NOMBRE_CAMPO: {
-          CETYS: "Contenidos curriculares",
+          CETYS: "Pie de carta",
           CACEI: "",  
           WASC: "",
           ABET: ""
         },
-        DESCRIPCION_CAMPO: "Temas de la unidad",
-        TIPO_CAMPO: fieldTypes.oneToList,
+        DESCRIPCION_CAMPO: "Datos que describen el pie de carta como fecha de entrega y director del colegio de Ingeniería",
+        TIPO_CAMPO: fieldTypes.soloTexto,
         OPCIONES_SELECCION: [],
         NOMBRES_OPCIONES_SELECCION: []
       }
@@ -49,15 +51,15 @@ export class DbMakerInfrastructure{
   }
 }
 
-
-// MakeField()
-// .then(async () => {
-//   await prisma.$disconnect()
-// })
-// .catch(async (e) => {
-//   console.error(e)
-//   await prisma.$disconnect()
-//   process.exit(1)
-// })
+let dbMakerInfrastructure = new DbMakerInfrastructure();
+dbMakerInfrastructure.MakeField()
+.then(async () => {
+  await prisma.$disconnect()
+})
+.catch(async (e) => {
+  console.error(e)
+  await prisma.$disconnect()
+  process.exit(1)
+})
 
 export default prisma
