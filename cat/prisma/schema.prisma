@@ -7,17 +7,18 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-type GlobalesCartasCodigoMateria {
-  CASEI String
+type NombresCampo{
   CETYS String
+  CACEI String
+  WASC  String 
+  ABET  String
 }
 
-
-model Cartas {
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-}
-
-model globales_Cartas {
-  id                           String                                   @id @default(auto()) @map("_id") @db.ObjectId
-  CODIGO_MATERIA               GlobalesCartasCodigoMateria
+model camposBase{
+  id                                     String                                      @id @default(auto()) @map("_id") @db.ObjectId
+  NOMBRE_CAMPO                           NombresCampo
+  DESCRIPCION_CAMPO                      String
+  TIPO_CAMPO                             String
+  OPCIONES_SELECCION                     String[]
+  NOMBRES_OPCIONES_SELECCION              String[]
 }
