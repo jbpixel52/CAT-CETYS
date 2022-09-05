@@ -9,6 +9,8 @@ const enum fieldTypes {
   simple = "1 a 1",
   oneToList = "1 a lista",
   oneToTable = "1 a tabla",
+  oneToTableWHeader = "1 a tabla con subtitulo",
+  twoToList = "2 a lista",
   twoToTable = "2 a tabla",
   selectionWOName = "Seleccion s/nombre",
   selectionWName = "Seleccion c/nombre",
@@ -31,13 +33,13 @@ export class DbMakerInfrastructure{
       data:
       {
         NOMBRE_CAMPO: {
-          CETYS: "Pie de carta",
-          CACEI: "",  
+          CETYS: "",
+          CACEI: "16.b Otros instructores (últimos dos años",  
           WASC: "",
           ABET: ""
         },
-        DESCRIPCION_CAMPO: "Datos que describen el pie de carta como fecha de entrega y director del colegio de Ingeniería",
-        TIPO_CAMPO: fieldTypes.soloTexto,
+        DESCRIPCION_CAMPO: "Otros profesores que hayan dado la materia en los ultimos dos años",
+        TIPO_CAMPO: fieldTypes.oneToTable,
         OPCIONES_SELECCION: [],
         NOMBRES_OPCIONES_SELECCION: []
       }
