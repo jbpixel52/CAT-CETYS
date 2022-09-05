@@ -1,10 +1,10 @@
 export {}
 import { prisma } from "@prisma/client";
 import { DbMakerInfrastructure } from "./dbMakerInfrastructure"
-import { CampoTemplete} from "../campoTemplete"
+import { MakeFieldRequest} from "../makeFieldRequest"
 
 let dbMakerInfrastructure = new DbMakerInfrastructure;
-let campoTemplete = new CampoTemplete();
+//let campoTemplete = new MakeFieldRequest();
 
 export class DbMakerService{
 
@@ -12,8 +12,9 @@ export class DbMakerService{
 
     }
 
-    public createTemplateField(){
-
+    public createTemplateField(createTemplateFieldRequest: MakeFieldRequest){
+        console.log(createTemplateFieldRequest)
+        dbMakerInfrastructure.makeTemplateField(createTemplateFieldRequest)
     }
 
     public editTemplateField(){

@@ -1,10 +1,11 @@
 import { PrismaClient } from '@prisma/client'
 import { json } from 'node:stream/consumers';
 import { notNull } from 'jest-mock-extended';
+import { MakeFieldRequest } from '../makeFieldRequest';
 
 const prisma = new PrismaClient()
 const noValueGlobal: string = "NONE";
-const enum fieldTypes {
+export const enum fieldTypes {
   soloTexto = "SOLO_TEXTO",
   simple = "1 a 1",
   oneToList = "1 a lista",
@@ -24,7 +25,7 @@ export class DbMakerInfrastructure{
 
   }
 
-  public async MakeField(){
+  public async MakeFieldManual(){
     // Connect the client
     prisma.$connect()
     console.log('Connected to database');
@@ -46,6 +47,26 @@ export class DbMakerInfrastructure{
     });
   }
 
+  public async makeTemplateField(createTemplateFieldRequest: MakeFieldRequest){
+    prisma.$connect()
+    console.log('Connected to database');
+  
+    await prisma.camposBase.create({
+      data:
+      {
+        NOMBRE_CAMPO: {
+          CETYS: createTemplateFieldRequest.nombreCampo["CETYS"],
+          CACEI: createTemplateFieldRequest.nombreCampo["CACEI"],  
+          WASC: createTemplateFieldRequest.nombreCampo["WASC"],
+          ABET: createTemplateFieldRequest.nombreCampo["ABET"]
+        },
+        DESCRIPCION_CAMPO: createTemplateFieldRequest.descripcionCampo,
+        TIPO_CAMPO: createTemplateFieldRequest.tipoCampo,
+        OPCIONES_SELECCION: createTemplateFieldRequest.opcionesSeleccion,
+        NOMBRES_OPCIONES_SELECCION: createTemplateFieldRequest.nombresOpcionesSeleccion
+      }
+    });
+  }
 
   public async getFields() {
     let result = await prisma.camposBase.findMany()
@@ -54,7 +75,7 @@ export class DbMakerInfrastructure{
 }
 
 let dbMakerInfrastructure = new DbMakerInfrastructure();
-dbMakerInfrastructure.MakeField()
+dbMakerInfrastructure.MakeFieldManual()
 .then(async () => {
   await prisma.$disconnect()
 })
