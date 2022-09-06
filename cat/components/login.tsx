@@ -19,9 +19,8 @@ export default function Login() {
     )
   } else {
 
-    return (<Paper>
-      <Typography>Not signed in.</Typography> 
+    return (
       <Button variant="contained" onClick={() => signIn()}>Sign in</Button>
-    </Paper>)
+    )
   }
 }
