@@ -40,8 +40,6 @@ export class DbMakerApplication{
         createTemplateRequest.nombreCampo = createTemplateRequestDTOJSON["NOMBRE_CAMPO"];
         createTemplateRequest.descripcionCampo = createTemplateRequestDTOJSON["DESCRIPCION_CAMPO"];
         createTemplateRequest.tipoCampo = createTemplateRequestDTOJSON["TIPO_CAMPO"];
-        createTemplateRequest.opcionesSeleccion = createTemplateRequestDTOJSON["OPCIONES_SELECCION"];
-        createTemplateRequest.nombresOpcionesSeleccion = createTemplateRequestDTOJSON["NOMBRES_OPCIONES_SELECCION"];
 
         return createTemplateRequest
     }

@@ -7,15 +7,8 @@ const prisma = new PrismaClient()
 const noValueGlobal: string = "NONE";
 export const enum fieldTypes {
   soloTexto = "SOLO_TEXTO",
-  simple = "1 a 1",
-  oneToList = "1 a lista",
-  oneToTable = "1 a tabla",
-  oneToTableWHeader = "1 a tabla con subtitulo",
-  twoToList = "2 a lista",
-  twoToTable = "2 a tabla",
-  selectionWOName = "Seleccion s/nombre",
-  selectionWName = "Seleccion c/nombre",
-  sectionTitle = "Titulo seccion"
+  simple = "VALOR_SIMPLE",
+  oneToTable = "VALOR_TABLA",
 }
 
 
@@ -62,8 +55,6 @@ export class DbMakerInfrastructure{
         },
         DESCRIPCION_CAMPO: createTemplateFieldRequest.descripcionCampo,
         TIPO_CAMPO: createTemplateFieldRequest.tipoCampo,
-        OPCIONES_SELECCION: createTemplateFieldRequest.opcionesSeleccion,
-        NOMBRES_OPCIONES_SELECCION: createTemplateFieldRequest.nombresOpcionesSeleccion
       }
     });
   }
