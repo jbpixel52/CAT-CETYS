@@ -28,6 +28,7 @@ export class DbMakerInfrastructure {
     // Connect the client
     prisma.$connect()
     console.log('Connected to database');
+    // ! TODO: Fix this [Property does not exist on type <prisma>.campoBase]
     await prisma.camposBase.create({
       data:
       {
