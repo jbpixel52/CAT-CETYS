@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next"
-import { DbMakerApplication } from "../../../cat-db-management/cat-dbMaker/dbMakerApplication"
+import { DbMakerApplication } from "../../../db/maker/dbMakerApplication"
 
 let dbMakerApplication = new DbMakerApplication();
 

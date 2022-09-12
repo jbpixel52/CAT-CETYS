@@ -1,6 +1,5 @@
 import "../styles/globals.css";
 import { SessionProvider } from "next-auth/react";
-import {Header} from '../components/header/header'
 import CssBaseline from '@mui/material/CssBaseline';
 import { ThemeProvider } from "@emotion/react";
 import theme from '../styles/theme'
