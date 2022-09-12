@@ -28,13 +28,12 @@ export class DbMakerInfrastructure{
     // Connect the client
     prisma.$connect()
     console.log('Connected to database');
-  
     await prisma.camposBase.create({
       data:
       {
         NOMBRE_CAMPO: {
           CETYS: "",
-          CACEI: "16.b Otros instructores (últimos dos años",  
+          CACEI: "16.b Otros instructores (últimos dos años",
           WASC: "",
           ABET: ""
         },

@@ -102,7 +102,7 @@ export default function PersistentDrawerLeft() {
                       <Header title='CAT🙀'></Header>
           </Stack>
         <SearchBar></SearchBar>
-        <Avatar onmouseOver={()=>{console.log('HOVERED OVER PROFILE PHOTO')}} sx={{ width: "2", height:"2"}} alt={session?.user?.name} src={session?.user?.image!} />
+        <Avatar onMouseOver={()=>{console.log('HOVERED OVER PROFILE PHOTO')}} sx={{ width: "2", height:"2"}} alt={session?.user?.name} src={session?.user?.image!} />
         </Toolbar>
       </AppBar>
       <Drawer
