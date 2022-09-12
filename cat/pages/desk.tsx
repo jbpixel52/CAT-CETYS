@@ -14,6 +14,8 @@ export default function Desk() {
         <Paper elevation={18} sx={{m:'5em'}}>
         <p>Desk Page</p>
         <Button variant="contained" onClick={()=>router.push('/editor')}>GO TO EDITOR</Button>
+        <Button variant="contained" onClick={()=>router.push('/my-mdx-page')}>GO TO /template</Button>
+
         <Login/>
         <PersistentDrawerLeft></PersistentDrawerLeft>
         </Paper>

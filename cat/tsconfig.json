@@ -47,7 +47,7 @@
     "**/*.ts",
     "**/*.tsx",
     "client.tss"
-, "pages/index.js"  ],
+, "pages/index.js", "pages/template.jsx"  ],
   "exclude": [
     "node_modules"
   ]
