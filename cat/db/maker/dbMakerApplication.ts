@@ -1,7 +1,7 @@
 export {}
 import { prisma } from "@prisma/client";
 import { DbMakerService } from "./dbMakerService";
-import { CampoTemplete} from "../campoTemplete"
+import { fieldTemplate} from "../fieldTemplate"
 
 let dbMakerService = new DbMakerService();
 
@@ -25,11 +25,12 @@ export class DbMakerApplication{
     }
 
     public getTemplateField(){
-        
     }
 
     public async getTemplateFields(){
-        let allFields = await dbMakerService.getTemplateFields();
-        return allFields
+        return await dbMakerService.getTemplateFields();
+
+        // let allFields = await dbMakerService.getTemplateFields();
+        // return allFields
     }
 }
