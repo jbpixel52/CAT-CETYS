@@ -1,5 +1,4 @@
 export {}
-import { prisma } from "@prisma/client";
 import { DbMakerInfrastructure } from "./dbMakerInfrastructure"
 import { fieldTemplate} from "../fieldTemplate"
 

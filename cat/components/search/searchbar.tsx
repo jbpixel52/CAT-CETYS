@@ -36,9 +36,9 @@ export default function SearchBar() {
   }else{return(<></>)}
 }
 
-export const getServerSideProps = async ({ req }) => {
-  let client = new DbMakerApplication();
-  let res = client.getTemplateFields();
-  return res;
+// export const getServerSideProps = async ({ req }) => {
+//   let client = new DbMakerApplication();
+//   let res = client.getTemplateFields();
+//   return res;
 
-}
+// }

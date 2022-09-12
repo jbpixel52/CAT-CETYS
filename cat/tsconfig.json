@@ -24,7 +24,7 @@
     ],
     "allowJs": true,
     "skipLibCheck": true,
-    "strict": false,
+    "strict": true,
     "module": "CommonJS",
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,

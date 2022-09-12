@@ -1,6 +1,6 @@
 import { PrismaClient } from '@prisma/client'
-import { json } from 'node:stream/consumers';
-import { notNull } from 'jest-mock-extended';
+// import { json } from 'node:stream/consumers';
+// import { notNull } from 'jest-mock-extended';
 
 const prisma = new PrismaClient()
 const noValueGlobal: string = "NONE";
@@ -18,13 +18,13 @@ const enum fieldTypes {
 }
 
 
-export class DbMakerInfrastructure{
+export class DbMakerInfrastructure {
 
-  public dbMakerInfrastucture(){
+  public dbMakerInfrastucture() {
 
   }
 
-  public async MakeField(){
+  public async MakeField() {
     // Connect the client
     prisma.$connect()
     console.log('Connected to database');
@@ -54,13 +54,13 @@ export class DbMakerInfrastructure{
 
 let dbMakerInfrastructure = new DbMakerInfrastructure();
 dbMakerInfrastructure.MakeField()
-.then(async () => {
-  await prisma.$disconnect()
-})
-.catch(async (e) => {
-  console.error(e)
-  await prisma.$disconnect()
-  process.exit(1)
-})
+  .then(async () => {
+    await prisma.$disconnect()
+  })
+  .catch(async (e) => {
+    console.error(e)
+    await prisma.$disconnect()
+    process.exit(1)
+  })
 
 export default prisma

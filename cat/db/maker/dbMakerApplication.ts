@@ -1,5 +1,3 @@
-export {}
-import { prisma } from "@prisma/client";
 import { DbMakerService } from "./dbMakerService";
 import { fieldTemplate} from "../fieldTemplate"
 
