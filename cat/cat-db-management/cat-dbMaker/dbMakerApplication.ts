@@ -24,8 +24,10 @@ export class DbMakerApplication{
 
     }
 
-    public getTemplateField(){
-        
+    public async getTemplateField(getTemplateIdRequest: string){
+        let fieldId = JSON.parse(getTemplateIdRequest)["fieldId"]
+        let field = await dbMakerService.getTemplateField(fieldId);
+        return field
     }
 
     public async getTemplateFields(){

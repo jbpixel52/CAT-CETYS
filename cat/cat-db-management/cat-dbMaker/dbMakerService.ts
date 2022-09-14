@@ -25,8 +25,9 @@ export class DbMakerService{
 
     }
 
-    public getTemplateField(){
-        
+    public async getTemplateField(fieldId: string){
+        let field = await dbMakerInfrastructure.getField(fieldId);
+        return field 
     }
 
     public async getTemplateFields(){
