@@ -1,8 +1,6 @@
 import { PrismaClient } from '@prisma/client'
-import { json } from 'node:stream/consumers';
-import { notNull } from 'jest-mock-extended';
 import { MakeFieldRequest } from '../makeFieldRequest';
-import { Decimal } from '@prisma/client/runtime';
+import { UpdateFieldRequest } from '../updateFieldRequest';
 
 const prisma = new PrismaClient()
 const noValueGlobal: string = "NONE";
@@ -32,6 +30,27 @@ export class DbMakerInfrastructure{
         DESCRIPCION_CAMPO: createTemplateFieldRequest.descripcionCampo,
         TIPO_CAMPO: createTemplateFieldRequest.tipoCampo,
       }
+    });
+  }
+
+  public async updateTemplateField(editTemplateFieldRequest: UpdateFieldRequest){
+    console.log(editTemplateFieldRequest.id)
+    await prisma.camposBase.update({
+      where:{
+        id: editTemplateFieldRequest.id,
+        
+      },
+      data:
+      {
+        NOMBRE_CAMPO: {
+          CETYS: editTemplateFieldRequest.nombreCampo["CETYS"],
+          CACEI: editTemplateFieldRequest.nombreCampo["CACEI"],  
+          WASC: editTemplateFieldRequest.nombreCampo["WASC"],
+          ABET: editTemplateFieldRequest.nombreCampo["ABET"]
+        },
+        DESCRIPCION_CAMPO: editTemplateFieldRequest.descripcionCampo,
+        TIPO_CAMPO: editTemplateFieldRequest.tipoCampo,
+      },
     });
   }
 

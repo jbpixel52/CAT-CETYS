@@ -1,5 +1,6 @@
 import { prisma } from "@prisma/client";
 import { MakeFieldRequest } from "../makeFieldRequest";
+import { UpdateFieldRequest } from "../updateFieldRequest";
 import { DbMakerService } from "./dbMakerService";
 
 let dbMakerService = new DbMakerService();
@@ -16,8 +17,9 @@ export class DbMakerApplication{
         await dbMakerService.createTemplateField(createTemplateRequest);
     }
 
-    public editTemplateField(){
-
+    public async editTemplateField(editTemplateRequestDTO: string){
+        let editTemplateFieldRequest = this.editTemplateRequestMapper(editTemplateRequestDTO);
+        await dbMakerService.editTemplateField(editTemplateFieldRequest);
     }
 
     public deleteTemplateField(deleteTemplateFieldRequest: string){
@@ -45,5 +47,17 @@ export class DbMakerApplication{
         createTemplateRequest.tipoCampo = createTemplateRequestDTOJSON["TIPO_CAMPO"];
 
         return createTemplateRequest
+    }
+
+    private editTemplateRequestMapper(editTemplateRequestDTO: string){
+        let editTemplateRequestDTOJSON = JSON.parse(editTemplateRequestDTO);
+        let editTemplateRequest =  new UpdateFieldRequest();
+
+        editTemplateRequest.id = editTemplateRequestDTOJSON["id"]
+        editTemplateRequest.nombreCampo = editTemplateRequestDTOJSON["NOMBRE_CAMPO"];
+        editTemplateRequest.descripcionCampo = editTemplateRequestDTOJSON["DESCRIPCION_CAMPO"];
+        editTemplateRequest.tipoCampo = editTemplateRequestDTOJSON["TIPO_CAMPO"];
+
+        return editTemplateRequest
     }
 }
