@@ -21,17 +21,17 @@ export class DbMakerService{
 
     }
 
-    public deleteTemplateField(){
-
+    public deleteTemplateField(fieldId: string){
+        dbMakerInfrastructure.deleteTemplateField(fieldId);
     }
 
     public async getTemplateField(fieldId: string){
-        let field = await dbMakerInfrastructure.getField(fieldId);
+        let field = await dbMakerInfrastructure.getTemplateField(fieldId);
         return field 
     }
 
     public async getTemplateFields(){
-        let allFields = await dbMakerInfrastructure.getFields();
+        let allFields = await dbMakerInfrastructure.getTemplateFields();
         return allFields
     }
 }

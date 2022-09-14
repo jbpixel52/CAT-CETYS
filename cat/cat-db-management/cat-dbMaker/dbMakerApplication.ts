@@ -20,8 +20,9 @@ export class DbMakerApplication{
 
     }
 
-    public deleteTemplateField(){
-
+    public deleteTemplateField(deleteTemplateFieldRequest: string){
+        let fieldId = JSON.parse(deleteTemplateFieldRequest)["fieldId"]
+        dbMakerService.deleteTemplateField(fieldId);
     }
 
     public async getTemplateField(getTemplateIdRequest: string){

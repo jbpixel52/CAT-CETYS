@@ -20,9 +20,6 @@ export class DbMakerInfrastructure{
   }
 
   public async makeTemplateField(createTemplateFieldRequest: MakeFieldRequest){
-    prisma.$connect()
-    console.log('Connected to database');
-  
     await prisma.camposBase.create({
       data:
       {
@@ -38,7 +35,15 @@ export class DbMakerInfrastructure{
     });
   }
 
-  public async getField(fieldId: string){
+  public async deleteTemplateField(fieldId: string){
+    let result = await prisma.camposBase.delete({
+      where: {
+        id: fieldId
+      }
+    });
+  }
+
+  public async getTemplateField(fieldId: string){
     let result = await prisma.camposBase.findFirst({
       where:{
         id: {
@@ -50,7 +55,7 @@ export class DbMakerInfrastructure{
     return result
   }
 
-  public async getFields() {
+  public async getTemplateFields() {
     let result = await prisma.camposBase.findMany()
     return result;
   }
