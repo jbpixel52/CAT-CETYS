@@ -15,7 +15,7 @@ export default function Desk() {
         <p>Desk Page</p>
         <Button variant="contained" onClick={()=>router.push('/editor')}>GO TO EDITOR</Button>
         <Button variant="contained" onClick={()=>router.push('/my-mdx-page')}>GO TO /template</Button>
-
+        <Button variant="contained" onClick={()=>router.push('/admin')}>GO TO Admin Page</Button>
         <Login/>
         <PersistentDrawerLeft></PersistentDrawerLeft>
         </Paper>
