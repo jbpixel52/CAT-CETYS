@@ -2,7 +2,7 @@ import { createTheme } from '@mui/material/styles';
 import {pink, amber} from "@mui/material/colors"
 let theme = createTheme({
   palette: {
-    mode:'dark',
+    mode:'light',
     primary: {
       main: pink[200],
     },
