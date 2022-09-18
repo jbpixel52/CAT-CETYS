@@ -33,12 +33,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    // "jsxImportSource": "@emotion/react",
     "incremental": true,
     "outDir": "dist",
     "sourceMap": true,
     "types": [
-      "jest",
       "node"
     ]
   },
