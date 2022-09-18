@@ -3,4 +3,5 @@ export class UpdateFieldRequest{
     nombreCampo: JSON
     descripcionCampo: string
     tipoCampo: string
+    contenidoCampo: string
 }
