@@ -16,6 +16,9 @@ export class DbMakerService{
 
     public async editTemplateField(editTemplateFieldRequest: UpdateFieldRequest){
         try{
+            if(await this.getTemplateField(editTemplateFieldRequest.id) == null){
+                throw new Error("A field with this id does not exist");
+            }
             await dbMakerInfrastructure.updateTemplateField(editTemplateFieldRequest);
         }
         catch(error){
@@ -23,9 +26,12 @@ export class DbMakerService{
         }
     }
 
-    public deleteTemplateField(fieldId: string){
+    public async deleteTemplateField(fieldId: string){
         try{
-            dbMakerInfrastructure.deleteTemplateField(fieldId);
+            if(await this.getTemplateField(fieldId) == null){
+                throw new Error("A field with this id does not exist");
+            }
+            await dbMakerInfrastructure.deleteTemplateField(fieldId);
         }
         catch(error){
             throw new Error(error.message);
@@ -34,7 +40,7 @@ export class DbMakerService{
 
     public async getTemplateField(fieldId: string){
         let field = await dbMakerInfrastructure.getTemplateField(fieldId);
-        return field 
+        return field; 
     }
 
     public async getTemplateFields(){
