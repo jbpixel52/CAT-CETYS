@@ -10,16 +10,26 @@ export class DbMakerService{
 
     }
 
-    public createTemplateField(createTemplateFieldRequest: MakeFieldRequest){
-        dbMakerInfrastructure.makeTemplateField(createTemplateFieldRequest)
+    public async createTemplateField(createTemplateFieldRequest: MakeFieldRequest){
+        await dbMakerInfrastructure.makeTemplateField(createTemplateFieldRequest)
     }
 
-    public editTemplateField(editTemplateFieldRequest: UpdateFieldRequest){
-        dbMakerInfrastructure.updateTemplateField(editTemplateFieldRequest)
+    public async editTemplateField(editTemplateFieldRequest: UpdateFieldRequest){
+        try{
+            await dbMakerInfrastructure.updateTemplateField(editTemplateFieldRequest);
+        }
+        catch(error){
+            throw new Error(error.message);
+        }
     }
 
     public deleteTemplateField(fieldId: string){
-        dbMakerInfrastructure.deleteTemplateField(fieldId);
+        try{
+            dbMakerInfrastructure.deleteTemplateField(fieldId);
+        }
+        catch(error){
+            throw new Error(error.message);
+        }
     }
 
     public async getTemplateField(fieldId: string){

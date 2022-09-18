@@ -22,9 +22,9 @@ export class DbMakerApplication{
         await dbMakerService.editTemplateField(editTemplateFieldRequest);
     }
 
-    public deleteTemplateField(deleteTemplateFieldRequest: string){
+    public async deleteTemplateField(deleteTemplateFieldRequest: string){
         let fieldId = JSON.parse(deleteTemplateFieldRequest)["fieldId"]
-        dbMakerService.deleteTemplateField(fieldId);
+        await dbMakerService.deleteTemplateField(fieldId);
     }
 
     public async getTemplateField(getTemplateIdRequest: string){
@@ -39,25 +39,75 @@ export class DbMakerApplication{
     }
 
     private createTemplateRequestMapper(createTemplateRequestDTO: string){
-        let createTemplateRequestDTOJSON = JSON.parse(createTemplateRequestDTO);
-        let createTemplateRequest =  new MakeFieldRequest();
-
-        createTemplateRequest.nombreCampo = createTemplateRequestDTOJSON["NOMBRE_CAMPO"];
-        createTemplateRequest.descripcionCampo = createTemplateRequestDTOJSON["DESCRIPCION_CAMPO"];
-        createTemplateRequest.tipoCampo = createTemplateRequestDTOJSON["TIPO_CAMPO"];
-
-        return createTemplateRequest
+        try{
+            let createTemplateRequestDTOJSON = JSON.parse(createTemplateRequestDTO);
+            let createTemplateRequest =  new MakeFieldRequest();
+            
+            if(createTemplateRequestDTOJSON["NOMBRE_CAMPO"] != undefined){
+                createTemplateRequest.nombreCampo = createTemplateRequestDTOJSON["NOMBRE_CAMPO"];
+            }
+            else{
+                throw new Error("NOMBRE_CAMPO no está presente");
+            }
+            if(createTemplateRequestDTOJSON["DESCRIPCION_CAMPO"] != undefined){
+                createTemplateRequest.descripcionCampo = createTemplateRequestDTOJSON["DESCRIPCION_CAMPO"];
+            }
+            else{
+                throw new Error("DESCRIPCION_CAMPO no está presente");
+            }
+            if(createTemplateRequestDTOJSON["TIPO_CAMPO"] != undefined){
+                createTemplateRequest.tipoCampo = createTemplateRequestDTOJSON["TIPO_CAMPO"];
+            }
+            else{
+                throw new Error("TIPO_CAMPO no está presente");
+            }
+    
+            return createTemplateRequest
+        }
+        catch(errorMessage){
+            throw new Error(errorMessage)
+        }
     }
 
     private editTemplateRequestMapper(editTemplateRequestDTO: string){
-        let editTemplateRequestDTOJSON = JSON.parse(editTemplateRequestDTO);
-        let editTemplateRequest =  new UpdateFieldRequest();
+        try{
+            let editTemplateRequestDTOJSON = JSON.parse(editTemplateRequestDTO);
+            let editTemplateRequest =  new UpdateFieldRequest();
+    
+            editTemplateRequest.id = editTemplateRequestDTOJSON["id"]
+            editTemplateRequest.nombreCampo = editTemplateRequestDTOJSON["NOMBRE_CAMPO"];
+            editTemplateRequest.descripcionCampo = editTemplateRequestDTOJSON["DESCRIPCION_CAMPO"];
+            editTemplateRequest.tipoCampo = editTemplateRequestDTOJSON["TIPO_CAMPO"];
 
-        editTemplateRequest.id = editTemplateRequestDTOJSON["id"]
-        editTemplateRequest.nombreCampo = editTemplateRequestDTOJSON["NOMBRE_CAMPO"];
-        editTemplateRequest.descripcionCampo = editTemplateRequestDTOJSON["DESCRIPCION_CAMPO"];
-        editTemplateRequest.tipoCampo = editTemplateRequestDTOJSON["TIPO_CAMPO"];
-
-        return editTemplateRequest
+            if(editTemplateRequestDTOJSON["id"] != undefined){
+                editTemplateRequest.id = editTemplateRequestDTOJSON["id"];
+            }
+            else{
+                throw new Error("id no está presente");
+            }
+            if(editTemplateRequestDTOJSON["NOMBRE_CAMPO"] != undefined){
+                editTemplateRequest.nombreCampo = editTemplateRequestDTOJSON["NOMBRE_CAMPO"];
+            }
+            else{
+                throw new Error("NOMBRE_CAMPO no está presente");
+            }
+            if(editTemplateRequestDTOJSON["DESCRIPCION_CAMPO"] != undefined){
+                editTemplateRequest.descripcionCampo = editTemplateRequestDTOJSON["DESCRIPCION_CAMPO"];
+            }
+            else{
+                throw new Error("DESCRIPCION_CAMPO no está presente");
+            }
+            if(editTemplateRequestDTOJSON["TIPO_CAMPO"] != undefined){
+                editTemplateRequest.tipoCampo = editTemplateRequestDTOJSON["TIPO_CAMPO"];
+            }
+            else{
+                throw new Error("TIPO_CAMPO no está presente");
+            }
+    
+            return editTemplateRequest;
+        }
+        catch(errorMessage){
+            throw new Error(errorMessage)
+        }
     }
 }

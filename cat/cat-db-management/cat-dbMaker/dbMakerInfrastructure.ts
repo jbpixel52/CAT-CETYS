@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client'
+import { Prisma, PrismaClient } from '@prisma/client'
 import { MakeFieldRequest } from '../makeFieldRequest';
 import { UpdateFieldRequest } from '../updateFieldRequest';
 
@@ -34,24 +34,31 @@ export class DbMakerInfrastructure{
   }
 
   public async updateTemplateField(editTemplateFieldRequest: UpdateFieldRequest){
-    console.log(editTemplateFieldRequest.id)
-    await prisma.camposBase.update({
-      where:{
-        id: editTemplateFieldRequest.id,
-        
-      },
-      data:
-      {
-        NOMBRE_CAMPO: {
-          CETYS: editTemplateFieldRequest.nombreCampo["CETYS"],
-          CACEI: editTemplateFieldRequest.nombreCampo["CACEI"],  
-          WASC: editTemplateFieldRequest.nombreCampo["WASC"],
-          ABET: editTemplateFieldRequest.nombreCampo["ABET"]
+    try{
+      await prisma.camposBase.update({
+        where:{
+          id: editTemplateFieldRequest.id,
         },
-        DESCRIPCION_CAMPO: editTemplateFieldRequest.descripcionCampo,
-        TIPO_CAMPO: editTemplateFieldRequest.tipoCampo,
-      },
-    });
+        data:
+        {
+          NOMBRE_CAMPO: {
+            CETYS: editTemplateFieldRequest.nombreCampo["CETYS"],
+            CACEI: editTemplateFieldRequest.nombreCampo["CACEI"],  
+            WASC: editTemplateFieldRequest.nombreCampo["WASC"],
+            ABET: editTemplateFieldRequest.nombreCampo["ABET"]
+          },
+          DESCRIPCION_CAMPO: editTemplateFieldRequest.descripcionCampo,
+          TIPO_CAMPO: editTemplateFieldRequest.tipoCampo,
+        },
+      });
+    }
+    catch(error){
+      if (error instanceof Prisma.PrismaClientKnownRequestError){
+        if(error.code === 'P2023'){
+          throw new Error("id dada es en formato incorrecto");
+        }
+      }
+    }
   }
 
   public async deleteTemplateField(fieldId: string){
