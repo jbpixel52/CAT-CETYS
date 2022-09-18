@@ -1,6 +1,6 @@
 import { prisma } from "@prisma/client";
-import { MakeFieldRequest } from "../makeFieldRequest";
-import { UpdateFieldRequest } from "../updateFieldRequest";
+import { MakeFieldRequest } from "../../makeFieldRequest";
+import { UpdateFieldRequest } from "../../updateFieldRequest";
 import { DbMakerService } from "./dbMakerService";
 
 let dbMakerService = new DbMakerService();

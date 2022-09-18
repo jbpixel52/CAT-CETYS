@@ -20,3 +20,11 @@ model camposBase{
   DESCRIPCION_CAMPO                      String
   TIPO_CAMPO                             String
 }
+
+model camposCartas{
+  id                                     String                                      @id @default(auto()) @map("_id") @db.ObjectId
+  NOMBRE_CAMPO                           NombresCampo
+  DESCRIPCION_CAMPO                      String
+  TIPO_CAMPO                             String
+  CONTENIDO_CAMPO                        String
+}
