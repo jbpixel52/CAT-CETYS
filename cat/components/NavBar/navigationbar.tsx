@@ -23,7 +23,7 @@ return(<Box
 
 <Link href={'/'}>
         <Typography variant='h4'>
-            <b>CAT 🐈</b>
+            <b>{session ? <>CAT😼</> : <>CAT😿</>}</b>
         </Typography>
     </Link>
 <Stack
@@ -33,7 +33,9 @@ return(<Box
 
 > <Login/>
 
-<Avatar alt={session?.user?.name} src={session?.user?.image}/></Stack>
+
+{session ?<Avatar alt={session?.user?.name} src={session?.user?.image}/> : <></> }
+</Stack>
 
     
 </Stack>
