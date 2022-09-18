@@ -1,7 +1,7 @@
 import GoogleProvider from "next-auth/providers/google";
 import NextAuth from "next-auth";
-
-const options = {
+import { NextAuthOptions } from "next-auth";
+const options: NextAuthOptions = {
   providers: [
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
@@ -20,6 +20,7 @@ const options = {
       return true; // Do different verification for other providers that don't have `email_verified`
     },
   },
+  
 };
 
 export default NextAuth(options);
