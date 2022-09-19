@@ -5,18 +5,18 @@ import Image from 'next/future/image'
 import theme from '../styles/theme';
 
 export default function BrandPage() {
-    return (<Box sx={{alignItems:"flex-end" ,width:"100vw", height:"100vh", bgcolor: theme.palette.primary.light}}>
-        <Box sx={{px:'8em',py:'4em', bgcolor: theme.palette.primary.light}}>
+    return (<Box sx={{ alignItems: "flex-end", width: "100vw", height: "100vh", bgcolor: theme.palette.primary.light }}>
+        <Box sx={{ px: '8em', py: '4em', bgcolor: theme.palette.primary.light }}>
 
-        <Stack
+            <Stack
                 direction="row"
                 justifyContent="space-between"
                 spacing={3}
                 alignItems='baseline'
             ><Typography variant='h1' gutterBottom >CAT😼</Typography>
-            <Login /> </Stack>
+                <Login /> </Stack>
 
-            
+
             <Stack
                 direction="row"
                 justifyContent="space-evenly"
@@ -30,35 +30,35 @@ export default function BrandPage() {
                         <li>
                             tupu 2024!
                         </li>
-        
+
                         <li>
                             El que quiera aventarse esto adelante.
                         </li>
-        
+
                         <li>
                             Bush did 9/11. 619 Rey Misterio
                         </li>
                     </ul>
-        
+
                 </Typography>
                 <Image
-                width={400}
-                height={400}
+                    width={400}
+                    height={400}
                     src='/page_emoji.png'
                     alt="Pag with curl 3d emoji"
                 />
             </Stack>
         </Box>
-           
+
         <Stack
-                direction="row"
-                justifyContent="space-evenly"
-                spacing={3}
-                alignItems='flex-end'
-            >
+            direction="row"
+            justifyContent="space-evenly"
+            spacing={3}
+            alignItems='flex-end'
+        >
             <Typography>CAT 2022</Typography>
 
-            </Stack>
+        </Stack>
     </Box>
     )
 }
