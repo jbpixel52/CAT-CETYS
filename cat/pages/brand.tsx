@@ -23,7 +23,7 @@ export default function BrandPage() {
                 spacing={3}
                 alignItems='flex-start'
             >
-                <Typography wrap paragraph align='justify' sx={{ width: "100rem" }}>
+                <Typography align='justify' sx={{ width: "100rem" }}>
                     <Typography variant="h3">What is this?</Typography>
                     <p>The app is to easily develop and control the collaborative editing for engineering syllabus documents for a school administatrion</p>
                     <ul>
