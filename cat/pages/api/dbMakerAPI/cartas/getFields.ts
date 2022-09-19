@@ -19,7 +19,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             }
         }
     } catch (error) {
-        res.status(500).json(err.message);
+        res.status(500).json(error.message);
         
     }
 
