@@ -13,12 +13,12 @@ export class DbMakerApplication{
     }
 
     public async createTemplateField(createTemplateRequestDTO: string){
-        let createTemplateRequest = this.createTemplateRequestMapper(createTemplateRequestDTO);
+        let createTemplateRequest = this.createTemplateFieldRequestMapper(createTemplateRequestDTO);
         await dbMakerService.createTemplateField(createTemplateRequest);
     }
 
     public async editTemplateField(editTemplateRequestDTO: string){
-        let editTemplateFieldRequest = this.editTemplateRequestMapper(editTemplateRequestDTO);
+        let editTemplateFieldRequest = this.editTemplateFieldRequestMapper(editTemplateRequestDTO);
         await dbMakerService.editTemplateField(editTemplateFieldRequest);
     }
 
@@ -38,9 +38,9 @@ export class DbMakerApplication{
         return allFields
     }
 
-    private createTemplateRequestMapper(createTemplateRequestDTO: string){
+    private createTemplateFieldRequestMapper(createTemplateFieldRequestDTO: string){
         try{
-            let createTemplateRequestDTOJSON = JSON.parse(createTemplateRequestDTO);
+            let createTemplateRequestDTOJSON = JSON.parse(createTemplateFieldRequestDTO);
             let createTemplateRequest =  new MakeFieldRequest();
             
             if(createTemplateRequestDTOJSON["NOMBRE_CAMPO"] != undefined){
@@ -62,22 +62,17 @@ export class DbMakerApplication{
                 throw new Error("TIPO_CAMPO no está presente");
             }
     
-            return createTemplateRequest
+            return createTemplateRequest;
         }
         catch(errorMessage){
             throw new Error(errorMessage)
         }
     }
 
-    private editTemplateRequestMapper(editTemplateRequestDTO: string){
+    private editTemplateFieldRequestMapper(editTemplateFieldRequestDTO: string){
         try{
-            let editTemplateRequestDTOJSON = JSON.parse(editTemplateRequestDTO);
+            let editTemplateRequestDTOJSON = JSON.parse(editTemplateFieldRequestDTO);
             let editTemplateRequest =  new UpdateFieldRequest();
-    
-            editTemplateRequest.id = editTemplateRequestDTOJSON["id"]
-            editTemplateRequest.nombreCampo = editTemplateRequestDTOJSON["NOMBRE_CAMPO"];
-            editTemplateRequest.descripcionCampo = editTemplateRequestDTOJSON["DESCRIPCION_CAMPO"];
-            editTemplateRequest.tipoCampo = editTemplateRequestDTOJSON["TIPO_CAMPO"];
 
             if(editTemplateRequestDTOJSON["id"] != undefined){
                 editTemplateRequest.id = editTemplateRequestDTOJSON["id"];

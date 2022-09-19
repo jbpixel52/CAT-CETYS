@@ -57,6 +57,8 @@ export class DbMakerInfrastructure{
         if(error.code === 'P2023'){
           throw new Error("id dada es en formato incorrecto");
         }
+      }else{
+        throw new Error(error.message);
       }
     }
   }
