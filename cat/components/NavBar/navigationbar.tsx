@@ -1,7 +1,7 @@
 import Typography from '@mui/material/Typography'
 import Link from 'next/link'
 import {Box, Stack, Avatar} from '@mui/material'
-import Login from '../login'
+import Login from '../login/login'
 import theme from '../../styles/theme';
 import { useSession } from "next-auth/react"
 

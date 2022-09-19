@@ -18,6 +18,9 @@ const withMDX = nextMdx({
 const nextConfig = {
   reactStrictMode: false,
   pageExtensions: ["ts", "tsx", "js", "jsx", "md", "mdx"],
-  experimental: { images: { allowFutureImage: true } }
+  experimental: { images: { allowFutureImage: true } },
+  compiler: {
+    emotion: true,
+  },
 };
 export default withMDX(nextConfig);

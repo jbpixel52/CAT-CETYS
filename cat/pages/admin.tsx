@@ -1,14 +1,15 @@
-import { Divider, Paper, Stack, Typography } from "@mui/material";
-import PersistentDrawerLeft from "../components/drawer/drawer";
-import Login from "../components/login";
+import { Divider, Paper, Stack, Typography, Box } from "@mui/material";
+import Login from "../components/login/login";
+import theme from "../styles/theme";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import NavBar from "../components/NavBar/navigationbar";
 
 export default function Editor() {
     const router = useRouter()
 
-    return (<>
-        <PersistentDrawerLeft></PersistentDrawerLeft>
+    return (<Box sx={{bgcolor:theme.palette.primary.light, width:'100vw', height:'100vh'}}>
+        <NavBar></NavBar>
         <Head>
             <title>Admin</title>
         </Head>
@@ -25,5 +26,5 @@ export default function Editor() {
 
 
         </Paper>
-    </>);
+    </Box>);
 }

@@ -1,6 +1,6 @@
 import { Paper, Typography, Stack, Divider, Card, Box } from "@mui/material";
 import PersistentDrawerLeft from "../components/drawer/drawer";
-import Login from "../components/login";
+import Login from "../components/login/login";
 import { useRouter } from "next/router";
 import theme from "../styles/theme";
 import Head from "next/head";

@@ -1,7 +1,7 @@
 import { Button, Paper, Box } from '@mui/material'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import Login from '../components/login'
+import Login from '../components/login/login'
 import NavBar from '../components/NavBar/navigationbar'
 import theme from '../styles/theme'
 export default function Desk() {
