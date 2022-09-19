@@ -2,8 +2,8 @@ import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useSession } from 'next-auth/react';
-import { prisma } from '@prisma/client';
-import { DbMakerApplication } from '../../db/maker/dbMakerApplication';
+//import { prisma } from '@prisma/client';
+//import { DbMakerApplication } from '../../db/maker/dbMakerApplication';
 
 //SEARCH BAR
 let database = [{title:'hello'},{title:'world'}]
