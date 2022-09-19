@@ -1,12 +1,14 @@
-import { Paper, Typography, Stack, Divider, Card } from "@mui/material";
+import { Paper, Typography, Stack, Divider, Card, Box } from "@mui/material";
 import PersistentDrawerLeft from "../components/drawer/drawer";
 import Login from "../components/login";
 import { useRouter } from "next/router";
+import theme from "../styles/theme";
 import Head from "next/head";
 import Image from "next/image";
 
 export default function Editor() {
-    return (<>
+
+    return (<Box sx={{bgcolor:theme.palette.primary.light, width:'100vw', height:'100vh'}}>
         <PersistentDrawerLeft></PersistentDrawerLeft>
         <Head>
             <title>Editor</title>
@@ -17,7 +19,6 @@ export default function Editor() {
             <Stack direction="row" justifyContent={"space-evenly"} spacing={3} divider={<Divider orientation="vertical" flexItem />} alignItems="flex-start">
                 <Paper sx={{}}>
                     <Typography>LEFT SIDE</Typography>
-                    
                 </Paper>
                 <Card sx={{ width: "15em", height: "100dvh" }}>
                     <Typography>RIGHT SIDE (CARD LIVE PREVIEW)</Typography>
@@ -27,5 +28,5 @@ export default function Editor() {
 
 
         </Paper>
-    </>);
+    </Box>);
 }

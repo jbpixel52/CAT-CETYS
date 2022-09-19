@@ -14,9 +14,24 @@ type NombresCampo{
   ABET  String
 }
 
+type ContenidosCampo{
+  CETYS String
+  CACEI String
+  WASC  String 
+  ABET  String
+}
+
 model camposBase{
   id                                     String                                      @id @default(auto()) @map("_id") @db.ObjectId
   NOMBRE_CAMPO                           NombresCampo
   DESCRIPCION_CAMPO                      String
   TIPO_CAMPO                             String
+}
+
+model camposCartas{
+  id                                     String                                      @id @default(auto()) @map("_id") @db.ObjectId
+  NOMBRE_CAMPO                           NombresCampo
+  DESCRIPCION_CAMPO                      String
+  TIPO_CAMPO                             String
+  CONTENIDO_CAMPO                        ContenidosCampo
 }

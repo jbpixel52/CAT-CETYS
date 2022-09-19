@@ -17,11 +17,7 @@
   },
   "compilerOptions": {
     "target": "ESNext",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -33,22 +29,18 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    // "jsxImportSource": "@emotion/react",
     "incremental": true,
     "outDir": "dist",
     "sourceMap": true,
-    "types": [
-      "jest",
-      "node"
-    ]
+    "types": ["node"]
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    "client.tss"
-, "pages/index.js", "pages/template.jsx"  ],
-  "exclude": [
-    "node_modules"
-  ]
+    "client.tss",
+    "pages/index.js",
+    "pages/template.jsx"
+  ],
+  "exclude": ["node_modules"]
 }

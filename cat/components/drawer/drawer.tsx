@@ -18,6 +18,7 @@ import { useSession } from 'next-auth/react';
 import { Avatar } from '@mui/material';
 import SearchBar from '../search/searchbar';
 import { Container, Stack } from '@mui/system';
+import Login from '../login';
 
 const drawerWidth = 240;
 
@@ -103,6 +104,8 @@ export default function PersistentDrawerLeft() {
           </Stack>
         <SearchBar></SearchBar>
         <Avatar onMouseOver={()=>{console.log('HOVERED OVER PROFILE PHOTO')}} sx={{ width: "2", height:"2"}} alt={session?.user?.name} src={session?.user?.image!} />
+        <Login/>
+
         </Toolbar>
       </AppBar>
       <Drawer
