@@ -1,12 +1,13 @@
 import { NextApiRequest, NextApiResponse } from "next"
 import { DbMakerApplication } from "../../../../cat-db-management/cat-dbMaker/cartas/dbMakerApplication"
-import { useSession, signIn, signOut } from "next-auth/react";
+import { unstable_getServerSession } from "next-auth/next"
+import authOptions from "../../auth/[...nextauth]"
 
 let dbMakerApplication = new DbMakerApplication();
 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const { data: session, status } = useSession();
+    const session = await unstable_getServerSession(req, res, authOptions)
 
    
     try{
