@@ -25,8 +25,8 @@ export default function BrandPage() {
                     justifyContent="flex-start"
                     alignItems="flex-start"
                     spacing={1}>
-                    <Typography variant="h4" align='justify'>
-                        Cartas Académicas Transcritas
+                    <Typography variant="h4">
+                        <i>Cartas Académicas Transcritas</i>
                     </Typography>
                     <Typography paragraph variant='caption'>! do not mix emotion-css styled components with plain html components</Typography>
                     <Typography>Esta aplicacion permite generar cartas descriptivas de los distintos cursos de la escuela de ingenieria, hace lo siguiente:</Typography>
