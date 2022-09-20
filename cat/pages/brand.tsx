@@ -12,7 +12,7 @@ export default function BrandPage() {
                 justifyContent="space-between"
                 spacing={3}
                 alignItems='baseline'
-            ><Typography variant='h1' gutterBottom >CAT😼</Typography>
+            ><Typography variant='h1' gutterBottom ><b>CAT😼</b></Typography>
                 <Login /> 
                 </Stack>
             <Stack
@@ -25,8 +25,8 @@ export default function BrandPage() {
                 justifyContent="flex-start"
                 alignItems="flex-start"
                 spacing={1}>
-                    <Typography variant="h5" align='justify'>
-                        FIXED HYDRATION ERROR
+                    <Typography variant="h4" align='justify'>
+                        Cartas Académicas Transcritas
                     </Typography>
                     <Typography paragraph variant='caption'>! do not mix emotion-css styled components with plain html components</Typography>
                 </Stack>
@@ -44,7 +44,7 @@ export default function BrandPage() {
             spacing={3}
             alignItems='flex-end'
         >
-            <Typography>CAT 2022</Typography>
+            <Typography>MEOW🐈 (2022)</Typography>
         </Stack>
     </Box>
     )

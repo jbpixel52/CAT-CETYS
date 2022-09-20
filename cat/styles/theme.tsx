@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material/styles';
-import {amber, indigo} from "@mui/material/colors"
+import {amber, indigo, pink} from "@mui/material/colors"
 let theme = createTheme({
   palette: {
     mode:'light',
