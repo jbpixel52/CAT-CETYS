@@ -7,6 +7,8 @@ let dbMakerApplication = new DbMakerApplication();
 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    console.log('AUTHOPTIONS');
+    console.log(JSON.stringify(authOptions));
     const session = await unstable_getServerSession(req, res, authOptions)
 
     try {
