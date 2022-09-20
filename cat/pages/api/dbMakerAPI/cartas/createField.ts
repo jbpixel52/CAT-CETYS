@@ -1,14 +1,14 @@
 import { NextApiRequest, NextApiResponse } from "next"
 import { DbMakerApplication } from "../../../../cat-db-management/cat-dbMaker/cartas/dbMakerApplication"
 import { unstable_getServerSession } from "next-auth/next"
-import authOptions from "../../auth/[...nextauth]"
+import authOptions from "../../../../utils/auth/options"
 
 let dbMakerApplication = new DbMakerApplication();
 
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    console.log('AUTHOPTIONS');
-    console.log(JSON.stringify(authOptions));
+    console.log('AUTHOPTIONS OBJECT');
+    console.log(authOptions);
     const session = await unstable_getServerSession(req, res, authOptions)
 
     try {
@@ -20,7 +20,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             else {
                 res.status(400).json("Este endpoint es solo para solicitudes POST para crear campos de templetes")
             }
+        }else {
+            res.status(401).json("Unathourized access.")
         }
+    
     }
 
     catch (err) {

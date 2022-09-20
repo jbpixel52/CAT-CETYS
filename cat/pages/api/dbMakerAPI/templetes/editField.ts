@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next"
 import { DbMakerApplication } from "../../../../cat-db-management/cat-dbMaker/templetes/dbMakerApplication"
 import { unstable_getServerSession } from "next-auth/next"
-import authOptions from "../../auth/[...nextauth]"
+import authOptions from "../../../../utils/auth/options"
 
 
 let dbMakerApplication = new DbMakerApplication();
@@ -20,7 +20,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
             else {
                 res.status(400).json("Este endpoint es solo para solicitudes PUT para editar campos de templetes")
             }
+        }else {
+            res.status(401).json("Unathourized access.")
         }
+    
 
     }
     catch (err) {
