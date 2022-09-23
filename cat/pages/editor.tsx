@@ -1,36 +1,40 @@
-import { Paper, Typography, Stack, Divider, Card, Box, TextField } from "@mui/material";
-import PersistentDrawerLeft from "../components/drawer/drawer";
-import Login from "../components/login/login";
-import { useRouter } from "next/router";
+import { Paper, Typography, Stack, Divider, Card, Box, TextField, Button } from "@mui/material";
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 import theme from "../styles/theme";
 import Head from "next/head";
 import Image from "next/image";
 import NavBar from "../components/NavBar/navigationbar"
-import Container from "@mui/system/Container";
-import Readme from './readme.mdx'
-import React from 'react'
-import ReactDom from 'react-dom'
-import { rootCertificates } from "tls";
+import Dynamic from './Dynamic.tsx'
+import { useState } from 'react'
 
-async function getFields() {
 
-}
 
-function BuildFunctions() {
-    let fields = [ 'field 1', 'field2', 'field3', 'field 4 ', 'nombre', 'field 1', 'field2', 'field3', 'field 4 ', 'nombre' ]
 
-    let componentGroup: JSX.Element = (
-        <div>{fields.map((element) => <Stack direction={'row'} spacing={1}>
-            <Typography>{element}</Typography>
-            <TextField id="outlined-basic" label={"TextField for this " + element.toUpperCase()} variant="outlined" />
-        </Stack>)}</div>
-    )
+async function getFields() { }
 
-    return componentGroup;
-}
+
+
+
 export default function Editor() {
+    function BuildFunctions() {
 
-    return (<Box sx={{ bgcolor: theme.palette.primary.light, width: '100vw', height: '100vh' }}>
+        let componentGroup: JSX.Element = (
+            <div>{fields.map((element) => <Stack direction={'row'} spacing={3} sx={{ p: '0.5em' }}>
+                <Typography>{element}</Typography>
+                <TextField id="outlined-basic" label={"TextField for this " + element.toUpperCase()} variant="outlined" />
+            </Stack>)}</div>
+        )
+
+        return componentGroup;
+    }
+
+    function updateField(newField: typeof newValue) {
+        setNewFields(fields => [ ...fields, newField ]);
+    }
+    const [ fields, setNewFields ] = useState([ 'field 1', 'field2', 'field3', 'field 4 ', 'nombre', 'field 1', 'field2', 'field3', 'field 4 ', 'nombre' ]);
+    const [ newValue, setNewValue ] = useState('');
+
+    return (<Box sx={{ bgcolor: theme.palette.primary.light }}>
         <Head>
             <title>Editor</title>
         </Head>
@@ -40,14 +44,18 @@ export default function Editor() {
 
             <Stack direction="row" justifyContent={"space-evenly"} spacing={1} divider={<Divider orientation="vertical" flexItem />} alignItems="baseline">
                 <Paper sx={{}}>
-                    <Typography>LEFT SIDE</Typography>
+
+
+                    <Typography>CAMPOS DE LA CARTA</Typography>
 
                     <BuildFunctions />
 
+                    <TextField id="newField" label={"Add new field"} value={newValue} onChange={(e) => setNewValue(e.target.value)} />
+                    <AddCircleIcon onClick={() => { setNewFields(fields => [ ...fields, newValue ]) }} />
                 </Paper>
-                <Card sx={{ width: "50%", height: "100dvh" }}>
+                <Card sx={{}}>
                     <Typography><b>RIGHT SIDE (CARD LIVE PREVIEW)</b></Typography>
-                    <Readme></Readme>
+                    <Dynamic title={newValue}></Dynamic>
 
 
                 </Card>
