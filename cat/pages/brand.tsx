@@ -28,7 +28,7 @@ export default function BrandPage() {
                     <Typography variant="h4">
                         <i>Cartas Académicas Transcritas</i>
                     </Typography>
-                    <Typography paragraph variant='caption'>! do not mix emotion-css styled components with plain html components</Typography>
+
                     <Typography>Esta aplicacion permite generar cartas descriptivas de los distintos cursos de la escuela de ingenieria, hace lo siguiente:</Typography>
                     <ul>
                         <li><Typography>Guardar la informacion de los cursos para verla en cualquier formato deseado
