@@ -39,28 +39,20 @@ export default function Editor() {
             <title>Editor</title>
         </Head>
         <NavBar />
-        <Paper elevation={18} sx={{ m: '3%' }}>
+        <Paper elevation={18} sx={{ mx: 'auto', maxWidth: "95%"}}>
             <Typography variant="h5" sx={{ m: "1em" }}>Editor</Typography>
-
             <Stack direction="row" justifyContent={"space-evenly"} spacing={1} divider={<Divider orientation="vertical" flexItem />} alignItems="baseline">
-                <Paper sx={{}}>
-
-
-                    <Typography>CAMPOS DE LA CARTA</Typography>
-
+                <Paper sx={{ width: '35%' }}>
+                    <Typography><b>CAMPOS DE LA CARTA</b></Typography>
                     <BuildFunctions />
-
                     <TextField id="newField" label={"Add new field"} value={newValue} onChange={(e) => setNewValue(e.target.value)} />
                     <AddCircleIcon onClick={() => { setNewFields(fields => [ ...fields, newValue ]) }} />
                 </Paper>
-                <Card sx={{}}>
+                <Paper>
                     <Typography><b>RIGHT SIDE (CARD LIVE PREVIEW)</b></Typography>
                     <Dynamic title={newValue}></Dynamic>
-
-
-                </Card>
+                </Paper>
             </Stack>
-
 
         </Paper>
     </Box>);
