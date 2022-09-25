@@ -5,7 +5,8 @@ import Login from '../login/login'
 import theme from '../../styles/theme';
 import { useSession } from "next-auth/react"
 import SearchBar from '../search/searchbar'
-
+import AccountMenu from './AccountMenu';
+import NavigationDropDown from './NavigationDropDown';
 
 
 export default function NavBar() {
@@ -22,22 +23,32 @@ export default function NavBar() {
       spacing={2}
 
     >
-
-      <Link href={'/'}>
-        <Typography variant='h4'>
-          <b>{session ? <>CAT😼</> : <>CAT😿</>}</b>
-        </Typography>
-      </Link>
-      <SearchBar/>
       <Stack
         direction="row"
-        alignItems="flex-end"
-        spacing={2}
+        alignItems="center"
+        spacing={5}
+        justifyContent="flex-start"
+      >
+        <Link href={'/'}>
+          <Typography variant='h4'>
+            <b>{session ? <>CAT😼</> : <>CAT😿</>}</b>
+          </Typography>
 
-      > <Login />
+        </Link>
+        <NavigationDropDown />
+      </Stack>
 
 
-        {session ? <Avatar alt={session?.user?.name} src={session?.user?.image} /> : <></>}
+
+      <Stack
+        direction="row"
+        alignItems="center"
+        spacing={5}
+        justifyContent="flex-end"
+      >
+        <SearchBar />
+
+        {session ? <AccountMenu /> : <></>}
       </Stack>
 
 
