@@ -5,12 +5,16 @@ import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-
-import { Button } from '@mui/material';
 import Link from 'next/link';
+import { useRouter } from 'next/router'
+import { useSession } from 'next-auth/react';
+import Typography from '@mui/material/Typography';
+
+
 
 export default function NavigationDropDown() {
-
+    const router = useRouter()
+    const { data: session, status } = useSession();
     const [ anchorEl, setAnchorEl ] = useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -31,7 +35,7 @@ export default function NavigationDropDown() {
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
                     >
-                    Cartas
+                        Cartas
                     </IconButton>
                 </Tooltip>
             </Box>
@@ -59,14 +63,20 @@ export default function NavigationDropDown() {
                 anchorOrigin={{ horizontal: 'center', vertical: 'bottom' }}
             >
                 <MenuItem>
-                    <Link href={'/editor'}>Editor</Link>
+                    <Typography>
+                        Editor
+                    </Typography>
                 </MenuItem>
                 <MenuItem>
-                    <Link href={'/mass'}>Editor en Masa</Link>
+                    <Typography>
+                        Editor en Masa
+                    </Typography>
                 </MenuItem>
                 <Divider />
                 <MenuItem>
-                    <Link href={'/timeline'}>Historial</Link>
+                    <Typography>
+                        Historial de edicion
+                    </Typography>
                 </MenuItem>
             </Menu>
         </Fragment>

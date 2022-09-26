@@ -10,6 +10,7 @@ import NavigationDropDown from './NavigationDropDown';
 
 
 export default function NavBar() {
+
   const { data: session, status } = useSession();
   console.log(session?.user?.image)
 
