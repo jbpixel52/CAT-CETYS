@@ -16,19 +16,19 @@ async function getTitles() {
 
 
 
-export default  function SearchBar() {
+export default function SearchBar() {
 
   const [ searchOptions, updateOptions ] = useState([]);
 
-  useEffect( () => {
+  useEffect(() => {
     // fetch('/api/dbMakerAPI/cartas/getFields').then((res) => res.json()).then((searchOptions) => {
     //   console.log(searchOptions)
     //   updateOptions(searchOptions)
 
     var res = fetch('api/dbMakerAPI/cartas/getFields').then((res) => res.json());
     console.log(res)
-    }
-  ,[])
+  }
+    , [])
 
 
 
@@ -38,7 +38,7 @@ export default  function SearchBar() {
   const { data: session } = useSession();
   if (session) {
     return (
-      <Stack spacing={2} sx={{ width:'30ch' }}>
+      <Stack spacing={2} sx={{ width: '25ch' }}>
         <Autocomplete
           freeSolo
           id="free-solo-2-demo"
@@ -46,7 +46,12 @@ export default  function SearchBar() {
           options={[]}
           renderInput={(params) => (
             <TextField
-              sx={{borderRadius:1}}
+              hiddenLabel
+              id="filled-hidden-label-small"
+              defaultValue="Small"
+              variant="outlined"
+              margin="none"
+              size="small"
               {...params}
               label="🔍 Buscar Cartas"
               InputProps={{

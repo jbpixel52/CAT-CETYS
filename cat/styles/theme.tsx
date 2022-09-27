@@ -2,20 +2,17 @@ import { createTheme } from '@mui/material/styles';
 import {amber, indigo, pink} from "@mui/material/colors"
 let theme = createTheme({
   palette: {
-    background: {
-      default: indigo['100']
-    },
 
-    mode:'light',
+    mode:'dark',
     primary: {
-      main: amber[400],
+      main: amber[300],
       light: amber[100],
       dark: amber[500]
     },
     secondary: {
-      main: amber[400],
-      light: amber[100],
-      dark: amber[700],
+      main: indigo[300],
+      light: indigo[100],
+      dark: indigo[500],
     },
   },
 });

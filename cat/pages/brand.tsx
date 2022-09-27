@@ -10,14 +10,14 @@ export default function BrandPage() {
     const { data: session, status } = useSession();
 
 
-    return (<Box sx={{ alignItems: "flex-end", width: "100vw", height: "100vh", bgcolor: theme.palette.primary.light }}>
+    return (<Box sx={{ alignItems: "flex-end", width: "100vw", height: "100vh"}}>
         <Box sx={{ px: '8em', paddingTop: '4em'}}>
             <Stack
                 direction="row"
                 justifyContent="space-between"
                 spacing={3}
                 alignItems='baseline'
-            ><Typography variant='h1' gutterBottom ><b>CAT😼</b></Typography>
+            ><Typography sx={{color:theme.palette.primary.main}} variant='h1' gutterBottom ><b>CAT😼</b></Typography>
 
 
                 <Stack
