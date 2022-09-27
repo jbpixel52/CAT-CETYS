@@ -1,10 +1,15 @@
-import { Typography, Box, Stack } from '@mui/material';
+import { Typography, Box, Stack, Button } from '@mui/material';
 import Login from '../components/login/login';
 import Image from 'next/future/image'
 import theme from '../styles/theme';
-
+import { useRouter } from 'next/router'
+import { useSession } from 'next-auth/react';
 
 export default function BrandPage() {
+    const router = useRouter();
+    const { data: session, status } = useSession();
+
+
     return (<Box sx={{ alignItems: "flex-end", width: "100vw", height: "100vh", bgcolor: theme.palette.primary.light }}>
         <Box sx={{ px: '8em', paddingTop: '4em', bgcolor: theme.palette.primary.light }}>
             <Stack
@@ -13,7 +18,19 @@ export default function BrandPage() {
                 spacing={3}
                 alignItems='baseline'
             ><Typography variant='h1' gutterBottom ><b>CAT😼</b></Typography>
-                <Login />
+
+
+                <Stack
+                    direction="row"
+                    justifyContent="flex-end"
+                    alignItems="center"
+                    spacing={2}
+                >
+                    {session ? <Button variant={'contained'} onClick={() => { router.push('/desk') }}>Go to Dashboard</Button> : <></>}
+                    <Login />
+
+                </Stack>
+
             </Stack>
             <Stack
                 direction="row"

@@ -3,17 +3,14 @@ import Box from '@mui/material/Box';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
-import Link from 'next/link';
-import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react';
 import Typography from '@mui/material/Typography';
-
-
+import { useRouter } from 'next/dist/client/router';
+import { Button } from '@mui/material';
 
 export default function NavigationDropDown() {
-    const router = useRouter()
+    const router = useRouter();
     const { data: session, status } = useSession();
     const [ anchorEl, setAnchorEl ] = useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -27,7 +24,8 @@ export default function NavigationDropDown() {
         <Fragment>
             <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
                 <Tooltip title="haz click para ver mas opciones">
-                    <IconButton
+                    <Button
+                        variant='outlined'
                         onClick={handleClick}
                         size="small"
                         sx={{ ml: 2 }}
@@ -36,7 +34,7 @@ export default function NavigationDropDown() {
                         aria-expanded={open ? 'true' : undefined}
                     >
                         Cartas
-                    </IconButton>
+                    </Button>
                 </Tooltip>
             </Box>
             <Menu
@@ -62,18 +60,18 @@ export default function NavigationDropDown() {
                 transformOrigin={{ horizontal: 'center', vertical: 'top' }}
                 anchorOrigin={{ horizontal: 'center', vertical: 'bottom' }}
             >
-                <MenuItem>
+                <MenuItem onClick={() => { router.push('/editor') }}>
                     <Typography>
                         Editor
                     </Typography>
                 </MenuItem>
-                <MenuItem>
+                <MenuItem onClick={() => { router.push('/masseditor') }}>
                     <Typography>
                         Editor en Masa
                     </Typography>
                 </MenuItem>
                 <Divider />
-                <MenuItem>
+                <MenuItem onClick={() => { router.push('/history/') }}>
                     <Typography>
                         Historial de edicion
                     </Typography>

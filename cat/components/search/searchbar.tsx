@@ -5,7 +5,7 @@ import { useSession } from 'next-auth/react';
 import prisma from '../../cat-db-management/cat-dbMaker/cartas/dbMakerInfrastructure'
 import { useState, useEffect } from 'react';
 //import { DbMakerApplication } from '../../db/maker/dbMakerApplication';
-
+import theme from '../../styles/theme'
 //SEARCH BAR
 let database = [ { title: 'hello' }, { title: 'world' } ]
 
@@ -41,12 +41,14 @@ export default  function SearchBar() {
       <Stack spacing={2} sx={{ width: 300 }}>
         <Autocomplete
           sx={{ px: "1em", py: "0.5em" }}
+
           freeSolo
           id="free-solo-2-demo"
           disableClearable
           options={[]}
           renderInput={(params) => (
             <TextField
+              sx={{ bgcolor: theme.palette.secondary.main, borderRadius:1}}
               {...params}
               label="Search input"
               InputProps={{
