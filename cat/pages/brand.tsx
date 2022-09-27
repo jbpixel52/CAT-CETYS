@@ -11,7 +11,7 @@ export default function BrandPage() {
 
 
     return (<Box sx={{ alignItems: "flex-end", width: "100vw", height: "100vh", bgcolor: theme.palette.primary.light }}>
-        <Box sx={{ px: '8em', paddingTop: '4em', bgcolor: theme.palette.primary.light }}>
+        <Box sx={{ px: '8em', paddingTop: '4em'}}>
             <Stack
                 direction="row"
                 justifyContent="space-between"

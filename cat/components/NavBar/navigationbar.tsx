@@ -15,7 +15,7 @@ export default function NavBar() {
   console.log(session?.user?.image)
 
   return (<Box
-    sx={{ px: '2em', py: '1em' }}
+    sx={{ px: '2em', paddingTop: '0.5em' }}
   >
     <Stack
       direction="row"
@@ -31,10 +31,9 @@ export default function NavBar() {
         justifyContent="flex-start"
       >
         <Link href={'/'}>
-          <Typography variant='h4'>
+          <Typography variant='h3' variantMapping={{h3:'h1'}}>
             <b>{session ? <>CAT😼</> : <>CAT😿</>}</b>
           </Typography>
-
         </Link>
         <NavigationDropDown />
       </Stack>

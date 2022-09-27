@@ -11,7 +11,7 @@ export default function Desk() {
 
     if (session) {
     //MAIN LANDING PAGE, Desk name is a reference to a desk as the first workspace.
-    return(<Box sx={{bgcolor:theme.palette.primary.light, width:'100vw', height:'100vh'}}>
+    return(<Box sx={{ width:'100vw', height:'100vh'}}>
          <Head>
             <title>Desk</title>
             </Head>

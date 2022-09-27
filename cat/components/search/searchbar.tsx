@@ -38,19 +38,17 @@ export default  function SearchBar() {
   const { data: session } = useSession();
   if (session) {
     return (
-      <Stack spacing={2} sx={{ width: 300 }}>
+      <Stack spacing={2} sx={{ width:'30ch' }}>
         <Autocomplete
-          sx={{ px: "1em", py: "0.5em" }}
-
           freeSolo
           id="free-solo-2-demo"
           disableClearable
           options={[]}
           renderInput={(params) => (
             <TextField
-              sx={{ bgcolor: theme.palette.secondary.main, borderRadius:1}}
+              sx={{borderRadius:1}}
               {...params}
-              label="Search input"
+              label="🔍 Buscar Cartas"
               InputProps={{
                 ...params.InputProps,
                 type: 'search',

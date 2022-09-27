@@ -25,10 +25,10 @@ export default function NavigationDropDown() {
             <Box sx={{ display: 'flex', alignItems: 'center', textAlign: 'center' }}>
                 <Tooltip title="haz click para ver mas opciones">
                     <Button
-                        variant='outlined'
+                        variant='contained'
                         onClick={handleClick}
                         size="small"
-                        sx={{ ml: 2 }}
+                        sx={{}}
                         aria-controls={open ? 'account-menu' : undefined}
                         aria-haspopup="true"
                         aria-expanded={open ? 'true' : undefined}
