@@ -2,37 +2,36 @@ import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useSession } from 'next-auth/react';
-import prisma from '../../cat-db-management/cat-dbMaker/cartas/dbMakerInfrastructure'
-import { useState, useEffect } from 'react';
-//import { DbMakerApplication } from '../../db/maker/dbMakerApplication';
-import theme from '../../styles/theme'
-//SEARCH BAR
-let database = [ { title: 'hello' }, { title: 'world' } ]
-
-
-async function getTitles() {
-
-}
-
-
+import useSWR from 'swr';
+import { useEffect } from 'react';
+import { stringify } from 'querystring';
 
 export default function SearchBar() {
 
-  const [ searchOptions, updateOptions ] = useState([]);
+  const fetcher = (...args) => fetch(...args).then(res => res.json())
 
-  useEffect(() => {
-    // fetch('/api/dbMakerAPI/cartas/getFields').then((res) => res.json()).then((searchOptions) => {
-    //   console.log(searchOptions)
-    //   updateOptions(searchOptions)
+  const { data, error } = useSWR('/api/db/test', fetcher);
+  //console.log(JSON.stringify(data));
+  const searchOptions: string[] = [];
 
-    var res = fetch('api/dbMakerAPI/cartas/getFields').then((res) => res.json());
-    console.log(res)
+  if (error) {
+    console.log('error while calling api')
   }
-    , [])
+  if (data) {
+    console.log('DATA IS LOADED')
+    const objs: string[] = Object.values(JSON.parse(JSON.stringify(data))); for (const iterator of objs) {
+      try {
+        searchOptions.push(iterator[ 'id' ])
+      } catch (error) {
+        console.log(error);
+      }
+    }
 
 
 
-
+  } else if (!data) {
+    console.log('loading data for search box')
+  }
 
 
   const { data: session } = useSession();
@@ -43,12 +42,11 @@ export default function SearchBar() {
           freeSolo
           id="free-solo-2-demo"
           disableClearable
-          options={[]}
+          options={searchOptions}
           renderInput={(params) => (
             <TextField
               hiddenLabel
               id="filled-hidden-label-small"
-              defaultValue="Small"
               variant="outlined"
               margin="none"
               size="small"

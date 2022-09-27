@@ -1,20 +1,19 @@
 import { Paper, Typography, Stack, Divider, Card, Box, TextField, Button } from "@mui/material";
-import AddCircleIcon from '@mui/icons-material/AddCircle';
-import theme from "../styles/theme";
+
 import Head from "next/head";
-import Image from "next/image";
 import NavBar from "../components/NavBar/navigationbar"
 import { useState } from 'react'
-
-
-
-
-async function getFields() { }
-
-
+import useSWR from "swr";
 
 
 export default function Editor() {
+    const fetcher = (...args) => fetch(...args).then(res => res.json())
+
+    const { data, error } = useSWR('/api/db/test', fetcher);
+    console.log(JSON.stringify(data));
+
+
+
     function BuildFunctions() {
         let componentGroup: JSX.Element = (
             <div>{fields.map((element) => <Stack direction={'row'} spacing={3} sx={{ p: '0.5em' }}>
@@ -44,10 +43,18 @@ export default function Editor() {
                 {BuildFunctions()}
             </Paper>
 
-            <Paper elevation={18}>
+            <Paper elevation={18} sx={{maxWidth:'50ch'}}>
                 <Typography><b>RIGHT SIDE (CARD LIVE PREVIEW)</b></Typography>
+
+
+                {/* <Typography>{ JSON.stringify(data)}</Typography> */}
+
+
+
             </Paper>
         </Stack>
 
     </Box>);
 }
+
+
