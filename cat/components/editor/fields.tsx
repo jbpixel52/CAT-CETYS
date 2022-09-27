@@ -1,6 +1,6 @@
 
 
-export default function Fields(cards:){
+export default function Fields(cards){
 
     return(<>
     
