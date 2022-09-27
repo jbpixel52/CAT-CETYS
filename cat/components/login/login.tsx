@@ -1,7 +1,6 @@
 import { useSession, signIn, signOut } from "next-auth/react";
 import { Button } from "@mui/material";
 import { useRouter } from 'next/router'
-import { useEffect, useState } from "react";
 
 export default function Login() {
   const { data: session, status } = useSession();

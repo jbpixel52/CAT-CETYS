@@ -3,14 +3,11 @@ import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useSession } from 'next-auth/react';
 import useSWR from 'swr';
-import { useEffect } from 'react';
-import { stringify } from 'querystring';
+
 
 export default function SearchBar() {
 
-  const fetcher = (...args) => fetch(...args).then(res => res.json())
-
-  const { data, error } = useSWR('/api/db/test', fetcher);
+  const { data, error } = useSWR('/api/db/test');
   //console.log(JSON.stringify(data));
   const searchOptions: string[] = [];
 

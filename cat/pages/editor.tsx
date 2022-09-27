@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-key */
 import { Paper, Typography, Stack, Divider, Card, Box, TextField, Button } from "@mui/material";
 
 import Head from "next/head";
@@ -7,9 +8,8 @@ import useSWR from "swr";
 
 
 export default function Editor() {
-    const fetcher = (...args) => fetch(...args).then(res => res.json())
 
-    const { data, error } = useSWR('/api/db/test', fetcher);
+    const { data, error } = useSWR('/api/db/test');
     console.log(JSON.stringify(data));
 
 

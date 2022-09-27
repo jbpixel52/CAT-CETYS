@@ -6,6 +6,7 @@ import theme from "../styles/theme";
 import createEmotionCache from "../utils/createEmotionCache";
 import { CacheProvider } from "@emotion/react";
 import { MDXProvider } from "@mdx-js/react";
+import useSWR, { SWRConfig } from "swr";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -17,14 +18,22 @@ function MyApp({
   return (
     <SessionProvider session={session}>
       <meta name="viewport" content="initial-scale=1, width=device-width" />
-      <CacheProvider value={emotionCache}>
-        <ThemeProvider theme={theme}>
-          <MDXProvider>
-          <CssBaseline />
-            <Component {...pageProps} />
+      <SWRConfig
+        value={{
+          refreshInterval: 3000,
+          fetcher: (resource, init) =>
+            fetch(resource, init).then((res) => res.json()),
+        }}
+      >
+        <CacheProvider value={emotionCache}>
+          <ThemeProvider theme={theme}>
+            <MDXProvider>
+              <CssBaseline />
+              <Component {...pageProps} />
             </MDXProvider>
-        </ThemeProvider>
-      </CacheProvider>
+          </ThemeProvider>
+        </CacheProvider>
+      </SWRConfig>
     </SessionProvider>
   );
 }
