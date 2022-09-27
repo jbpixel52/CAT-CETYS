@@ -7,7 +7,6 @@ export default function Login() {
   const { data: session, status } = useSession();
   const router = useRouter();
   const signInParams = { callbackUrl: 'http://localhost:3000/desk' };
-  ;
   if (session) {
     //CHANGE URL IN THE CALLBACK URL 
     return (
