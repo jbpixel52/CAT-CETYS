@@ -35,3 +35,10 @@ model camposCartas{
   TIPO_CAMPO                             String
   CONTENIDO_CAMPO                        ContenidosCampo
 }
+
+model filasCartas {
+  id                                     String                                      @id @default(auto()) @map("_id") @db.ObjectId
+  ACREDITADORA                           String
+  HIDE_FLAG                              Boolean
+  filaJSON                               String
+}
