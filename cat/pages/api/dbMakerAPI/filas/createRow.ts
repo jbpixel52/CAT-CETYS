@@ -12,7 +12,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         if (session) {
             if (req.method === 'POST') {
                 await dbMakerApplication.createSyllabusRow(req.body)
-                res.status(200).json("Sucessful wrtite operation, or was it? thuuuuuum")
+                res.status(200).json("Sucessful row wrtite operation, or was it? thuuuuuum")
             }
             else {
                 res.status(400).json("Este endpoint es solo para solicitudes POST para crear filas de cartas")

@@ -1,6 +1,6 @@
 import { DbMakerInfrastructure } from "./dbMakerInfrastructure"
-import { MakeFieldRequest} from "../makeFieldRequest"
-import { UpdateFieldRequest } from "../updateFieldRequest";
+import { MakeRowRequest } from "../makeRowRequest";
+import { UpdateRowRequest } from "../updateRowRequest";
 
 let dbMakerInfrastructure = new DbMakerInfrastructure;
 
@@ -10,16 +10,16 @@ export class DbMakerService{
 
     }
 
-    public async createRow(createTemplateFieldRequest: MakeFieldRequest){
-        await dbMakerInfrastructure.makeRow(createTemplateFieldRequest)
+    public async createRow(createRowRequest: MakeRowRequest){
+        await dbMakerInfrastructure.makeRow(createRowRequest)
     }
 
-    public async editRow(editTemplateFieldRequest: UpdateFieldRequest){
+    public async editRow(editRowRequest: UpdateRowRequest){
         try{
-            if(await this.getRow(editTemplateFieldRequest.id) == null){
+            if(await this.getRow(editRowRequest.id) == null){
                 throw new Error("A row with this id does not exist");
             }
-            await dbMakerInfrastructure.updateRow(editTemplateFieldRequest);
+            await dbMakerInfrastructure.updateRow(editRowRequest);
         }
         catch(error){
             throw new Error(error.message);

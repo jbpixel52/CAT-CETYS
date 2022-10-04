@@ -1,6 +1,6 @@
 import { Prisma, PrismaClient } from '@prisma/client'
-import { MakeFieldRequest } from '../makeFieldRequest';
-import { UpdateFieldRequest } from '../updateFieldRequest';
+import { UpdateRowRequest } from '../updateRowRequest';
+import { MakeRowRequest } from '../makeRowRequest';
 
 const prisma = new PrismaClient()
 const noValueGlobal: string = "NONE";
@@ -17,18 +17,18 @@ export class DbMakerInfrastructure{
 
   }
 
-  public async makeRow(createRowRequest: MakeFieldRequest){
+  public async makeRow(createRowRequest: MakeRowRequest){
     await prisma.filasCartas.create({
       data:
       {
-        filaJSON: createRowRequest["FILA_JSON"],
-        ACREDITADORA: createRowRequest["ACREDITADORA"],
-        HIDE_FLAG: createRowRequest["HIDE_FLAG"]
+        filaJSON: createRowRequest.filaJSON,
+        ACREDITADORA: createRowRequest.ACREDITADORA,
+        HIDE_FLAG: createRowRequest.HIDE_FLAG
       }
     });
   }
 
-  public async updateRow(editRowRequest: UpdateFieldRequest){
+  public async updateRow(editRowRequest: UpdateRowRequest){
     try{
       await prisma.filasCartas.update({
         where:{
@@ -36,9 +36,9 @@ export class DbMakerInfrastructure{
         },
         data:
         {
-          filaJSON: editRowRequest["FILA_JSON"],
-          ACREDITADORA: editRowRequest["ACREDITADORA"],
-          HIDE_FLAG: editRowRequest["HIDE_FLAG"]
+          filaJSON: editRowRequest.filaJSON,
+          ACREDITADORA: editRowRequest.ACREDITADORA,
+          HIDE_FLAG: editRowRequest.HIDE_FLAG
         }
       });
     }

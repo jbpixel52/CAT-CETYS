@@ -1,5 +1,5 @@
-import { MakeFieldRequest } from "../makeFieldRequest";
-import { UpdateFieldRequest } from "../updateFieldRequest";
+import { MakeRowRequest } from "../makeRowRequest";
+import { UpdateRowRequest } from "../updateRowRequest";
 import { DbMakerService } from "./dbMakerService";
 
 let dbMakerService = new DbMakerService();
@@ -11,54 +11,54 @@ export class DbMakerApplication{
 
     }
 
-    public async createSyllabusRow(createTemplateRequestDTO: string){
-        let createTemplateRequest = this.createTemplateFieldRequestMapper(createTemplateRequestDTO);
-        await dbMakerService.createTemplateField(createTemplateRequest);
+    public async createSyllabusRow(createRowRequestDTO: string){
+        let createRowRequest = this.createRowRequestMapper(createRowRequestDTO);
+        await dbMakerService.createRow(createRowRequest);
     }
 
-    public async editSyllabusRow(editTemplateRequestDTO: string){
-        let editTemplateFieldRequest = this.editTemplateFieldRequestMapper(editTemplateRequestDTO);
-        await dbMakerService.editTemplateField(editTemplateFieldRequest);
+    public async editSyllabusRow(editRowRequestDTO: string){
+        let editRowRequest = this.editRowRequestMapper(editRowRequestDTO);
+        await dbMakerService.editRow(editRowRequest);
     }
 
-    public async deleteSyllabusRow(deleteTemplateFieldRequest: string){
-        let fieldId = JSON.parse(deleteTemplateFieldRequest)["fieldId"]
-        await dbMakerService.deleteTemplateField(fieldId);
+    public async deleteSyllabusRow(deleteRowFieldRequest: string){
+        let fieldId = JSON.parse(deleteRowFieldRequest)["rowId"]
+        await dbMakerService.deleteRow(fieldId);
     }
 
-    public async getSyllabusRow(getTemplateIdRequest: string){
-        let fieldId = JSON.parse(getTemplateIdRequest)["fieldId"]
-        let field = await dbMakerService.getTemplateField(fieldId);
+    public async getSyllabusRow(getRowIdRequest: string){
+        let fieldId = JSON.parse(getRowIdRequest)["rowId"]
+        let field = await dbMakerService.getRow(fieldId);
         return field
     }
 
     public async getSyllabusRows(){
-        let allFields = await dbMakerService.getTemplateFields();
-        return allFields
+        let allRows = await dbMakerService.getRows();
+        return allRows
     }
 
-    private createTemplateFieldRequestMapper(createTemplateFieldRequestDTO: string){
+    private createRowRequestMapper(createRowRequestDTO: string){
         try{
-            let createTemplateRequestDTOJSON = JSON.parse(createTemplateFieldRequestDTO);
-            let createTemplateRequest =  new MakeFieldRequest();
+            let createRowRequestDTOJSON = JSON.parse(createRowRequestDTO);
+            let createTemplateRequest =  new MakeRowRequest();
             
-            if(createTemplateRequestDTOJSON["NOMBRE_CAMPO"] != undefined){
-                createTemplateRequest.nombreCampo = createTemplateRequestDTOJSON["NOMBRE_CAMPO"];
+            if(createRowRequestDTOJSON["fila_JSON"] != undefined){
+                createTemplateRequest.filaJSON = createRowRequestDTOJSON["fila_JSON"];
             }
             else{
-                throw new Error("NOMBRE_CAMPO no está presente");
+                throw new Error("fila_JSON no está presente");
             }
-            if(createTemplateRequestDTOJSON["DESCRIPCION_CAMPO"] != undefined){
-                createTemplateRequest.descripcionCampo = createTemplateRequestDTOJSON["DESCRIPCION_CAMPO"];
-            }
-            else{
-                throw new Error("DESCRIPCION_CAMPO no está presente");
-            }
-            if(createTemplateRequestDTOJSON["TIPO_CAMPO"] != undefined){
-                createTemplateRequest.tipoCampo = createTemplateRequestDTOJSON["TIPO_CAMPO"];
+            if(createRowRequestDTOJSON["ACREDITADORA"] != undefined){
+                createTemplateRequest.ACREDITADORA = createRowRequestDTOJSON["ACREDITADORA"];
             }
             else{
-                throw new Error("TIPO_CAMPO no está presente");
+                throw new Error("ACREDITADORA no está presente");
+            }
+            if(createRowRequestDTOJSON["HIDE_FLAG"] != undefined){
+                createTemplateRequest.HIDE_FLAG = createRowRequestDTOJSON["HIDE_FLAG"];
+            }
+            else{
+                throw new Error("HIDE_FLAG no está presente");
             }
     
             return createTemplateRequest;
@@ -68,10 +68,10 @@ export class DbMakerApplication{
         }
     }
 
-    private editTemplateFieldRequestMapper(editTemplateFieldRequestDTO: string){
+    private editRowRequestMapper(editRowRequestDTO: string){
         try{
-            let editTemplateRequestDTOJSON = JSON.parse(editTemplateFieldRequestDTO);
-            let editTemplateRequest =  new UpdateFieldRequest();
+            let editTemplateRequestDTOJSON = JSON.parse(editRowRequestDTO);
+            let editTemplateRequest =  new UpdateRowRequest();
 
             if(editTemplateRequestDTOJSON["id"] != undefined){
                 editTemplateRequest.id = editTemplateRequestDTOJSON["id"];
@@ -79,23 +79,23 @@ export class DbMakerApplication{
             else{
                 throw new Error("id no está presente");
             }
-            if(editTemplateRequestDTOJSON["NOMBRE_CAMPO"] != undefined){
-                editTemplateRequest.nombreCampo = editTemplateRequestDTOJSON["NOMBRE_CAMPO"];
+            if(editTemplateRequestDTOJSON["fila_JSON"] != undefined){
+                editTemplateRequest = editTemplateRequestDTOJSON["fila_JSON"];
             }
             else{
-                throw new Error("NOMBRE_CAMPO no está presente");
+                throw new Error("fila_JSON no está presente");
             }
-            if(editTemplateRequestDTOJSON["DESCRIPCION_CAMPO"] != undefined){
-                editTemplateRequest.descripcionCampo = editTemplateRequestDTOJSON["DESCRIPCION_CAMPO"];
-            }
-            else{
-                throw new Error("DESCRIPCION_CAMPO no está presente");
-            }
-            if(editTemplateRequestDTOJSON["TIPO_CAMPO"] != undefined){
-                editTemplateRequest.tipoCampo = editTemplateRequestDTOJSON["TIPO_CAMPO"];
+            if(editTemplateRequestDTOJSON["ACREDITADORA"] != undefined){
+                editTemplateRequest.ACREDITADORA = editTemplateRequestDTOJSON["ACREDITADORA"];
             }
             else{
-                throw new Error("TIPO_CAMPO no está presente");
+                throw new Error("ACREDITADORA no está presente");
+            }
+            if(editTemplateRequestDTOJSON["HIDE_FLAG"] != undefined){
+                editTemplateRequest.HIDE_FLAG = editTemplateRequestDTOJSON["HIDE_FLAG"];
+            }
+            else{
+                throw new Error("HIDE_FLAG no está presente");
             }
     
             return editTemplateRequest;
