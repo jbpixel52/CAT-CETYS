@@ -40,7 +40,7 @@ export class DbMakerApplication{
     private createRowRequestMapper(createRowRequestDTO: string){
         try{
             let createRowRequestDTOJSON = JSON.parse(createRowRequestDTO);
-            let createTemplateRequest =  new MakeRowRequest();
+            let createTemplateRequest: MakeRowRequest =  new MakeRowRequest();
             
             if(createRowRequestDTOJSON["fila_JSON"] != undefined){
                 createTemplateRequest.filaJSON = createRowRequestDTOJSON["fila_JSON"];
@@ -70,35 +70,35 @@ export class DbMakerApplication{
 
     private editRowRequestMapper(editRowRequestDTO: string){
         try{
-            let editTemplateRequestDTOJSON = JSON.parse(editRowRequestDTO);
-            let editTemplateRequest =  new UpdateRowRequest();
+            let editRowRequestDTOJSON = JSON.parse(editRowRequestDTO);
+            let editRowRequest: UpdateRowRequest =  new UpdateRowRequest();
 
-            if(editTemplateRequestDTOJSON["id"] != undefined){
-                editTemplateRequest.id = editTemplateRequestDTOJSON["id"];
+            if(editRowRequestDTOJSON["id"] != undefined){
+                editRowRequest.id = editRowRequestDTOJSON["id"];
             }
             else{
                 throw new Error("id no está presente");
             }
-            if(editTemplateRequestDTOJSON["fila_JSON"] != undefined){
-                editTemplateRequest = editTemplateRequestDTOJSON["fila_JSON"];
+            if(editRowRequestDTOJSON["fila_JSON"] != undefined){
+                editRowRequest.filaJSON = editRowRequestDTOJSON["fila_JSON"];
             }
             else{
                 throw new Error("fila_JSON no está presente");
             }
-            if(editTemplateRequestDTOJSON["ACREDITADORA"] != undefined){
-                editTemplateRequest.ACREDITADORA = editTemplateRequestDTOJSON["ACREDITADORA"];
+            if(editRowRequestDTOJSON["ACREDITADORA"] != undefined){
+                editRowRequest.ACREDITADORA = editRowRequestDTOJSON["ACREDITADORA"];
             }
             else{
                 throw new Error("ACREDITADORA no está presente");
             }
-            if(editTemplateRequestDTOJSON["HIDE_FLAG"] != undefined){
-                editTemplateRequest.HIDE_FLAG = editTemplateRequestDTOJSON["HIDE_FLAG"];
+            if(editRowRequestDTOJSON["HIDE_FLAG"] != undefined){
+                editRowRequest.HIDE_FLAG = editRowRequestDTOJSON["HIDE_FLAG"];
             }
             else{
                 throw new Error("HIDE_FLAG no está presente");
             }
     
-            return editTemplateRequest;
+            return editRowRequest;
         }
         catch(errorMessage){
             throw new Error(errorMessage)
