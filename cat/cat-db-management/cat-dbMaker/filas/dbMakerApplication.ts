@@ -5,102 +5,80 @@ import { DbMakerService } from "./dbMakerService";
 let dbMakerService = new DbMakerService();
 
 
-export class DbMakerApplication{
+export class DbMakerApplication {
 
-    public dbMakerApplication(){
+    public dbMakerApplication() {
 
     }
 
-    public async createSyllabusRow(createRowRequestDTO: string){
-        let createRowRequest = this.createRowRequestMapper(createRowRequestDTO);
-        await dbMakerService.createRow(createRowRequest);
+    public async createSyllabusRow(createRowRequestDTO: string) {
+        //let createRowRequest = this.createRowRequestMapper(createRowRequestDTO);
+        //let tempRow: MakeRowRequest = new MakeRowRequest();
+        console.log(createRowRequestDTO)
+        let tempRow: MakeRowRequest = JSON.parse(JSON.stringify(createRowRequestDTO));
+        await dbMakerService.createRow(tempRow);
     }
 
-    public async editSyllabusRow(editRowRequestDTO: string){
+    public async editSyllabusRow(editRowRequestDTO: string) {
         let editRowRequest = this.editRowRequestMapper(editRowRequestDTO);
         await dbMakerService.editRow(editRowRequest);
     }
 
-    public async deleteSyllabusRow(deleteRowFieldRequest: string){
-        let fieldId = JSON.parse(deleteRowFieldRequest)["rowId"]
+    public async deleteSyllabusRow(deleteRowFieldRequest: string) {
+        let fieldId = JSON.parse(deleteRowFieldRequest)[ "rowId" ]
         await dbMakerService.deleteRow(fieldId);
     }
 
-    public async getSyllabusRow(getRowIdRequest: string){
-        let fieldId = JSON.parse(getRowIdRequest)["rowId"]
+    public async getSyllabusRow(getRowIdRequest: string) {
+        let fieldId = JSON.parse(getRowIdRequest)[ "rowId" ]
         let field = await dbMakerService.getRow(fieldId);
         return field
     }
 
-    public async getSyllabusRows(){
+    public async getSyllabusRows() {
         let allRows = await dbMakerService.getRows();
         return allRows
     }
 
-    private createRowRequestMapper(createRowRequestDTO: string){
-        try{
-            let createRowRequestDTOJSON = JSON.parse(createRowRequestDTO);
-            let createTemplateRequest: MakeRowRequest =  new MakeRowRequest();
-            
-            if(createRowRequestDTOJSON["fila_JSON"] != undefined){
-                createTemplateRequest.filaJSON = createRowRequestDTOJSON["fila_JSON"];
-            }
-            else{
-                throw new Error("fila_JSON no está presente");
-            }
-            if(createRowRequestDTOJSON["ACREDITADORA"] != undefined){
-                createTemplateRequest.ACREDITADORA = createRowRequestDTOJSON["ACREDITADORA"];
-            }
-            else{
-                throw new Error("ACREDITADORA no está presente");
-            }
-            if(createRowRequestDTOJSON["HIDE_FLAG"] != undefined){
-                createTemplateRequest.HIDE_FLAG = createRowRequestDTOJSON["HIDE_FLAG"];
-            }
-            else{
-                throw new Error("HIDE_FLAG no está presente");
-            }
-    
-            return createTemplateRequest;
-        }
-        catch(errorMessage){
-            throw new Error(errorMessage)
-        }
+    private createRowRequestMapper(createRowRequestDTO: string) {
+        let createRowRequestDTOJSON: MakeRowRequest = JSON.parse(createRowRequestDTO);
+        console.log(createRowRequestDTOJSON);
+        return createRowRequestDTOJSON;
     }
 
-    private editRowRequestMapper(editRowRequestDTO: string){
-        try{
+    private editRowRequestMapper(editRowRequestDTO: string) {
+        try {
             let editRowRequestDTOJSON = JSON.parse(editRowRequestDTO);
-            let editRowRequest: UpdateRowRequest =  new UpdateRowRequest();
+            let editRowRequest: UpdateRowRequest = new UpdateRowRequest();
 
-            if(editRowRequestDTOJSON["id"] != undefined){
-                editRowRequest.id = editRowRequestDTOJSON["id"];
+            if (editRowRequestDTOJSON[ "id" ] != undefined) {
+                editRowRequest.id = editRowRequestDTOJSON[ "id" ];
             }
-            else{
+            else {
                 throw new Error("id no está presente");
             }
-            if(editRowRequestDTOJSON["fila_JSON"] != undefined){
-                editRowRequest.filaJSON = editRowRequestDTOJSON["fila_JSON"];
+            if (editRowRequestDTOJSON[ "fila_JSON" ] != undefined) {
+                editRowRequest.filaJSON = editRowRequestDTOJSON[ "fila_JSON" ];
             }
-            else{
+            else {
                 throw new Error("fila_JSON no está presente");
             }
-            if(editRowRequestDTOJSON["ACREDITADORA"] != undefined){
-                editRowRequest.ACREDITADORA = editRowRequestDTOJSON["ACREDITADORA"];
+            if (editRowRequestDTOJSON[ "ACREDITADORA" ] != undefined) {
+                editRowRequest.ACREDITADORA = editRowRequestDTOJSON[ "ACREDITADORA" ];
             }
-            else{
+            else {
                 throw new Error("ACREDITADORA no está presente");
             }
-            if(editRowRequestDTOJSON["HIDE_FLAG"] != undefined){
-                editRowRequest.HIDE_FLAG = editRowRequestDTOJSON["HIDE_FLAG"];
+            if (editRowRequestDTOJSON[ "HIDE_FLAG" ] != undefined) {
+                editRowRequest.HIDE_FLAG = editRowRequestDTOJSON[ "HIDE_FLAG" ];
             }
-            else{
+            else {
                 throw new Error("HIDE_FLAG no está presente");
             }
-    
+
             return editRowRequest;
         }
-        catch(errorMessage){
+        catch (errorMessage) {
             throw new Error(errorMessage)
         }
     }

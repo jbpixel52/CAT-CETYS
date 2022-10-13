@@ -8,21 +8,24 @@ let dbMakerApplication = new DbMakerApplication();
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const session = await unstable_getServerSession(req, res, authOptions)
 
-    try {
-        if (session) {
-            if (req.method === 'POST') {
-                await dbMakerApplication.createSyllabusRow(req.body)
+
+    if (true) {
+        console.log('session authorized')
+        if (req.method === 'POST') {
+
+            try {
+                await dbMakerApplication.createSyllabusRow(req.body);
                 res.status(200).json("Sucessful row wrtite operation, or was it? thuuuuuum")
+            } catch (error) {
+                console.log(error);
             }
-            else {
-                res.status(400).json("Este endpoint es solo para solicitudes POST para crear filas de cartas")
-            }
-        }else {
-            res.status(401).json("Unathourized access.")
+            res.status(500).json("failed to create syllabus row");
+
         }
-    
+        else {
+            res.status(400).json("Este endpoint es solo para solicitudes POST para crear filas de cartas")
+        }
     }
-    catch (err) {
-        res.status(500).json(err.message)
-    }
+
+
 }

@@ -17,7 +17,7 @@ export class DbMakerInfrastructure{
 
   }
 
-  public async makeRow(createRowRequest: MakeRowRequest){
+  public async makeRow(createRowRequest: MakeRowRequest) {
     await prisma.filasCartas.create({
       data:
       {
