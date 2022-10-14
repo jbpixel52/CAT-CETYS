@@ -15,7 +15,6 @@ async function getFields() {
             method: 'GET'
         });
         const json = await fields.json()
-        console.log(json)
         return json;
     } catch (error) {
         console.log(error)
@@ -53,7 +52,6 @@ export default function Editor() {
             const res = await getFields();
             const builder = FormBuilder(res);
             setForms(builder)
-            console.log(Forms);
         }
         renderForms();
 
