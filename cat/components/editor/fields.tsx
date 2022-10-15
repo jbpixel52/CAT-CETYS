@@ -1,6 +1,6 @@
 import { Paper, Typography, Stack, Divider, Box, TextField, Button } from "@mui/material";
 
-export default function Field(field: object) {
+export default function Field(props) {
     function FieldItem(field) {
         return (
             <Stack direction={'row'} spacing={3} sx={{ p: '0.5em' }}>
@@ -9,4 +9,11 @@ export default function Field(field: object) {
             </Stack>
         )
     }
+}
+function FormBuilder(fields) {
+
+
+
+    return (<></>);
+
 }

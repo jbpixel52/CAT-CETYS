@@ -22,26 +22,6 @@ async function getFields() {
 
 }
 
-function FieldItem(field) {
-    return (
-        <Stack direction={'row'} spacing={3} sx={{ p: '0.5em' }}>
-            <Typography>{ }</Typography>
-            <TextField variant="outlined" />
-        </Stack>
-    )
-}
-function FormBuilder(fields) {
-    let fields_desc = [];
-
-    for (const obj in fields) {
-        fields_desc.push(obj[ 'DESCRIPCION_CAMPO' ]);
-    }
-    const field_Items = fields_desc.map((desc) => (<FieldItem field={desc} />));
-    return field_Items;
-
-}
-
-
 
 export default function Editor() {
     const [ Forms, setForms ] = useState();
@@ -49,9 +29,7 @@ export default function Editor() {
     useEffect(() => {
 
         async function renderForms() {
-            const res = await getFields();
-            const builder = FormBuilder(res);
-            setForms(builder)
+            //async function to update Forms
         }
         renderForms();
 
