@@ -10,9 +10,12 @@ export default function Field(props) {
         )
     }
 }
-function FormBuilder(fields) {
+function FormBuilder(fields:JSON) {
+    
+    let fieldsGroup = [];
 
 
+    let parsedFields;
 
     return (<></>);
 
