@@ -8,6 +8,13 @@ import authOptions from "../../../../utils/auth/options"
 let dbMakerApplication = new DbMakerApplication();
 
 
+/**
+ *
+ *
+ * @export
+ * @param {NextApiRequest} req
+ * @param {NextApiResponse} res
+ */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const session = await unstable_getServerSession(req, res, authOptions)
 

@@ -1,5 +1,12 @@
 
 
+/**
+ *
+ *
+ * @export
+ * @param {string} email
+ * @return {*} 
+ */
 export default function checkValidDomain(email:string){
     //Function checks that email passed is from a valid domain.
     const email_domain:string[] = ['@cetys.edu.mx','cetys.mx'];
