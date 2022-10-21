@@ -7,7 +7,6 @@ type Method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
  * @param {Method} method type of method to use for the request (CRUD)
  * @return {* JSON object of the request response}
  */
-
 export default async function fetcher(url: string, method: Method) {
     try {
         const res = await fetch(url, {
@@ -18,6 +17,4 @@ export default async function fetcher(url: string, method: Method) {
     } catch (error) {
         console.log(error);
     }
-
 }
-
