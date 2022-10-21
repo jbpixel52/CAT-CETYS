@@ -5,10 +5,10 @@ type Method = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
  * @export
  * @param {string} url URL of request
  * @param {Method} method type of method to use for the request (CRUD)
- * @return {* json} 
+ * @return {* JSON object of the request response}
  */
 
-export default async function fetchJSON(url: string, method: Method) {
+export default async function fetcher(url: string, method: Method) {
     try {
         const res = await fetch(url, {
             method: method

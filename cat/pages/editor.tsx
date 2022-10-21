@@ -3,14 +3,14 @@ import Head from "next/head";
 import NavBar from "../components/NavBar/navigationbar"
 import { useEffect, useState } from 'react'
 import { MakeRowRequest } from "../cat-db-management/cat-dbMaker/makeRowRequest";
-import fetchJSON from "../utils/fetcher";
+import fetcher from "../utils/fetcher";
 import { camposCartas } from '@prisma/client'
 
 type Fields = camposCartas;
 
 
 const foo = async () => {
-    let res: JSON = await fetchJSON('api/db/cartas/getFields', 'GET');
+    let res: JSON = await fetcher('api/db/cartas/getFields', 'GET');
     console.log(res)
     return res;
 }
