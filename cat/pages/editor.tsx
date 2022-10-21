@@ -3,23 +3,24 @@ import Head from "next/head";
 import NavBar from "../components/NavBar/navigationbar"
 import { useEffect, useState } from 'react'
 import { MakeRowRequest } from "../cat-db-management/cat-dbMaker/makeRowRequest";
-
+import fetchJSON from "../utils/fetcher";
 import { camposCartas } from '@prisma/client'
 
 type Fields = camposCartas;
 
 
+const foo = async () => {
+    let res: JSON = await fetchJSON('api/db/cartas/getFields', 'GET');
+    console.log(res)
+    return res;
+}
 
 
 export default function Editor() {
+    const [ fields, setfields ] = useState();
 
     useEffect(() => {
-
-        async function renderForms() {
-            //async function to update Forms
-        }
-        renderForms();
-
+        foo()
 
     }, [])
 
@@ -35,7 +36,7 @@ export default function Editor() {
         <Stack sx={{ mt: '1em' }} direction="row" justifyContent={"center"} spacing={1} divider={<Divider orientation="horizontal" flexItem />} alignItems="flex-start">
 
             <Paper elevation={18} sx={{}}>
-                {/* THÉ FORM FIELDS GO HERE*/ }
+                {/* THÉ FORM FIELDS GO HERE*/}
             </Paper>
 
             <Paper elevation={18} sx={{ maxWidth: '50ch' }}>

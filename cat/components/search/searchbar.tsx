@@ -7,7 +7,7 @@ import useSWR from 'swr';
 
 export default function SearchBar() {
 
-  const { data, error } = useSWR('/api/db/test');
+  const { data, error } = useSWR('/api/db/');
   //console.log(JSON.stringify(data));
   const searchOptions: string[] = [];
 
