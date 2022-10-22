@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next"
-import { DbMakerApplication } from "../../../../cat-db-management/cat-dbMaker/cartas/dbMakerApplication"
+import { DbMakerApplication } from "../../../../cat-db-management/cat-dbMaker/campos-cartas/dbMakerApplication"
 import { unstable_getServerSession } from "next-auth/next"
 import authOptions from "../../../../utils/auth/options"
 
