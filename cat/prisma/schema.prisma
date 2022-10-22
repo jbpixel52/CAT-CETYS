@@ -21,6 +21,17 @@ type ContenidosCampo{
   ABET  String
 }
 
+model Cartas {
+  id                                     String                                      @id @default(auto()) @map("_id") @db.ObjectId
+  ANIO_PROGRAMA                          Int
+  IDs_FILAS_CARTAS                       String[]
+  MATERIA                                String
+  NOMBRE_CARRERA                         String
+  NOMBRE_CARTA                           String
+  PROFESOR                               String
+  SEMESTRE                               Int
+}
+
 model camposBase{
   id                                     String                                      @id @default(auto()) @map("_id") @db.ObjectId
   NOMBRE_CAMPO                           NombresCampo
