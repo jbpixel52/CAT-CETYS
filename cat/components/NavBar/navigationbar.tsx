@@ -12,7 +12,7 @@ import Container from '@mui/system/Container/Container';
 export default function NavBar() {
 
   const { data: session, status } = useSession();
-  console.log(session?.user?.image)
+  //console.log(session?.user?.image)
 
   return (<Container
     sx={{ paddingTop: '1em'}}

@@ -9,9 +9,9 @@ import { camposCartas } from '@prisma/client'
 type Fields = camposCartas;
 
 
-const foo = async () => {
+const data = async () => {
     let res: JSON = await fetcher('api/db/cartas/getFields', 'GET');
-    console.log(res)
+    //console.log(res)
     return res;
 }
 
@@ -20,7 +20,7 @@ export default function Editor() {
     const [ fields, setfields ] = useState();
 
     useEffect(() => {
-        foo()
+        data();
 
     }, [])
 

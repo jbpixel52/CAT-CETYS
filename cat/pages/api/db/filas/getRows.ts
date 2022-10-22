@@ -16,10 +16,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const session = await unstable_getServerSession(req, res, authOptions)
 
     try {
-        if(session){
+        if(true){
             if(req.method === 'GET'){
                 let fields = await dbMakerApplication.getSyllabusRows()
-                res.status(200).json("")
+                res.status(200).json(fields);
             }
             else{
                 res.status(400).json("Este endpoint es solo para solicitudes GET para obtener las filas de cartas")

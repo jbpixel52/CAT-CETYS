@@ -10,6 +10,8 @@ import useSWR, { SWRConfig } from "swr";
 
 const clientSideEmotionCache = createEmotionCache();
 
+
+
 function MyApp({
   Component,
   emotionCache = clientSideEmotionCache,
