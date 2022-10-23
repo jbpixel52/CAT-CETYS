@@ -2,11 +2,7 @@ import TextField from '@mui/material/TextField';
 import Stack from '@mui/material/Stack';
 import Autocomplete from '@mui/material/Autocomplete';
 import { useSession } from 'next-auth/react';
-import useSWR from 'swr';
 import { useState, useEffect } from 'react';
-import fetcher from '../../utils/fetcher';
-import { GetServerSideProps } from 'next'
-import { InferGetServerSidePropsType, InferGetStaticPropsType } from 'next/types';
 
 
 
