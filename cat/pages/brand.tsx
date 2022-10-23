@@ -26,7 +26,7 @@ export default function BrandPage() {
                     alignItems="center"
                     spacing={2}
                 >
-                    {session ? <Button variant={'contained'} onClick={() => { router.push('/desk') }}>Go to Dashboard</Button> : <></>}
+                    {session ? <Button variant={'contained'} onClick={() => { router.push('/desk') }}>Abrir Escritorio</Button> : <></>}
                     <Login />
 
                 </Stack>

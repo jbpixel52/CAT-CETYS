@@ -12,10 +12,10 @@ export default function Login() {
       <Button variant="outlined" onClick={() => {
         signOut({ callbackUrl: 'http://localhost:3000/' })
       }
-      }>Sign Out</Button>)
+      }>Cerrar sesión</Button>)
   }
   return (
 
-    <Button variant="contained" onClick={() => signIn("google", signInParams)}>Sign in with Google</Button>
+    <Button variant="contained" onClick={() => signIn("google", signInParams)}>Iniciar sesión con Google</Button>
   )
 }
