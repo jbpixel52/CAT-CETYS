@@ -15,8 +15,6 @@ export default function SearchBar() {
 
   const { data: session } = useSession();
   const [ searchOptions, setSearchOptions ] = useState([]);
-  //const { data, error } = useSWR('/api/db/filas');
-  //console.log(JSON.stringify(data));
 
   useEffect(() => {
 
@@ -27,7 +25,7 @@ export default function SearchBar() {
       return await JSON.parse(JSON.stringify(await res.json()));
     }
     const req_promise = req().then((res) => {
-      console.log(res);
+      //console.log(res);
       for (let obj of res) {
         setSearchOptions(searchOptions => [ ...searchOptions, obj[ 'filaJSON' ]+' [ID] '+obj['id'] ])
       }
