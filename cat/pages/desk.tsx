@@ -3,10 +3,9 @@ import Button from '@mui/material/Button'
 import { useSession } from 'next-auth/react'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
-import { GetServerSideProps, InferGetServerSidePropsType } from 'next/types'
+import { GetServerSideProps, GetServerSidePropsContext, InferGetServerSidePropsType } from 'next/types'
 import NavBar from '../components/NavBar/navigationbar'
-import theme from '../styles/theme'
-import fetcher from '../utils/fetcher'
+
 
 
 // You should use getServerSideProps when:
@@ -15,17 +14,20 @@ import fetcher from '../utils/fetcher'
 
 // }
 
-export async function getServerSideProps() {
-    const rows = fetcher('http://localhost:3000/api/db/filas/getRows', 'GET');
-    console.log(rows);
+export async function getServerSideProps(ctx: GetServerSidePropsContext) {
+    const res = await fetch('http://localhost:3000/api/db/filas/getRows', {
+        method: 'GET'
+    })
+    let req_data = await JSON.parse(JSON.stringify(await res.json()));
     return {
-        props: { message: "Welcome to the Desk Page" },
+        props: {
+            data: req_data
+        }
     };
 }
 
-
-export default function Desk({ message }) {
-    console.log(message)
+export default function Desk({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+   //console.log(data)
 
     const router = useRouter();
     const { data: session, status } = useSession();

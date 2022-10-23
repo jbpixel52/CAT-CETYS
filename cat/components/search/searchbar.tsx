@@ -12,13 +12,29 @@ import { InferGetServerSidePropsType, InferGetStaticPropsType } from 'next/types
 
 
 export default function SearchBar() {
-  
+
   const { data: session } = useSession();
   const [ searchOptions, setSearchOptions ] = useState([]);
   //const { data, error } = useSWR('/api/db/filas');
   //console.log(JSON.stringify(data));
 
+  useEffect(() => {
 
+    async function req() {
+      const res = await fetch('http://localhost:3000/api/db/filas/getRows', {
+        method: 'GET'
+      })
+      return await JSON.parse(JSON.stringify(await res.json()));
+    }
+    const req_promise = req().then((res) => {
+      console.log(res);
+      for (let obj of res) {
+        setSearchOptions(searchOptions => [ ...searchOptions, obj[ 'filaJSON' ]+' [ID] '+obj['id'] ])
+      }
+      //console.log(searchOptions);
+    });
+
+  }, [])
 
   if (session) {
     return (
