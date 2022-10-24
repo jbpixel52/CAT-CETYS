@@ -31,10 +31,10 @@ export class DbMakerInfrastructure {
         })
     }
 
-    public async deleteSyllabus(fieldId: string){
-        let result = await prisma.camposCartas.delete({
+    public async deleteSyllabus(syllabusId: string){
+        let result = await prisma.cartas.delete({
           where: {
-            id: fieldId
+            id: syllabusId
           }
         });
       }

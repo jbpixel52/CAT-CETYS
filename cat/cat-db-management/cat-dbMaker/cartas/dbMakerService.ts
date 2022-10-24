@@ -11,7 +11,7 @@ export class DbMakerService{
 
     }
 
-    public async createRow(createSyllabusRequest: MakeSyllabusRequest){
+    public async createSyllabus(createSyllabusRequest: MakeSyllabusRequest){
         dbMakerInfrastructure.makeSyllabus(createSyllabusRequest)
     }
 
@@ -27,19 +27,19 @@ export class DbMakerService{
     //     }
     // }
 
-    // public async deleteRow(rowId: string){
-    //     try{
-    //         if(await this.getRow(rowId) == null){
-    //             throw new Error("A row with this id does not exist");
-    //         }
-    //         await dbMakerInfrastructure.removeRow(rowId);
-    //     }
-    //     catch(error){
-    //         throw new Error(error.message);
-    //     }
-    // }
+    public async deleteSyllabus(syllabusId: string){
+        try{
+            if(await this.getSyllabus(syllabusId) == null){
+                throw new Error("A syllabus with this id does not exist");
+            }
+            await dbMakerInfrastructure.deleteSyllabus(syllabusId);
+        }
+        catch(error){
+            throw new Error(error.message);
+        }
+    }
 
-    public async getRow(syllabusId: string){
+    public async getSyllabus(syllabusId: string){
         let row = await dbMakerInfrastructure.getSyllabus(syllabusId);
         return row; 
     }

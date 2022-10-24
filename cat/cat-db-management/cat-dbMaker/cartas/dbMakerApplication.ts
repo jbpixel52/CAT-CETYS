@@ -26,7 +26,7 @@ export class DbMakerApplication {
         );
 
         console.log(createSyllabusRequest)
-        await dbMakerService.createRow(createSyllabusRequest);
+        await dbMakerService.createSyllabus(createSyllabusRequest);
     }
 
     // public async editSyllabusRow(editSyllabusRequestDTO: string) {
@@ -34,14 +34,14 @@ export class DbMakerApplication {
     //     await dbMakerService.editRow(editSyallabus);
     // }
 
-    // public async deleteSyllabusRow(deleteRowFieldRequest: string) {
-    //     let fieldId = JSON.parse(deleteRowFieldRequest)[ "rowId" ]
-    //     await dbMakerService.deleteRow(fieldId);
-    // }
+    public async deleteSyllabus(deleteSyllabusRequest: string) {
+        let fieldId = JSON.parse(deleteSyllabusRequest)[ "syllabusId" ]
+        await dbMakerService.deleteSyllabus(fieldId);
+    }
 
     public async getSyllabus(getSyllabusIdRequest: string) {
         let syllabusId = JSON.parse(getSyllabusIdRequest)[ "syllabusId" ]
-        let syllabus = await dbMakerService.getRow(syllabusId);
+        let syllabus = await dbMakerService.getSyllabus(syllabusId);
         return syllabus
     }
 
