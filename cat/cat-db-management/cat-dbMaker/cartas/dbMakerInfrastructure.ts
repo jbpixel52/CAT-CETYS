@@ -30,6 +30,31 @@ export class DbMakerInfrastructure {
             }
         })
     }
+
+    public async deleteSyllabus(fieldId: string){
+        let result = await prisma.camposCartas.delete({
+          where: {
+            id: fieldId
+          }
+        });
+      }
+    
+      public async getSyllabus(syllabusId: string){
+        let result = await prisma.cartas.findFirst({
+          where:{
+            id: {
+              equals: syllabusId
+            }
+          }
+        });
+    
+        return result
+      }
+    
+      public async getSyllabuses() {
+        let result = await prisma.cartas.findMany()
+        return result;
+      }
 }
 export default prisma
 

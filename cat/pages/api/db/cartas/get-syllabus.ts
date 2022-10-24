@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next"
-import { DbMakerApplication } from "../../../../cat-db-management/cat-dbMaker/campos-cartas/dbMakerApplication"
+import { DbMakerApplication } from "../../../../cat-db-management/cat-dbMaker/cartas/dbMakerApplication"
 import { unstable_getServerSession } from "next-auth/next"
 import authOptions from "../../../../utils/auth/options"
 
@@ -20,7 +20,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     try {
         if (session) {
             if (req.method === "GET") {
-                let field = await dbMakerApplication.getSyllabusField(req.body)
+                let field = await dbMakerApplication.getSyllabus(req.body)
                 res.status(200).json(field)
             }
             else {
