@@ -1,0 +1,10 @@
+
+> cat@0.1.0 lint
+> next lint
+
+info  - Loaded env from C:\Users\julio\Desktop\PROJECTS\CAT-CETYS\cat\.env
+warn  - You have enabled experimental feature (images) in next.config.mjs.
+warn  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use at your own risk.
+
+Failed to load config "next/babel" to extend from.
+Referenced from: C:\Users\julio\Desktop\PROJECTS\CAT-CETYS\cat\.eslintrc.json
