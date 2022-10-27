@@ -1,20 +1,19 @@
+"use client";
 import { useSession, signIn, signOut } from "next-auth/react";
-import { Button } from "@mui/material";
-import { useRouter } from 'next/router'
 
 export default function Login() {
   const { data: session, status } = useSession();
-  const signInParams = { callbackUrl: 'http://localhost:3000/desk' };
+  const signInParams = { callbackUrl: 'http://localhost:3000/escritorio' };
   if (session) {
     //CHANGE URL IN THE CALLBACK URL 
     return (
-      <Button variant="outlined" onClick={() => {
-        signOut({ callbackUrl: 'http://localhost:3000/' })
-      }
-      }>Cerrar sesión</Button>)
+      <button className="bg-yellow-500	p-1 rounded ..." type="button" onClick={() => signOut({ callbackUrl: 'http://localhost:3000/' })}>
+        Cerrar sesión
+      </button >
+    )
   }
   return (
 
-    <Button variant="contained" onClick={() => signIn("google", signInParams)}>Iniciar sesión con Google</Button>
+    <button className="bg-yellow-500	p-1 rounded ..." onClick={() => signIn("google", signInParams)}>Iniciar sesión con Google</button>
   )
 }

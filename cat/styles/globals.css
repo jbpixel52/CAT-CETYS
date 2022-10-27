@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+/*
 a {
   color: inherit;
   text-decoration: none;
@@ -31,4 +31,4 @@ ul,
 ol {
   margin-bottom: 2em;
   font-family: sans-serif;
-}
+} */

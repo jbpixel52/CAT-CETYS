@@ -1,37 +1,60 @@
-import { Divider, Paper, Stack, Typography, Box } from "@mui/material";
-import Login from "../components/login/login";
-import theme from "../styles/theme";
-import Head from "next/head";
-import NavBar from "../components/NavBar/navigationbar";
-
-
-
+import Login from '../components/login/login'
+import Image from 'next/image';
 
 export default function Page() {
-    //     return (<Box sx={{bgcolor:theme.palette.primary.light, width:'100vw', height:'100vh'}}>
-    //         <NavBar></NavBar>
-    //         <Head>
-    //             <title>Admin</title>
-    //         </Head>
-    //         <Paper elevation={18} sx={{ m: '5%' }}>
-    //             <Typography variant="h5" sx={{ m: "1em" }}>Admin</Typography>
-    //             <Login />
+    return (
+        <div className="flex flex-col h-screen bg-slate-400 p-9">
+            <div className="grid overflow-hidden grid-lines auto-cols-auto auto-rows-auto gap-2.5 grid-flow-row">
+                <div className="box col-span-2 ">
+                    <div className="flex justify-between">
+                        {/* Here goes the Header */}
+                        <div className="item w-auto h-auto">
+                            {/* Left end of header */}
+                            <h1 className="text-black text-7xl antialiased font-black hover:font-normal ">CAT🐱</h1>
+                        </div>
+                        <div className="item w-auto h-auto">
+                            {/* Right end of header -> (Login button) */}
+                            <Login />
+                        </div>
+                    </div>
 
-    //             <Stack direction="row" justifyContent={"space-evenly"} spacing={3}  divider={<Divider orientation="vertical" flexItem />}   alignItems="flex-start"
+                </div>
+                <div className="box row-start-2 col-end-1">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Enim praesent elementum facilisis leo vel fringilla. Vel fringilla est ullamcorper eget nulla.
+                        Blandit turpis cursus in hac.
+                    </p>
+                    <ul>
+                        <li className='list-item'>Nibh ipsum consequat nisl vel pretium lectus quam. Molestie ac feugiat sed lectus vestibulum mattis ullamcorper velit sed. Quis imperdiet massa tincidunt nunc.</li>
+                        <li>Condimentum lacinia quis vel eros donec. Risus commodo viverra maecenas accumsan. Netus et malesuada fames ac turpis.</li>
+                        <li>Est lorem ipsum dolor sit amet consectetur adipiscing elit. Amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar. Mi ipsum faucibus vitae aliquet nec ullamcorper sit amet. Ut diam quam nulla porttitor massa id neque aliquam vestibulum. Magna fermentum iaculis eu non diam.</li>
+                    </ul>
 
-    // >
-    //                 <Paper sx={{}}><Typography>LEFT SIDE</Typography></Paper>
-    //                 <Paper sx={{}}><Typography>RIGHT SIDE</Typography></Paper>
-    //             </Stack>
 
 
-    //         </Paper>
-    //     </Box>);
-    return (<>
-        <div >
-            <h1 className="text-3xl font-bold underline opacity-5">
-                Hello world!💕
-            </h1>
+                </div>
+                <div className="box row-start-2">
+                    <Image
+                        src="/syllabus_placeholder.png"
+                        alt="Picture of the author"
+                        width={500}
+                        height={500}
+                    />
+                </div>
+            </div>
         </div>
-    </>)
+        // <div className="bg-gray-200 flex">
+
+        //     <div>
+        //         {/* Here goes the Body */}
+        //         <div>
+        //             {/* Here goes the Sumary of CAT */}
+        //         </div>
+        //         <div>
+        //             {/* Preview Image or GIF of CAT */}
+
+        //         </div>
+        //     </div>
+        // </div>
+    )
 }

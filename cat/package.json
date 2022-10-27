@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"next dev --turbo\" \"tailwindcss --input input.css --output output.css --watch\"",
-    "build": "tailwindcss input.css --output output.css && next build",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -15,6 +15,7 @@
     "@fontsource/roboto": "^4.5.8",
     "@mui/icons-material": "^5.10.3",
     "@mui/material": "^5.10.5",
+    "@next/font": "^13.0.0",
     "@next/mdx": "^12.3.0",
     "@prisma/client": "^4.3.1",
     "@types/mdx": "^2.0.2",
