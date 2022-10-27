@@ -1,3 +1,4 @@
+"use client";
 import { useState, Fragment } from 'react';
 import Box from '@mui/material/Box';
 import Menu from '@mui/material/Menu';

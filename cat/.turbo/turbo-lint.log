@@ -2,9 +2,13 @@
 > cat@0.1.0 lint
 > next lint
 
-info  - Loaded env from C:\Users\julio\Desktop\PROJECTS\CAT-CETYS\cat\.env
-warn  - You have enabled experimental feature (images) in next.config.mjs.
+info  - Loaded env from C:\Users\jbram\OneDrive\Documents\GitHub\CAT-CETYS\cat\.env
+warn  - You have enabled experimental feature (appDir) in next.config.mjs.
 warn  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use at your own risk.
 
-Failed to load config "next/babel" to extend from.
-Referenced from: C:\Users\julio\Desktop\PROJECTS\CAT-CETYS\cat\.eslintrc.json
+info  - Thank you for testing `appDir` please leave your feedback at https://nextjs.link/app-feedback
+? How would you like to configure ESLint? https://nextjs.org/docs/basic-features/eslint
+[?25l❯  Strict (recommended)
+   Base
+warn  - If you set up ESLint yourself, we recommend adding the Next.js ESLint plugin. See https://nextjs.org/docs/basic-features/eslint#migrating-existing-config
+   Cancel

@@ -2,65 +2,23 @@
 > cat@0.1.0 build
 > next build
 
-info  - Loaded env from C:\Users\julio\Desktop\PROJECTS\CAT-CETYS\cat\.env
-warn  - You have enabled experimental feature (images) in next.config.mjs.
+info  - Loaded env from C:\Users\jbram\OneDrive\Documents\GitHub\CAT-CETYS\cat\.env
+warn  - You have enabled experimental feature (appDir) in next.config.mjs.
 warn  - Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use at your own risk.
+info  - Thank you for testing `appDir` please leave your feedback at https://nextjs.link/app-feedback
 
-info  - Linting and checking validity of types...
-error - ESLint: Failed to load config "next/babel" to extend from. Referenced from: C:\Users\julio\Desktop\PROJECTS\CAT-CETYS\cat\.eslintrc.json
 info  - Creating an optimized production build...
-info  - Disabled SWC as replacement for Babel because of custom Babel configuration ".babelrc" https://nextjs.org/docs/messages/swc-disabled
-info  - `compiler` options in `next.config.js` will be ignored while using Babel https://nextjs.org/docs/messages/ignored-compiler-options
-info  - Using external babel configuration from C:\Users\julio\Desktop\PROJECTS\CAT-CETYS\cat\.babelrc
 info  - Compiled successfully
-info  - Collecting page data...
-info  - Generating static pages (0/10)
-info  - Generating static pages (2/10)
-info  - Generating static pages (4/10)
-info  - Generating static pages (7/10)
-info  - Generating static pages (10/10)
-info  - Finalizing page optimization...
+info  - Linting and checking validity of types...
+Failed to compile.
 
-Route (pages)                              Size     First Load JS
-┌ ○ / (1837 ms)                            1.25 kB         125 kB
-├   /_app                                  0 B             104 kB
-├ ○ /404                                   2.68 kB         107 kB
-├ ○ /admin                                 3.25 kB         177 kB
-├ λ /api/auth/[...nextauth]                0 B             104 kB
-├ λ /api/db/campos-cartas/createField      0 B             104 kB
-├ λ /api/db/campos-cartas/deleteField      0 B             104 kB
-├ λ /api/db/campos-cartas/editField        0 B             104 kB
-├ λ /api/db/campos-cartas/getField         0 B             104 kB
-├ λ /api/db/campos-cartas/getFields        0 B             104 kB
-├ λ /api/db/cartas/create-syllabus         0 B             104 kB
-├ λ /api/db/cartas/delete-syllabus         0 B             104 kB
-├ λ /api/db/cartas/get-syllabus            0 B             104 kB
-├ λ /api/db/cartas/get-syllabuses          0 B             104 kB
-├ λ /api/db/filas/createRow                0 B             104 kB
-├ λ /api/db/filas/deleteRow                0 B             104 kB
-├ λ /api/db/filas/editRow                  0 B             104 kB
-├ λ /api/db/filas/getRow                   0 B             104 kB
-├ λ /api/db/filas/getRows                  0 B             104 kB
-├ λ /api/db/templetes/createField          0 B             104 kB
-├ λ /api/db/templetes/deleteField          0 B             104 kB
-├ λ /api/db/templetes/editField            0 B             104 kB
-├ λ /api/db/templetes/getField             0 B             104 kB
-├ λ /api/db/templetes/getFields            0 B             104 kB
-├ ○ /brand                                 1.22 kB         125 kB
-├ λ /desk                                  3.16 kB         177 kB
-├ ○ /Dynamic                               289 B           105 kB
-├ ○ /editor (1783 ms)                      3.34 kB         177 kB
-├ λ /example                               373 B           105 kB
-├ ○ /history/[...page]                     317 B           105 kB
-├ ○ /login                                 293 B           105 kB
-└ ○ /masseditor                            267 B           105 kB
-+ First Load JS shared by all              105 kB
-  ├ chunks/framework-4556c45dd113b893.js   45.2 kB
-  ├ chunks/main-2bbde48ec7ee72a9.js        29.1 kB
-  ├ chunks/pages/_app-863a31cd1fe4fc58.js  28.2 kB
-  ├ chunks/webpack-bd5c67e7f9a392be.js     1.82 kB
-  └ css/0085fa7f80d8dc8a.css               170 B
+./cat-db-management/cat-dbMaker/cartas/dbMakerInfrastructure.ts:21:22
+Type error: Property 'cartas' does not exist on type 'PrismaClient<PrismaClientOptions, never, RejectOnNotFound | RejectPerOperation>'.
 
-λ  (Server)  server-side renders at runtime (uses getInitialProps or getServerSideProps)
-○  (Static)  automatically rendered as static HTML (uses no initial props)
-
+[0m [90m 19 | [39m[0m
+[0m [90m 20 | [39m    [36mpublic[39m [36masync[39m makeSyllabus(createSyllabusRequest[33m:[39m [33mMakeSyllabusRequest[39m) {[0m
+[0m[31m[1m>[22m[39m[90m 21 | [39m        [36mawait[39m prisma[33m.[39mcartas[33m.[39mcreate({[0m
+[0m [90m    | [39m                     [31m[1m^[22m[39m[0m
+[0m [90m 22 | [39m            data[33m:[39m {[0m
+[0m [90m 23 | [39m                [33mANIO_PROGRAMA[39m[33m:[39m createSyllabusRequest[33m.[39m[33mANIO_PROGRAMA[39m[33m,[39m[0m
+[0m [90m 24 | [39m                [33mMATERIA[39m[33m:[39m createSyllabusRequest[33m.[39m[33mMATERIA[39m[33m,[39m[0m
