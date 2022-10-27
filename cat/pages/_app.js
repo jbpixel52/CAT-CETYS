@@ -7,7 +7,7 @@ import createEmotionCache from "../utils/createEmotionCache";
 import { CacheProvider } from "@emotion/react";
 import { MDXProvider } from "@mdx-js/react";
 import useSWR, { SWRConfig } from "swr";
-
+import '../styles/globals.css'
 const clientSideEmotionCache = createEmotionCache();
 
 
