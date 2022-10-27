@@ -1,6 +1,6 @@
 import Typography from '@mui/material/Typography'
 import Link from 'next/link'
-import { Box, Stack, Avatar } from '@mui/material'
+import { Box, Stack, Avatar, Button } from '@mui/material'
 import theme from '../../styles/theme';
 import { useSession } from "next-auth/react"
 import SearchBar from '../search/searchbar'
@@ -15,7 +15,7 @@ export default function NavBar() {
   //console.log(session?.user?.image)
 
   return (<Container
-    sx={{ paddingTop: '1em'}}
+    sx={{ paddingTop: '1em' }}
   >
     <Stack
       direction="row"
@@ -31,14 +31,23 @@ export default function NavBar() {
         justifyContent="flex-start"
       >
         <Container maxWidth={'lg'}>
-        <Link href={'/'}>
-          <Typography variant='h4'>
-            <b>{session ? <>CAT😼</> : <>CAT😿</>}</b>
-          </Typography>
-        </Link>
+          <Link href={'/'}>
+            <Typography variant='h4'>
+              <b>{session ? <>CAT😼</> : <>CAT😿</>}</b>
+            </Typography>
+          </Link>
         </Container>
-
+        <Link href='/escritorio'>
+          <Button
+            variant='contained'
+            onClick={() => { }}
+            size="small"
+          >
+            Escritorio
+          </Button>
+        </Link>
         <NavigationDropDown />
+
       </Stack>
 
 
