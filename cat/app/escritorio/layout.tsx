@@ -1,16 +1,15 @@
-import NavBar from "../../components/NavBar/navigationbar";
+import AuthContext from "./AuthContext";
+import Navigation from "./Navigation";
 
-export default function Layout({ children }: {
-    children: React.ReactNode;
-}) {
-    return (<div>
+export interface AccountLayoutProps {
+  children: React.ReactNode;
+}
 
-        <>
-           <NavBar/>
-        </>
-        <>
-            {/* Body */}
-            {children}
-        </>
-    </div>);
+export default function AccountLayout({ children }: AccountLayoutProps) {
+  return (
+      <AuthContext>
+          <Navigation/>
+      {children}
+    </AuthContext>
+  );
 }

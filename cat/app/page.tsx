@@ -1,7 +1,6 @@
-import Login from '../components/login/login'
 import Image from 'next/image';
-
 export default function Page() {
+    console.log('LANDING PAGE');
     return (
         <div className="flex flex-col h-screen bg-slate-400 p-9">
             <div className="grid overflow-hidden grid-lines auto-cols-auto auto-rows-auto gap-2.5 grid-flow-row">
@@ -14,7 +13,7 @@ export default function Page() {
                         </div>
                         <div className="item w-auto h-auto">
                             {/* Right end of header -> (Login button) */}
-                            <Login />
+                            {/* <Login/> */}
                         </div>
                     </div>
 
@@ -43,18 +42,6 @@ export default function Page() {
                 </div>
             </div>
         </div>
-        // <div className="bg-gray-200 flex">
 
-        //     <div>
-        //         {/* Here goes the Body */}
-        //         <div>
-        //             {/* Here goes the Sumary of CAT */}
-        //         </div>
-        //         <div>
-        //             {/* Preview Image or GIF of CAT */}
-
-        //         </div>
-        //     </div>
-        // </div>
     )
 }
