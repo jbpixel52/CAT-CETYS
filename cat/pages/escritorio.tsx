@@ -27,22 +27,19 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
 }
 
 export default function Desk({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-   //console.log(data)
-
-    const router = useRouter();
-    const { data: session, status } = useSession();
+    const { data: session} = useSession();
 
     if (session) {
         //MAIN LANDING PAGE, Desk name is a reference to a desk as the first workspace.
-        return (<Box sx={{ width: '100vw', height: '100vh' }}>
+        return (<div>
             <Head>
                 <title>Desk</title>
             </Head>
             <NavBar />
-            <Paper elevation={5} sx={{ m: '1em', p: '1em', height: '75%' }}>
+            <div>
 
-            </Paper>
-        </Box>)
+            </div>
+        </div>)
 
     }
 }

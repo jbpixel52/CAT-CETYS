@@ -1,7 +1,5 @@
-import { Typography, Box, Stack, Button } from '@mui/material';
 import Login from '../components/login/login';
 import Image from 'next/future/image'
-import theme from '../styles/theme';
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react';
 
@@ -10,74 +8,54 @@ export default function BrandPage() {
     const { data: session, status } = useSession();
 
 
-    return (<Box sx={{ alignItems: "flex-end", width: "100vw", height: "100vh"}}>
-        <Box sx={{ px: '8em', paddingTop: '4em'}}>
-            <Stack
-                direction="row"
-                justifyContent="space-between"
-                spacing={3}
-                alignItems='baseline'
-            ><Typography sx={{color:theme.palette.primary.main}} variant='h1' gutterBottom ><b>CAT😼</b></Typography>
+    return (<div>
+        <div>
+            <div
+            ><h1 className="text-3xl font-bold underline">CAT😼</h1>
 
 
-                <Stack
-                    direction="row"
-                    justifyContent="flex-end"
-                    alignItems="center"
-                    spacing={2}
-                >
-                    {session ? <Button variant={'contained'} onClick={() => { router.push('/escritorio') }}>Abrir Escritorio</Button> : <></>}
+                <div>
+                    {session ? <button >Abrir Escritorio</button> : <></>}
                     <Login />
 
-                </Stack>
+                </div>
 
-            </Stack>
-            <Stack
-                direction="row"
-                justifyContent="space-evenly"
-                spacing={3}
-                alignItems='flex-start'>
-                <Stack
-                    direction="column"
-                    justifyContent="flex-start"
-                    alignItems="flex-start"
-                    spacing={1}>
-                    <Typography variant="h4">
+            </div>
+            <div>
+                <div
+                >
+                    <p>
                         <i>Cartas Académicas Transcritas</i>
-                    </Typography>
+                    </p>
 
-                    <Typography>Esta aplicacion permite generar cartas descriptivas de los distintos cursos de la escuela de ingenieria, hace lo siguiente:</Typography>
+                    <p>Esta aplicacion permite generar cartas descriptivas de los distintos cursos de la escuela de ingenieria, hace lo siguiente:</p>
                     <ul>
-                        <li><Typography>Guardar la informacion de los cursos para verla en cualquier formato deseado
-                        </Typography></li>
+                        <li><p>Guardar la informacion de los cursos para verla en cualquier formato deseado
+                        </p></li>
                         <li>
-                            <Typography>Generar cartas descriptivas con los formatos deseados por el usuario, disponiendo del formato CETYS, de CACEI y de WASC
-                            </Typography>
+                            <p>Generar cartas descriptivas con los formatos deseados por el usuario, disponiendo del formato CETYS, de CACEI y de WASC
+                            </p>
                         </li>  <li>
-                            <Typography>El usuario puede generar sus propios formatos
-                            </Typography>
+                            <p>El usuario puede generar sus propios formatos
+                            </p>
                         </li>  <li>
-                            <Typography>Se podran exportar cartas de distintas materias o en distintos formatos de una sola vez.
-                            </Typography>
+                            <p>Se podran exportar cartas de distintas materias o en distintos formatos de una sola vez.
+                            </p>
                         </li>
                     </ul>
-                </Stack>
+                </div>
                 <Image
                     width={400}
                     height={400}
                     src='/page_emoji.png'
                     alt="Pag with curl 3d emoji"
                 />
-            </Stack>
-        </Box>
-        <Stack
-            direction="row"
-            justifyContent="space-evenly"
-            spacing={3}
-            alignItems='flex-end'
+            </div>
+        </div>
+        <div
         >
-            <Typography>MEOW🐈 (2022)</Typography>
-        </Stack>
-    </Box>
+            <p>MEOW🐈 (2022)</p>
+        </div>
+    </div>
     )
 }
