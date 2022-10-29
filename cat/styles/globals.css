@@ -12,18 +12,9 @@ a {
 
 html {
   max-width: 100vw;
-  line-height: 1.75;
-  font-size: 1.25em;
+  font-family: Space Grotesk;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 5em 0 1em;
-}
 
 p,
 ul,
