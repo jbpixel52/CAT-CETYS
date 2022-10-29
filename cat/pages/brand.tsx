@@ -5,7 +5,7 @@ import { useSession } from 'next-auth/react';
 
 export default function BrandPage() {
     const router = useRouter();
-    const { data: session, status } = useSession();
+    const { data: session } = useSession();
 
 
     return (
@@ -14,7 +14,7 @@ export default function BrandPage() {
                 <div className='flex flex-row h-auto justify-between'>
                     <h1 className="text-7xl w-auto h-auto font-bold font-sans">CAT😼</h1>
                     <div className='h-auto w-auto px-5'>
-                        {session ? <button className="rounded bg-amber-300 p-1 m-1 hover:bg-amber-400 active:bg-amber-500 hover:font-bold drop-shadow-lg" >Abrir Escritorio</button> : <></>}
+                        {session ? <button className="rounded bg-amber-300 p-1 m-1 hover:bg-amber-400 active:bg-amber-500 hover:font-bold drop-shadow-lg" onClick={()=>{router.push('/escritorio')}}>Abrir Escritorio</button> : <></>}
                         <Login />
                     </div>
                 </div>

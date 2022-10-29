@@ -26,23 +26,23 @@ export default function Editor() {
 
 
 
-    return (<Box>
+    return (<div>
         <Head>
             <title>Editor</title>
         </Head>
         <NavBar />
 
-        <Typography variant="h5" sx={{ m: "1em" }}>Editor</Typography>
-        <Stack sx={{ mt: '1em' }} direction="row" justifyContent={"center"} spacing={1} divider={<Divider orientation="horizontal" flexItem />} alignItems="flex-start">
+        <h1>Editor</h1>
+        <div>
 
-            <Paper elevation={18} sx={{}}>
-                {/* THÉ FORM FIELDS GO HERE*/}
-            </Paper>
+            <div>
+                {/* THE FORM FIELDS GO HERE*/}
+            </div>
 
-            <Paper elevation={18} sx={{ maxWidth: '50ch' }}>
+            <div>
                 {/** THE CARD PREVIEW GOES HERE */}
-            </Paper>
-        </Stack>
+            </div>
+        </div>
 
-    </Box>);
+    </div>);
 }

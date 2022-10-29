@@ -27,18 +27,28 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
 }
 
 export default function Desk({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-    const { data: session} = useSession();
+    const { data: session } = useSession();
 
     if (session) {
         //MAIN LANDING PAGE, Desk name is a reference to a desk as the first workspace.
         return (<div>
             <Head>
-                <title>Desk</title>
+                <title>Editor</title>
             </Head>
             <NavBar />
+
+            <h1>Editor</h1>
             <div>
 
+                <div>
+                    {/* LEFT SIDE */}
+                </div>
+
+                <div>
+                    {/** RIGHT SIDE */}
+                </div>
             </div>
+
         </div>)
 
     }

@@ -14,9 +14,10 @@ export class DbMakerApplication {
     public async createSyllabusRow(createRowRequestDTO: string) {
         //let createRowRequest = this.createRowRequestMapper(createRowRequestDTO);
         //let tempRow: MakeRowRequest = new MakeRowRequest();
-        console.log(createRowRequestDTO)
-        let tempRow: MakeRowRequest = JSON.parse(JSON.stringify(createRowRequestDTO));
-        await dbMakerService.createRow(tempRow);
+        console.log('LOGGING ON SERVER')
+        console.log(createRowRequestDTO);
+
+        await dbMakerService.createRow(new MakeRowRequest(undefined, createRowRequestDTO, '', undefined));
     }
 
     public async editSyllabusRow(editRowRequestDTO: string) {
