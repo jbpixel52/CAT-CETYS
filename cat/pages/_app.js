@@ -6,6 +6,7 @@ import {
   QueryClientProvider,
   useQuery,
 } from "@tanstack/react-query";
+import { ReactQueryDevtoolsPanel } from "@tanstack/react-query-devtools";
 
 
 const queryClient = new QueryClient();
@@ -19,6 +20,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         </Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
         <Component {...pageProps} />
+        <ReactQueryDevtoolsPanel/>
       </QueryClientProvider>
     </SessionProvider>
   );
