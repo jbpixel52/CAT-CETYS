@@ -41,6 +41,6 @@
     "client.tss",
     "pages/index.js",
     "pages/template.jsx"
-  ],
+, "pages/_document.js"  ],
   "exclude": ["node_modules"]
 }
