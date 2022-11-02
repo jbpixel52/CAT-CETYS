@@ -1,9 +1,13 @@
 import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query'
-import { Cartas } from '@prisma/client'
+import { Cartas } from '@prisma/client';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
-export default function cartas() {
+
+
+
+export default function CartasPage() {
     const router = useRouter();
     const [ nuevaCartaQuery, setnuevaCartaQuery ] = useState(false);
     const { isLoading, error, data } = useQuery([ 'cartas' ], () => fetch('http://localhost:3000/api/db/cartas/get-syllabuses').then(r => r.json()));
@@ -31,13 +35,13 @@ export default function cartas() {
                     <p>{object.PROFESOR}</p>
                     <p>{object.SEMESTRE}</p>
                     <p>{object.id}</p>
-                    <button type="button" className="rounded bg-amber-300 p-1 m-1 hover:bg-amber-400 active:bg-amber-500 hover:font-bold drop-shadow-lg" onClick={() => router.push(`/carta/${object.id}`)}>VER CARTA</button>
+                    <Link href={`/carta/${object.id}`}>
+                        <button type="button" className="rounded bg-amber-300 p-1 m-1 hover:bg-amber-400 active:bg-amber-500 hover:font-bold drop-shadow-lg">VER CARTA</button>
+                    </Link>
                 </div>
             )
         }))
-    } catch (error) {
-
-    }
+    } catch (error) { }
     if (isLoading) return 'Loading...'
 
     if (error) return 'An error has occurred: ' + error;

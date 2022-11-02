@@ -20,7 +20,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         </Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
         <Component {...pageProps} />
-        <ReactQueryDevtoolsPanel/>
+        {/* <ReactQueryDevtoolsPanel/> */}
       </QueryClientProvider>
     </SessionProvider>
   );

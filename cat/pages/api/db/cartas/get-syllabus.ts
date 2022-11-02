@@ -18,8 +18,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
 
     try {
-        if (true) {
-            if (req.method === "GET") {
+        if (session) {
+            if (req.method === "POST") {
                 let field = await dbMakerApplication.getSyllabus(req.body)
                 res.status(200).json(field)
             }
