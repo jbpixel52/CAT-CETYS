@@ -8,12 +8,8 @@ async function makeRow(text) {
     })
 }
 
-export default function newFields() {
-    const [ input, setInput ] = useState('');
-
-
-
-
+export default function NewFields() {
+    const [ Input, setInput ] = useState('');
     return (
 
         <div className="bg-amber-300">
@@ -23,7 +19,7 @@ export default function newFields() {
             <textarea name="newField" id="newField" cols={30} rows={3} onChange={(e) => { setInput(e.target.value) }}></textarea>
 
 
-            <button className="bg-amber-400 p-3" onClick={() => { makeRow((input)) }}>ADD FIELD</button>
+            <button className="bg-amber-400 p-3" onClick={() => { makeRow((Input)) }}>ADD FIELD</button>
         </div>
 
     )
