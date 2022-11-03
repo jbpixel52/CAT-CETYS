@@ -41,3 +41,4 @@ const Carta = () => {
 }
 
 export default Carta;
+
