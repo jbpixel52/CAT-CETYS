@@ -37,6 +37,7 @@ export default function Editor() {
 
             <div>
                 {/* THE FORM FIELDS GO HERE*/}
+                <Editor></Editor>
             </div>
 
             <div>

@@ -1,5 +1,6 @@
 import { useSession } from "next-auth/react";
 import Link from "next/link";
+import Avatar from "./Avatar";
 import NavBarButton from "./navBarButtons";
 
 export default function NavBar() {
@@ -11,7 +12,7 @@ export default function NavBar() {
         <Link href={'/'}>
           CAT😺
         </Link>
-    
+
       </div>
 
       <div className="flex flex-row">
@@ -23,6 +24,7 @@ export default function NavBar() {
 
 
       </div>
+      <Avatar />
     </div>
   )
 

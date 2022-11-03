@@ -26,7 +26,11 @@ const Carta = () => {
     console.log(reqbody);
     const { isLoading, error, data } = useQuery([ 'syllabusData' ], () => fetchCarta(pid?.id?.toString()),);
 
-   // const { data: filas } = useQuery([ 'filas' ], () => { fetchFilas(data?.IDs_FILAS_CARTAS.toString()) }, { enabled: !!data })
+   const { data: filas } = useQuery([ 'filas' ], () => { fetchFilas(data?.IDs_FILAS_CARTAS.toString()) }, { enabled: !!data })
+    
+    if (data) {
+        console.log(data);
+    }
     
 
     return (
