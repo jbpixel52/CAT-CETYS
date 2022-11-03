@@ -1,8 +1,6 @@
-import { Paper, Typography, Stack, Divider, Box, TextField, Button } from "@mui/material";
 import Head from "next/head";
 import NavBar from "../components/NavBar/navigationbar"
 import { useEffect, useState } from 'react'
-import { MakeRowRequest } from "../cat-db-management/cat-dbMaker/makeRowRequest";
 import fetcher from "../utils/fetcher";
 import { camposCartas } from '@prisma/client'
 
@@ -37,7 +35,6 @@ export default function Editor() {
 
             <div>
                 {/* THE FORM FIELDS GO HERE*/}
-                <Editor></Editor>
             </div>
 
             <div>

@@ -3,6 +3,7 @@ import { Cartas } from '@prisma/client';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import NavBar from '../components/NavBar/navigationbar';
 
 
 
@@ -29,14 +30,10 @@ export default function CartasPage() {
     try {
         listCartas = (data.map((object: Cartas) => {
             return (
-                <div key={object.id} className='bg-amber-200 p-1 m-2 rounded flex-row'>
-                    <p>{object.NOMBRE_CARTA}</p>
-                    <p>{object.NOMBRE_CARRERA}</p>
-                    <p>{object.PROFESOR}</p>
-                    <p>{object.SEMESTRE}</p>
-                    <p>{object.id}</p>
+                <div key={object.id} className='p-1 m-2 rounded flex  gap-2 w-fit'>
+                    <input type="checkbox"/>
                     <Link href={`/carta/${object.id}`}>
-                        <button type="button" className="rounded bg-amber-300 p-1 m-1 hover:bg-amber-400 active:bg-amber-500 hover:font-bold drop-shadow-lg">VER CARTA</button>
+                        <p className=' font-bold underline text-sky-600'>{object.NOMBRE_CARTA}</p>
                     </Link>
                 </div>
             )
@@ -48,12 +45,12 @@ export default function CartasPage() {
 
 
     return (
-        <div className="flex h-screen justify-between bg-amber-100 flex-col p-10">
-
-            <div>
+        <div className="flex justify-between flex-col">
+            <NavBar />
+            <div className='p-4'>
                 <h1 className="text-5xl">CARTAS</h1>
 
-                <div>
+                <div className='bg-amber-200 w-fit'>
                     {listCartas}
                 </div>
 

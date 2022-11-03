@@ -7,8 +7,8 @@ export default function NavBar() {
 
   const { data: session, status } = useSession();
   return (
-    <div className="bg-amber-200 flex flex-auto flex-row p-3 content-between justify-around">
-      <div className="font-bold text-2xl">
+    <div className="bg-amber-200 h-min flex flex-auto flex-row p-3 content-between justify-around">
+      <div className="font-bold text-4xl">
         <Link href={'/'}>
           CAT😺
         </Link>
