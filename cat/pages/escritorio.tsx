@@ -14,6 +14,12 @@ import NavBar from '../components/NavBar/navigationbar'
 
 // }
 
+const randomEmoji = () => {
+    const emojis = [ '😺', '🌍','📂','😶‍🌫️','👽'];
+    return emojis[ Math.floor(Math.random() * emojis.length) ];
+}
+
+
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
     const res = await fetch('http://localhost:3000/api/db/filas/getRows', {
         method: 'GET'
@@ -37,7 +43,7 @@ export default function Desk({ data }: InferGetServerSidePropsType<typeof getSer
             </Head>
             <NavBar />
 
-            <h1>Editor</h1>
+            <h1 className='text-3xl'>{`Hola ${session?.user?.name} ${randomEmoji()}`}</h1>
             <div>
 
                 <div>
