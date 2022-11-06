@@ -43,7 +43,7 @@ export default function Desk({ data }: InferGetServerSidePropsType<typeof getSer
             </Head>
             <NavBar />
 
-            <h1 className='text-3xl'>{`Hola ${session?.user?.name} ${randomEmoji()}`}</h1>
+            <h1 className='text-5xl'>{`Hola ${session?.user?.name} ${randomEmoji()}`}</h1>
             <div>
 
                 <div>
