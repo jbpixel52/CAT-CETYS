@@ -19,7 +19,6 @@ const fetchFilas = async (filas: string[]) => {
                 method: 'POST',
                 body: JSON.stringify({ rowId: iterator }),
             }).then(r => r.json());
-       // console.log(req.filaJSON);
         filasData.push(<p key={req.id}>{req.filaJSON.toString()}</p>);
 
     }
