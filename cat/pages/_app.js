@@ -8,7 +8,6 @@ import {
 } from "@tanstack/react-query";
 import { ReactQueryDevtoolsPanel } from "@tanstack/react-query-devtools";
 
-
 const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
@@ -16,11 +15,11 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
     <SessionProvider session={session}>
       <QueryClientProvider client={queryClient}>
         <Head>
-         <title>CAT😺</title>
+          <title>CAT😺</title>
         </Head>
         <meta name="viewport" content="initial-scale=1, width=device-width" />
         <Component {...pageProps} />
-        {/* <ReactQueryDevtoolsPanel/> */}
+        {/* <ReactQueryDevtoolsPanel /> */}
       </QueryClientProvider>
     </SessionProvider>
   );

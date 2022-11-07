@@ -23,7 +23,7 @@ export default function BrandPage() {
                         <h2 className='text-3xl font-semibold'>Cartas Académicas Transcritas</h2>
                         <p>Esta aplicacion permite generar cartas descriptivas de los distintos cursos de la escuela de ingenieria, hace lo siguiente:</p>
                         <p>Guardar la informacion de los cursos para verla en cualquier formato deseado</p>
-                        <p>Generar cartas descriptivas con los formatos deseados por el usuario, disponiendo del formato CETYS, de CACEI y de WASC.
+                        <p>Generar cartas descriptivas con los formatos deseados por el usuario, disponiendo del formato CETYS y CACEI.
                         </p>
                         <p>El usuario puede generar sus propios formatos.
                         </p>
