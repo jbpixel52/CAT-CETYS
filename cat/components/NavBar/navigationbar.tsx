@@ -17,9 +17,9 @@ export default function NavBar() {
 
       <div className="flex flex-row">
 
-        <NavBarButton href="/escritorio" label='Escritorio' />
+        {/* <NavBarButton href="/escritorio" label='Escritorio' /> */}
         <NavBarButton href="/cartas" label='Cartas' />
-        <NavBarButton href="/editor" label='Editor' />
+        {/* <NavBarButton href="/editor" label='Editor' /> */}
         <NavBarButton href="/historial" label='Historial' />
 
 

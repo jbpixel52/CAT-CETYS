@@ -15,7 +15,7 @@ import NavBar from '../components/NavBar/navigationbar'
 // }
 
 const randomEmoji = () => {
-    const emojis = [ '😺', '🌍','📂','😶‍🌫️','👽'];
+    const emojis = [ '😺', '🌍','📂','😶‍🌫️','👽','🤖','🚀','(づ￣ 3￣)づ', '╰(*°▽°*)╯'];
     return emojis[ Math.floor(Math.random() * emojis.length) ];
 }
 
