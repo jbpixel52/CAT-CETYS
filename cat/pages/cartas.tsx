@@ -31,10 +31,14 @@ export default function CartasPage() {
         listCartas = (data.map((object: Cartas) => {
             return (
                 <div key={object.id} className='p-1 m-2 rounded flex  gap-2 w-fit'>
-                    <input type="checkbox"/>
+                    <input type="checkbox" />
                     <Link href={`/carta/${object.id}`}>
                         <p className=' font-bold underline text-sky-600'>{object.NOMBRE_CARTA}</p>
                     </Link>
+                    <button>  <Link href={`/editor/${object.id}`}>
+                        <p className=' font-bold underline bg-amber-300'>EDITAR CARTA</p>
+                    </Link></button>
+
                 </div>
             )
         }))

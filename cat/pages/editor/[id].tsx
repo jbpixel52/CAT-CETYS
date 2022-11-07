@@ -17,6 +17,7 @@ export default function Editor() {
     const router = useRouter();
     const pid = router.query;
     const { isLoading, error, data: syllabusData } = useQuery([ 'syllabusData' ], () => fetchCarta(pid?.id?.toString()),);
+    
 
 
 
