@@ -27,14 +27,16 @@ export default function Editor() {
         <NavBar />
 
         <h1 className="text-5xl font-bold">Editor para la carta     {syllabusData ? syllabusData.NOMBRE_CARTA : '...'}</h1>
-        <div>
+        <div className="bg-amber-100 flex flex-row space-x-10">
 
-            <div>
+            <div className="bg-sky-200">
                 {/* THE FORM FIELDS GO HERE*/}
+                LEFT SIDE  FORM SIDE
             </div>
 
-            <div>
+            <div className="bg-slate-100">
                 {/** THE CARD PREVIEW GOES HERE */}
+                RIGHT SIDE PREVIEW SIDE
             </div>
         </div>
 
