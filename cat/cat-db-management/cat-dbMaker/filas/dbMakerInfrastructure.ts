@@ -23,7 +23,8 @@ export class DbMakerInfrastructure{
       {
         filaJSON: createRowRequest.filaJSON,
         ACREDITADORA: createRowRequest.ACREDITADORA,
-        HIDE_FLAG: createRowRequest.HIDE_FLAG
+        HIDE_FLAG: createRowRequest.HIDE_FLAG,
+        campoBase: createRowRequest.campoBase
       }
     });
   }
@@ -38,7 +39,8 @@ export class DbMakerInfrastructure{
         {
           filaJSON: editRowRequest.filaJSON,
           ACREDITADORA: editRowRequest.ACREDITADORA,
-          HIDE_FLAG: editRowRequest.HIDE_FLAG
+          HIDE_FLAG: editRowRequest.HIDE_FLAG,
+          campoBase: editRowRequest.campoBase
         }
       });
     }

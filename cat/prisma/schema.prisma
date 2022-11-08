@@ -52,4 +52,5 @@ model filasCartas {
   ACREDITADORA                           String
   HIDE_FLAG                              Boolean
   filaJSON                               String
+  campoBase                              String
 }

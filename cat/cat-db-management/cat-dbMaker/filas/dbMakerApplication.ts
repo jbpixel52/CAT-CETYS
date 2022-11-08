@@ -12,17 +12,31 @@ export class DbMakerApplication {
     }
 
     public async createSyllabusRow(createRowRequestDTO: string) {
-        //let createRowRequest = this.createRowRequestMapper(createRowRequestDTO);
-        //let tempRow: MakeRowRequest = new MakeRowRequest();
         console.log('LOGGING ON SERVER')
         console.log(createRowRequestDTO);
+        
+        let createRowRequestDTOJSON: JSON = JSON.parse(createRowRequestDTO)
 
-        await dbMakerService.createRow(new MakeRowRequest(undefined, createRowRequestDTO, '', undefined));
+        await dbMakerService.createRow(new MakeRowRequest(
+            undefined,
+            createRowRequestDTOJSON["fila_JSON"],
+            createRowRequestDTOJSON["ACREDITADORA"],
+            createRowRequestDTOJSON["HIDE_FLAG"],
+            createRowRequestDTOJSON["CAMPO_BASE"]
+            )
+        );
     }
 
     public async editSyllabusRow(editRowRequestDTO: string) {
-        let editRowRequest = this.editRowRequestMapper(editRowRequestDTO);
-        await dbMakerService.editRow(editRowRequest);
+        let editRowRequestDTOJSON: JSON = JSON.parse(editRowRequestDTO)
+
+        await dbMakerService.editRow(new UpdateRowRequest(
+            editRowRequestDTOJSON["id"],
+            editRowRequestDTOJSON["fila_JSON"],
+            editRowRequestDTOJSON["ACREDITADORA"],
+            editRowRequestDTOJSON["HIDE_FLAG"],
+            editRowRequestDTOJSON["CAMPO_BASE"]
+        ));
     }
 
     public async deleteSyllabusRow(deleteRowFieldRequest: string) {
@@ -41,48 +55,5 @@ export class DbMakerApplication {
     public async getSyllabusRows() {
         let allRows = await dbMakerService.getRows();
         return allRows
-    }
-
-    private createRowRequestMapper(createRowRequestDTO: string) {
-        let createRowRequestDTOJSON: MakeRowRequest = JSON.parse(createRowRequestDTO);
-        console.log(createRowRequestDTOJSON);
-        return createRowRequestDTOJSON;
-    }
-
-    private editRowRequestMapper(editRowRequestDTO: string) {
-        try {
-            let editRowRequestDTOJSON = JSON.parse(editRowRequestDTO);
-            let editRowRequest: UpdateRowRequest = new UpdateRowRequest();
-
-            if (editRowRequestDTOJSON[ "id" ] != undefined) {
-                editRowRequest.id = editRowRequestDTOJSON[ "id" ];
-            }
-            else {
-                throw new Error("id no está presente");
-            }
-            if (editRowRequestDTOJSON[ "fila_JSON" ] != undefined) {
-                editRowRequest.filaJSON = editRowRequestDTOJSON[ "fila_JSON" ];
-            }
-            else {
-                throw new Error("fila_JSON no está presente");
-            }
-            if (editRowRequestDTOJSON[ "ACREDITADORA" ] != undefined) {
-                editRowRequest.ACREDITADORA = editRowRequestDTOJSON[ "ACREDITADORA" ];
-            }
-            else {
-                throw new Error("ACREDITADORA no está presente");
-            }
-            if (editRowRequestDTOJSON[ "HIDE_FLAG" ] != undefined) {
-                editRowRequest.HIDE_FLAG = editRowRequestDTOJSON[ "HIDE_FLAG" ];
-            }
-            else {
-                throw new Error("HIDE_FLAG no está presente");
-            }
-
-            return editRowRequest;
-        }
-        catch (errorMessage) {
-            throw new Error(errorMessage)
-        }
     }
 }
