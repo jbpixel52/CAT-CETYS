@@ -53,12 +53,13 @@ function Field(id: string) {
 }
 
 function baseField(id: string) {
-    const { isLoading: loadingField, error: fieldError, data: fieldData } = useQuery([ `fieldMetadata${id}` ], () => fetchFilas(id), {
+    // const { isLoading: loadingField, error: fieldError, data: fieldData } = useQuery([ `fieldMetadata${id}` ], () => fetchFilas(id), {
         
-    });
+    // });
 
-    const { data: campoBaseData, error:errorCampoBaseData } = useQuery([ `fieldCampoBase${fieldData}` ], () => getCampoBase(fieldData?.campoBase), { enabled: !!fieldData });
+    // const { data: campoBaseData, error:errorCampoBaseData } = useQuery([ `fieldCampoBase${fieldData}` ], () => getCampoBase(fieldData?.campoBase), { enabled: !!fieldData });
 }
+
 
 
 interface FormsProps {
