@@ -40,7 +40,7 @@ export default function BrandPage() {
             </div>
 
             <div className='flex justify-center'>
-                <p>🐈 es un proyecto de estudiantes del CETYS campus Tijuana</p>
+                <p>🐈 es un proyecto de estudiantes del CETYS campus Tijuana 🚀</p>
             </div>
         </div>
     )
