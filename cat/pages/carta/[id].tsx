@@ -8,12 +8,15 @@ const fetchCarta = async (id: string) => {
 const fetchFilas = async (filas: string[]) => {
     const filasData = [];
     for await (const iterator of filas) {
+        console.log(iterator);
         const req: filasCartas = await fetch('http://localhost:3000/api/db/filas/getRow',
             {
                 method: 'POST',
                 body: JSON.stringify({ rowId: iterator }),
             }).then(r => r.json());
-        filasData.push(<p key={req.id}>{req.filaJSON.toString()}</p>);
+
+        console.log(req?.filaJSON);
+        filasData.push(<p key={req.id}>{req.filaJSON}</p>);
     }
     return filasData;
 }
@@ -24,11 +27,9 @@ const Carta = () => {
     const { data: filas, error: errorFilas, isLoading: loadingFilas } = useQuery([ 'filas' ], () => fetchFilas(syllabusData?.IDs_FILAS_CARTAS), { enabled: !!syllabusData });
     return (
         <div>
-            <h1>Carta: {pid.id}</h1>
+
             <div>
-                {isLoading ? 'LOADING CARTA' :
-                    (syllabusData ? 'Loaded CARTA' :
-                        (error ? 'ERROR loading CARTA' : null))}
+                {isLoading ? 'CARGANDO CARTA' :<></>}
             </div>
             <div>
                 {filas ? filas : null}

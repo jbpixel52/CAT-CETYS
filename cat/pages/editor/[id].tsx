@@ -21,7 +21,7 @@ const fetchFilas = async (filas: string[]) => {
                 method: 'POST',
                 body: JSON.stringify({ rowId: iterator }),
             }).then(r => r.json());
-        filasData.push(<p key={req.id}>{req.filaJSON.toString()}</p>);
+        filasData.push(<p key={req.id}>{req.filaJSON}</p>);
     }
     return filasData;
 }
@@ -56,14 +56,14 @@ export default function Editor() {
                 LEFT SIDE  FORM SIDE
                 {filasData ? <Forms filas={syllabusData?.IDs_FILAS_CARTAS} /> : <></>}
 
-                <form onSubmit={() => { }}>
-                    <label>
-                        Nueva Seccion
-                        <input value={newField} onChange={(e) => setnewFields(e.target.value)} />
-                        <input value={newField} onChange={(e) => setnewFields(e.target.value)} />
-                    </label>
-                    <input className="bg-amber-300" type="button" value="Agregar nueva seccion" onClick={() => refetchFilas()} />
-                </form>
+                    {/* <form onSubmit={() => { }}>
+                        <label>
+                            Nueva Seccion
+                            <input value={newField} onChange={(e) => setnewFields(e.target.value)} />
+                            <input value={newField} onChange={(e) => setnewFields(e.target.value)} />
+                        </label>
+                        <input className="bg-amber-300" type="button" value="Agregar nueva seccion" onClick={() => refetchFilas()} />
+                    </form> */}
             </div>
 
             <div className="bg-slate-100 w-1/2">

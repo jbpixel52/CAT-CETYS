@@ -13,27 +13,53 @@ const fetchFilas = async (id: string) => {
     console.log(req);
     return req;
 }
-const getCamposBase = async () => {
-    const req: camposBase = await fetch('http://localhost:3000/api/db/templetes/getFields',
+const getCampoBase = async (campoBaseID: string) => {
+    const req: camposBase = await fetch('http://localhost:3000/api/db/templetes/getField',
         {
-            method: 'GET'
+            method: 'POST',
+            body: JSON.stringify({ fieldId: campoBaseID })
         }
     ).then(r => r.json());
     return req;
 }
 
+const getCamposBase = async ()=>{
+    const req: camposBase[] = await fetch('http://localhost:3000/api/db/templetes/getFields', {
+        method: 'GET'
+    }).then(r => r.json());
+    return req
+}
+
 function Field(id: string) {
     const { isLoading: loadingField, error: fieldError, data: fieldData } = useQuery([ `fieldMetadata${id}` ], () => fetchFilas(id));
-    if (fieldData) {
-        return (<div key={fieldData.id}>
-            <div>{fieldData.id}</div>
-            <textarea></textarea>
-        </div>)
+    const { data: campoBaseData, error:errorCampoBaseData } = useQuery([ `fieldCampoBase${fieldData}` ], () => getCampoBase(fieldData?.campoBase), { enabled: !!fieldData });
+
+    if (fieldData ) {
+        return (
+            <div>
+                <form>
+                    <label>
+                        {campoBaseData ? campoBaseData.DESCRIPCION_CAMPO : !!errorCampoBaseData}
+                        <textarea value={fieldData ? fieldData.filaJSON.toString() : ''} onChange={() =>{} } />
+                    </label>
+                </form>
+                
+            </div>
+        )
     }
     if (fieldError) {
         return (<></>)
     }
 }
+
+function baseField(id: string) {
+    const { isLoading: loadingField, error: fieldError, data: fieldData } = useQuery([ `fieldMetadata${id}` ], () => fetchFilas(id), {
+        
+    });
+
+    const { data: campoBaseData, error:errorCampoBaseData } = useQuery([ `fieldCampoBase${fieldData}` ], () => getCampoBase(fieldData?.campoBase), { enabled: !!fieldData });
+}
+
 
 interface FormsProps {
     filas: any[],
@@ -42,16 +68,19 @@ interface FormsProps {
 
 export default function Forms(FormsProps: { filas: any[]; }) {
     let FieldsList = [];
+    let camposBaseList = [];
+
+
+
     for (const filaId of FormsProps.filas) {
-        let fieldElement = Field(filaId);
-        FieldsList.push(fieldElement);
+        try {
+            
+            let fieldElement = Field(filaId);
+            FieldsList.push(fieldElement);
+        } catch (error) {
+            console.log(error);
+        }
     }
 
-    return (<div>
-        {FieldsList}
-
-        <div>
-
-        </div>
-    </div>)
+    return (FieldsList)
 }

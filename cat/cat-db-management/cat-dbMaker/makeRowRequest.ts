@@ -9,7 +9,7 @@ export class MakeRowRequest{
         this.filaJSON = filaJSON;
         this.ACREDITADORA = ACREDITADORA;
         this.HIDE_FLAG = HIDE_FLAG;
-        this.campoBase = campoBase
+        this.campoBase = campoBase;
     }
 }
 
