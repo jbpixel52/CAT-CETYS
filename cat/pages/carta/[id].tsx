@@ -29,7 +29,7 @@ const Carta = () => {
         <div>
 
             <div>
-                {isLoading ? 'CARGANDO CARTA' :<></>}
+                {isLoading ? 'CARGANDO CARTA' : <></>}
             </div>
             <div>
                 {filas ? filas : null}
