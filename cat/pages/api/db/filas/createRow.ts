@@ -13,7 +13,7 @@ let dbMakerApplication = new DbMakerApplication();
  * @param {NextApiResponse} res
  */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const session = await unstable_getServerSession(req, res, authOptions)
+    const session = await unstable_getServerSession(req, res, authOptions);
 
 
     if (session) {
@@ -22,7 +22,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
             try {
                 await dbMakerApplication.createSyllabusRow(req.body);
-                res.status(200).json("Sucessful row wrtite operation, or was it? thuuuuuum")
+                res.status(200).json("Sucessful row wrtite operation")
             } catch (error) {
                 console.log(error);
             }

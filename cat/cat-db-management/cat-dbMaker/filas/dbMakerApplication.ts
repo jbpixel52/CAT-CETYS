@@ -11,12 +11,8 @@ export class DbMakerApplication {
 
     }
 
-    public async createSyllabusRow(createRowRequestDTO: string) {
-        console.log('LOGGING ON SERVER')
-        console.log(createRowRequestDTO);
-        
+    public async createSyllabusRow(createRowRequestDTO: string) {        
         let createRowRequestDTOJSON: JSON = JSON.parse(createRowRequestDTO)
-
         await dbMakerService.createRow(new MakeRowRequest(
             undefined,
             createRowRequestDTOJSON["filaJSON"],
@@ -47,8 +43,6 @@ export class DbMakerApplication {
     public async getSyllabusRow(getRowIdRequest: string) {
         let fieldId = JSON.parse(getRowIdRequest)[ "rowId" ]
         let field = await dbMakerService.getRow(fieldId);
-        console.log('LOGGING cat-dbMaker in server...')
-        console.log(field);
         return field
     }
 
