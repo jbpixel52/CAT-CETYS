@@ -111,18 +111,10 @@ export default function Forms(FormsProps: { filas: any[] }) {
     let FieldsList = [];
     const { data: camposBaseData } = useQuery([ 'camposBase' ], () => getCamposBase());
     const { data: filasData } = useQuery([ 'filasData' ], () => fetchFilas(FormsProps.filas));
+    
     const { data: blocks } = useQuery([ 'blocks' ], () => CamposFormas(FormsProps.filas, filasData, camposBaseData), { enabled: !!filasData && !!camposBaseData });
 
 
-    
-    // for (const filaId of FormsProps.filas) {
-    //     try {
-    //         let fieldElement = Field(filaId);
-    //         FieldsList.push(fieldElement);
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
 
     if (blocks) { return blocks };
 }

@@ -6,6 +6,9 @@
     ],
     "settings": {
         "WillLuke.nextjs.addTypesOnSave": true,
-        "WillLuke.nextjs.hasPrompted": true
+        "WillLuke.nextjs.hasPrompted": true,
+        "marquee.widgets.npm-stats.packageNames": [
+            "cat"
+        ]
     }
 }
