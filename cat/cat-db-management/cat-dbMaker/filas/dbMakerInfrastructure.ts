@@ -11,9 +11,9 @@ export const enum fieldTypes {
 }
 
 
-export class DbMakerInfrastructure{
+export class DbMakerInfrastructure {
 
-  public dbMakerInfrastucture(){
+  public dbMakerInfrastucture() {
 
   }
 
@@ -29,10 +29,10 @@ export class DbMakerInfrastructure{
     });
   }
 
-  public async updateRow(editRowRequest: UpdateRowRequest){
-    try{
+  public async updateRow(editRowRequest: UpdateRowRequest) {
+    try {
       await prisma.filasCartas.update({
-        where:{
+        where: {
           id: editRowRequest.id,
         },
         data:
@@ -44,18 +44,18 @@ export class DbMakerInfrastructure{
         }
       });
     }
-    catch(error){
-      if (error instanceof Prisma.PrismaClientKnownRequestError){
-        if(error.code === 'P2023'){
+    catch (error) {
+      if (error instanceof Prisma.PrismaClientKnownRequestError) {
+        if (error.code === 'P2023') {
           throw new Error("id dada es en formato incorrecto");
         }
-      }else{
+      } else {
         throw new Error(error.message);
       }
     }
   }
 
-  public async removeRow(rowId: string){
+  public async removeRow(rowId: string) {
     let result = await prisma.filasCartas.delete({
       where: {
         id: rowId
@@ -63,9 +63,9 @@ export class DbMakerInfrastructure{
     });
   }
 
-  public async getRow(rowId: string){
+  public async getRow(rowId: string) {
     let result = await prisma.filasCartas.findFirst({
-      where:{
+      where: {
         id: {
           equals: rowId
         }

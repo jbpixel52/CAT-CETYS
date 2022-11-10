@@ -19,7 +19,7 @@ export class DbMakerApplication {
 
         await dbMakerService.createRow(new MakeRowRequest(
             undefined,
-            createRowRequestDTOJSON["fila_JSON"],
+            createRowRequestDTOJSON["filaJSON"],
             createRowRequestDTOJSON["ACREDITADORA"],
             createRowRequestDTOJSON["HIDE_FLAG"],
             createRowRequestDTOJSON["CAMPO_BASE"]
@@ -32,7 +32,7 @@ export class DbMakerApplication {
 
         await dbMakerService.editRow(new UpdateRowRequest(
             editRowRequestDTOJSON["id"],
-            editRowRequestDTOJSON["fila_JSON"],
+            editRowRequestDTOJSON["filaJSON"],
             editRowRequestDTOJSON["ACREDITADORA"],
             editRowRequestDTOJSON["HIDE_FLAG"],
             editRowRequestDTOJSON["CAMPO_BASE"]
