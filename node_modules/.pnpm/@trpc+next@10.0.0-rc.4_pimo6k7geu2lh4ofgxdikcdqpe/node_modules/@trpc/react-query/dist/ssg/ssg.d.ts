@@ -1,0 +1,23 @@
+import { DehydrateOptions, DehydratedState, InfiniteData } from '@tanstack/react-query';
+import { AnyRouter, ClientDataTransformerOptions, inferProcedureOutput, inferRouterContext } from '@trpc/server';
+import { CreateTRPCReactQueryClientConfig } from '../shared';
+interface CreateSSGHelpersOptionsBase<TRouter extends AnyRouter> {
+    router: TRouter;
+    ctx: inferRouterContext<TRouter>;
+    transformer?: ClientDataTransformerOptions;
+}
+export declare type CreateSSGHelpersOptions<TRouter extends AnyRouter> = CreateSSGHelpersOptionsBase<TRouter> & CreateTRPCReactQueryClientConfig;
+/**
+ * Create functions you can use for server-side rendering / static generation
+ * @deprecated use `createProxySSGHelpers` instead
+ */
+export declare function createSSGHelpers<TRouter extends AnyRouter>(opts: CreateSSGHelpersOptions<TRouter>): {
+    prefetchQuery: <TPath extends keyof TRouter["_def"]["queries"] & string, TProcedure extends TRouter["_def"]["queries"][TPath]>(path: TPath, ...args: import("@trpc/server").ProcedureArgs<import("@trpc/server").inferProcedureParams<TProcedure>>) => Promise<void>;
+    prefetchInfiniteQuery: <TPath_1 extends keyof TRouter["_def"]["queries"] & string, TProcedure_1 extends TRouter["_def"]["queries"][TPath_1]>(path: TPath_1, ...args: import("@trpc/server").ProcedureArgs<import("@trpc/server").inferProcedureParams<TProcedure_1>>) => Promise<void>;
+    fetchQuery: <TPath_2 extends keyof TRouter["_def"]["queries"] & string, TProcedure_2 extends TRouter["_def"]["queries"][TPath_2], TOutput extends inferProcedureOutput<TProcedure_2>>(path: TPath_2, ...args: import("@trpc/server").ProcedureArgs<import("@trpc/server").inferProcedureParams<TProcedure_2>>) => Promise<TOutput>;
+    fetchInfiniteQuery: <TPath_3 extends keyof TRouter["_def"]["queries"] & string, TProcedure_3 extends TRouter["_def"]["queries"][TPath_3], TOutput_1 extends inferProcedureOutput<TProcedure_3>>(path: TPath_3, ...args: import("@trpc/server").ProcedureArgs<import("@trpc/server").inferProcedureParams<TProcedure_3>>) => Promise<InfiniteData<TOutput_1>>;
+    dehydrate: (opts?: DehydrateOptions) => DehydratedState;
+    queryClient: import("@tanstack/react-query").QueryClient;
+};
+export {};
+//# sourceMappingURL=ssg.d.ts.map

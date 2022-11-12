@@ -1,0 +1,36 @@
+import { DehydrateOptions, DehydratedState, InfiniteData, QueryClient } from '@tanstack/react-query';
+import { AnyProcedure, AnyQueryProcedure, AnyRouter, Filter, inferHandlerInput, inferProcedureOutput } from '@trpc/server';
+import { CreateSSGHelpersOptions } from './ssg';
+declare type DecorateProcedure<TProcedure extends AnyProcedure> = {
+    /**
+     * @link https://react-query.tanstack.com/guides/prefetching
+     */
+    fetch(...args: inferHandlerInput<TProcedure>): Promise<inferProcedureOutput<TProcedure>>;
+    /**
+     * @link https://react-query.tanstack.com/guides/prefetching
+     */
+    fetchInfinite(...args: inferHandlerInput<TProcedure>): Promise<InfiniteData<inferProcedureOutput<TProcedure>>>;
+    /**
+     * @link https://react-query.tanstack.com/guides/prefetching
+     */
+    prefetch(...args: inferHandlerInput<TProcedure>): Promise<void>;
+    /**
+     * @link https://react-query.tanstack.com/guides/prefetching
+     */
+    prefetchInfinite(...args: inferHandlerInput<TProcedure>): Promise<void>;
+};
+/**
+ * @internal
+ */
+export declare type DecoratedProcedureSSGRecord<TRouter extends AnyRouter> = {
+    [TKey in keyof Filter<TRouter['_def']['record'], AnyRouter | AnyQueryProcedure>]: TRouter['_def']['record'][TKey] extends AnyRouter ? DecoratedProcedureSSGRecord<TRouter['_def']['record'][TKey]> : DecorateProcedure<TRouter['_def']['record'][TKey]>;
+};
+/**
+ * Create functions you can use for server-side rendering / static generation
+ */
+export declare function createProxySSGHelpers<TRouter extends AnyRouter>(opts: CreateSSGHelpersOptions<TRouter>): {
+    queryClient: QueryClient;
+    dehydrate: (opts?: DehydrateOptions) => DehydratedState;
+} & DecoratedProcedureSSGRecord<TRouter>;
+export {};
+//# sourceMappingURL=ssgProxy.d.ts.map

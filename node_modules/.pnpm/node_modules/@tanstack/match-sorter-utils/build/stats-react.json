@@ -1,0 +1,76 @@
+{
+  "version": 2,
+  "tree": {
+    "name": "root",
+    "children": [
+      {
+        "name": "index.production.js",
+        "children": [
+          {
+            "name": "packages/match-sorter-utils/src",
+            "children": [
+              {
+                "uid": "ebf9-229",
+                "name": "remove-accents.ts"
+              },
+              {
+                "uid": "ebf9-231",
+                "name": "index.ts"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "isRoot": true
+  },
+  "nodeParts": {
+    "ebf9-229": {
+      "renderedLength": 5602,
+      "gzipLength": 1577,
+      "brotliLength": 0,
+      "mainUid": "ebf9-228"
+    },
+    "ebf9-231": {
+      "renderedLength": 9520,
+      "gzipLength": 2798,
+      "brotliLength": 0,
+      "mainUid": "ebf9-230"
+    }
+  },
+  "nodeMetas": {
+    "ebf9-228": {
+      "id": "/packages/match-sorter-utils/src/remove-accents.ts",
+      "moduleParts": {
+        "index.production.js": "ebf9-229"
+      },
+      "imported": [],
+      "importedBy": [
+        {
+          "uid": "ebf9-230"
+        }
+      ]
+    },
+    "ebf9-230": {
+      "id": "/packages/match-sorter-utils/src/index.ts",
+      "moduleParts": {
+        "index.production.js": "ebf9-231"
+      },
+      "imported": [
+        {
+          "uid": "ebf9-228"
+        }
+      ],
+      "importedBy": [],
+      "isEntry": true
+    }
+  },
+  "env": {
+    "rollup": "2.79.1"
+  },
+  "options": {
+    "gzip": true,
+    "brotli": false,
+    "sourcemap": false
+  }
+}
