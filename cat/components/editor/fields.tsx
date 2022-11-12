@@ -24,6 +24,7 @@ const getCampoBase = async (campoBaseID: string) => {
     return req;
 }
 
+
 const getCamposBase = async () => {
     const req: camposBase[] = await fetch('http://localhost:3000/api/db/templetes/getFields', {
         method: 'GET'

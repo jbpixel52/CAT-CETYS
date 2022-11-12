@@ -13,9 +13,9 @@ let dbMakerApplication = new DbMakerApplication();
  * @param {NextApiResponse} res
  */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const session = await unstable_getServerSession(req, res, authOptions)
+    const session = await unstable_getServerSession(req, res, authOptions);
 
-    try {
+    try {   
         if(true){
             if(req.method === 'GET'){
                 let fields = await dbMakerApplication.getSyllabusRows()
