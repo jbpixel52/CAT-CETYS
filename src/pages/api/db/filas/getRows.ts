@@ -16,7 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const session = await unstable_getServerSession(req, res, authOptions);
 
     try {   
-        if(true){
+        if(session){
             if(req.method === 'GET'){
                 let fields = await dbMakerApplication.getSyllabusRows()
                 res.status(200).json(fields);

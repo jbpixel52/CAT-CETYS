@@ -1,9 +1,4 @@
 {
-    "folders": [
-        {
-            "path": "cat"
-        }
-    ],
     "settings": {
         "WillLuke.nextjs.addTypesOnSave": true,
         "WillLuke.nextjs.hasPrompted": true,
