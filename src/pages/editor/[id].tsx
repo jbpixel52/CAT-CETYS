@@ -1,3 +1,4 @@
+import Head from "next/head";
 import NavBar from "../../components/NavBar/navigationbar";
 import { useRouter } from 'next/router'
 import { useQuery } from '@tanstack/react-query';
@@ -11,8 +12,11 @@ const fetchCarta = async (id: string) => {
 export default function Editor() {
     const router = useRouter();
     const pid = router.query;
-    const { data: syllabusData } = useQuery([ `${pid?.id}` ], () => fetchCarta(pid?.id?.toString()));
+    const { isLoading, error, data: syllabusData } = useQuery([ `${pid?.id}` ], () => fetchCarta(pid?.id?.toString()));
     return (<div>
+        <Head>
+            <title>Editor</title>
+        </Head>
         <NavBar />
         <h1 className="text-2xl font-bold m-2 underline">Editor para la carta     {syllabusData ? syllabusData.NOMBRE_CARTA : '...'}</h1>
         <div className="bg-amber-100 flex flex-row space-x-10">
@@ -28,7 +32,7 @@ export default function Editor() {
                 {/** THE CARD PREVIEW GOES HERE */}
                 <h2>RIGHT SIDE PREVIEW SIDE</h2>
                 <div>
-                    {syllabusData ? <Preview syllabusData={syllabusData} /> : <></>}
+                    {syllabusData ? <Preview syllabusData={syllabusData}/> : <></>}
                 </div>
             </div>
         </div>
