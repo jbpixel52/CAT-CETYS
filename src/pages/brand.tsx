@@ -1,5 +1,5 @@
 import Login from '../components/login/login';
-import Image from 'next/future/image'
+import Image from 'next/image'
 import { useRouter } from 'next/router'
 import { useSession } from 'next-auth/react';
 
