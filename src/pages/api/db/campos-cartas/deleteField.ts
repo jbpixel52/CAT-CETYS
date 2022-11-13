@@ -1,11 +1,8 @@
-import { NextApiRequest, NextApiResponse } from "next"
-import { DbMakerApplication } from "../../../../cat-db-management/cat-dbMaker/campos-cartas/dbMakerApplication"
-import { useSession, signIn, signOut } from "next-auth/react";
-import { unstable_getServerSession } from "next-auth/next"
-import authOptions from "../../../../utils/auth/options"
+import type { NextApiRequest, NextApiResponse } from "next"
+import { DbMakerApplication } from "../../../../db/cat/campos-cartas/dbMakerApplication"
+import { getServerAuthSession } from "../../../../server/common/get-server-auth-session";
 
 
-let dbMakerApplication = new DbMakerApplication();
 
 
 /**
@@ -16,8 +13,8 @@ let dbMakerApplication = new DbMakerApplication();
  * @param {NextApiResponse} res
  */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const session = await unstable_getServerSession(req, res, authOptions)
-
+    const dbMakerApplication = new DbMakerApplication();
+    const session = await getServerAuthSession({ req, res });
     try {
         if (session) {
             if (req.method === "POST") {

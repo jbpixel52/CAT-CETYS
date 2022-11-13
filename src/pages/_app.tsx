@@ -1,7 +1,5 @@
-import AppType from "next/app";
 import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
-import { trpc } from "../utils/trpc";
 import '../styles/globals.css'
 import {
   QueryClient,
@@ -10,7 +8,13 @@ import {
 
 const queryClient = new QueryClient();
 
-const MyApp: AppType<{ session: Session | null }> = ({Component, pageProps: {session, ...pageProps }}) => {
+type MyAppProps = {
+  session: Session,
+  Component: undefined,
+  pageProps: undefined,
+}
+
+const MyApp =({session, Component, ...pageProps}:MyAppProps) => {
   return (
     <SessionProvider session={session}>
       <QueryClientProvider client={queryClient}>
@@ -20,4 +24,4 @@ const MyApp: AppType<{ session: Session | null }> = ({Component, pageProps: {ses
   );
 }
 
-export default trpc.withTRPC(MyApp);
+export default MyApp

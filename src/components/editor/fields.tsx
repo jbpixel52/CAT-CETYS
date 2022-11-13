@@ -40,7 +40,7 @@ function Field(id: string) {
                 <form>
                     <label>
                         {campoBaseData ? campoBaseData.DESCRIPCION_CAMPO : !!errorCampoBaseData}
-                        <textarea value={fieldData ? fieldData.filaJSON.toString() : ''} onChange={() => { }} />
+                        <textarea value={fieldData ? fieldData.filaJSON.toString() : ''} onChange={() => {console.log('typed in textarea')}} />
                     </label>
                 </form>
 

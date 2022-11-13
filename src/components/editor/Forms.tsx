@@ -33,14 +33,15 @@ const Field = ({ fila, camposBase }: FieldProps) => {
     const [ text, settext ] = useState(fila ? fila.filaJSON.toString() : '')
     const matchingBase: camposBase = camposBase.find((campo) => campo.id === fila.campoBase);
     return (
-        <div className='p-1 space-around rounded-sm divide-y divide-dashed'><form id={'form' + fila.id}>
-            <p className='font-bold w-min-1/3 w-max-1/2 underline break-all ... '>{matchingBase?.DESCRIPCION_CAMPO ? matchingBase.DESCRIPCION_CAMPO: 'campo sin base'}{ }</p>
-            <label className='flex place-content-between'>
-                <TextareaAutosize maxRows={5} autoFocus className='flex flex-auto mx-3 mb-2 p-1 bg-slate-200 border-2 rounded-lg border-blue-100	hover:font-bold' value={text} onChange={(e) => { settext(e.target.value) }} />
-                <button className="bg-amber-300 rounded-lg font-bold h-fit mx-1 px-1 my-1 py-1 content-center	 hover:bg-amber-400">GUARDAR</button>
+        <div className='flex justify-between items-center space-x-1 space-y-1 h-auto w-auto'>
+            <form id={'form' + fila.id}>
+                <p className='font-bold underline break-all ... '>{matchingBase?.DESCRIPCION_CAMPO ? matchingBase.DESCRIPCION_CAMPO : 'campo sin base'}{ }</p>
+                <label className='flex'>
+                    <TextareaAutosize maxRows={5} autoFocus className='mx-3 mb-2 p-1 bg-slate-200 border-2 rounded-lg border-blue-100	hover:font-bold' value={text} onChange={(e) => { settext(e.target.value) }} />
+                    <button className="bg-amber-300 rounded-lg font-bold h-fit mx-1 px-1 my-1 py-1 content-center	 hover:bg-amber-400">GUARDAR</button>
 
-            </label>
-        </form>
+                </label>
+            </form>
 
         </div>
     )

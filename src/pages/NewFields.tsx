@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { MakeRowRequest } from "../cat-db-management/cat-dbMaker/makeRowRequest";
-async function makeRow(text) {
+async function makeRow(text: string) {
     console.log(text);
     const req = await fetch('http://localhost:3000/api/db/filas/createRow', {
         method: 'POST',
         body: text,
     })
+    
 }
 
 export default function NewFields() {
@@ -19,7 +19,7 @@ export default function NewFields() {
             <textarea name="newField" id="newField" cols={30} rows={3} onChange={(e) => { setInput(e.target.value) }}></textarea>
 
 
-            <button className="bg-amber-400 p-3" onClick={() => { makeRow((Input)) }}>ADD FIELD</button>
+            <button className="bg-amber-400 p-3" onClick={() => { void makeRow((Input)) }}>ADD FIELD</button>
         </div>
 
     )
