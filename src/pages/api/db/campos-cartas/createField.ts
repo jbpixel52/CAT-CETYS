@@ -14,10 +14,7 @@ let dbMakerApplication = new DbMakerApplication();
  * @param {NextApiResponse} res
  */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    console.log('AUTHOPTIONS OBJECT');
-    console.log(authOptions);
     const session = await unstable_getServerSession(req, res, authOptions)
-
     try {
         if (session) {
             if (req.method === 'POST') {
