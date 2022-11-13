@@ -1,8 +1,6 @@
-import { NextApiRequest, NextApiResponse } from "next"
-import { DbMakerApplication } from "../../../../cat-db-management/cat-dbMaker/filas/dbMakerApplication"
-import { unstable_getServerSession } from "next-auth/next"
-import authOptions from "../../../../utils/auth/options"
-let dbMakerApplication = new DbMakerApplication();
+import type { NextApiRequest, NextApiResponse } from "next"
+import { DbMakerApplication } from "../../../../db/cat/filas/dbMakerApplication"
+import { getServerAuthSession } from "../../../../server/common/get-server-auth-session"
 
 /**
  *
@@ -12,22 +10,14 @@ let dbMakerApplication = new DbMakerApplication();
  * @param {NextApiResponse} res
  */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const session = await unstable_getServerSession(req, res, authOptions)
-
+    const session = await getServerAuthSession({ req, res })
+    const dbMakerApplication = new DbMakerApplication();
     try {
         if (session) {
             if (req.method === 'GET') {
                 const fields = await dbMakerApplication.getSyllabusRows()
                 res.status(200).json(fields);
-            }
-            else {
-                res.status(400).json("Este endpoint es solo para solicitudes GET para obtener las filas de cartas")
-            }
-        } else {
-            res.status(401).json("Unathourized access.")
-        }
-    }
-    catch (error) {
-        res.status(500).json(error);
-    }
+            } else { res.status(400).json("DENIED: FOR GET REQUESTS ONLY") }
+        } else { res.status(401).json("Unathourized") }
+    } catch (error) { res.status(500).json(error) }
 }

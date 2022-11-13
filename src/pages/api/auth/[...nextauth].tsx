@@ -1,7 +1,6 @@
 import GoogleProvider from "next-auth/providers/google";
 import NextAuth, { type NextAuthOptions } from "next-auth";// Prisma adapter for NextAuth, optional and can be removed
 import { env } from "../../../env/server.mjs";
-import { prisma } from "../../../server/db/client";
 
 
 const authOptions: NextAuthOptions = {
@@ -24,3 +23,5 @@ const authOptions: NextAuthOptions = {
 };
 
 export default NextAuth(authOptions);
+
+export { authOptions };

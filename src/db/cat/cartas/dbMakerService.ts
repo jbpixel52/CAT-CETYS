@@ -6,6 +6,9 @@ import { MakeSyllabusRequest } from "../makeSyllabusRequest";
 let dbMakerInfrastructure = new DbMakerInfrastructure;
 
 export class DbMakerService{
+    editRow(editSyallabus: any) {
+        throw new Error("Method not implemented.");
+    }
 
     public dbMakerService(){
 

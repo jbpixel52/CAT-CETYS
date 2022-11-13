@@ -1,40 +1,33 @@
-import { NextApiRequest, NextApiResponse } from "next"
-import { DbMakerApplication } from "../../../../cat-db-management/cat-dbMaker/cartas/dbMakerApplication"
-import { unstable_getServerSession } from "next-auth/next"
-import authOptions from "../../../../utils/auth/options"
-
-
-let dbMakerApplication = new DbMakerApplication();
-
+import type { Cartas } from "@prisma/client";
+import type { NextApiRequest, NextApiResponse } from "next"
+import { DbMakerApplication } from '../../../../db/cat/cartas/dbMakerApplication'
+import { getServerAuthSession } from '../../../../server/common/get-server-auth-session'
 
 /**
- *
- *
- * @export
- * @param {NextApiRequest} req
- * @param {NextApiResponse} res
+ * @export handler
+ * @param {NextApiRequest} req   {    method: "GET"   }
+ * @param {Cartas[]} res Cartas[....] as JSON
  */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const session = await unstable_getServerSession(req, res, authOptions)
-
+    const dbMakerApplication = new DbMakerApplication();
+    const session = await getServerAuthSession({ req, res })
+    //author OMAR
     try {
-        if(session){
-            if(req.method === 'GET'){
-                let fields = await dbMakerApplication.getSyllabuses()
+        if (session) {
+            if (req.method === 'GET') {
+                const fields = await dbMakerApplication.getSyllabuses();
+                console.log(fields)
                 res.status(200).json(fields)
+            } else {
+                res.status(400).json("DENIED: FOR GET REQUESTS ONLY")
             }
-            else{
-                res.status(400).json("Este endpoint es solo para solicitudes GET para obtener los cartas descriptivas")
-            }
-        }else {
+        } else {
             res.status(401).json("Unathourized access.")
         }
-    
     } catch (error) {
-        res.status(500).json(error.message);
-        
+        res.status(500).json(error);
     }
-
-   
+    //author JULIO
+    //session ? req.method === 'GET' ? res.status(200).json(await dbMakerApplication.getSyllabuses()) : res.status(400).json("DENIED: FOR GET REQUESTS ONLY") : res.status(401).json("Unathourized access.")
 
 }

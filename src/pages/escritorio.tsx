@@ -1,7 +1,7 @@
 
 import { useSession } from 'next-auth/react'
 import Head from 'next/head'
-import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next/types'
+
 import NavBar from '../components/NavBar/navigationbar'
 
 
@@ -18,19 +18,8 @@ const randomEmoji = () => {
 }
 
 
-export async function getServerSideProps(ctx: GetServerSidePropsContext) {
-    const res = await fetch('http://localhost:3000/api/db/filas/getRows', {
-        method: 'GET'
-    })
-    let req_data = await JSON.parse(JSON.stringify(await res.json()));
-    return {
-        props: {
-            data: req_data
-        }
-    };
-}
 
-export default function Desk({ data }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function Desk() {
     const { data: session } = useSession();
 
     if (session) {

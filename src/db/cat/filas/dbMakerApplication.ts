@@ -6,6 +6,9 @@ let dbMakerService = new DbMakerService();
 
 
 export class DbMakerApplication {
+    getSyllabuses() {
+        throw new Error("Method not implemented.");
+    }
 
     public dbMakerApplication() {
 
