@@ -1,9 +1,7 @@
-import { Paper, Box } from '@mui/material'
-import Button from '@mui/material/Button'
+
 import { useSession } from 'next-auth/react'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
-import { GetServerSideProps, GetServerSidePropsContext, InferGetServerSidePropsType } from 'next/types'
+import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next/types'
 import NavBar from '../components/NavBar/navigationbar'
 
 
@@ -15,7 +13,7 @@ import NavBar from '../components/NavBar/navigationbar'
 // }
 
 const randomEmoji = () => {
-    const emojis = [ '😺', '🌍','📂','😶‍🌫️','👽','🤖','🚀','(づ￣ 3￣)づ', '╰(*°▽°*)╯'];
+    const emojis = [ '😺', '🌍', '📂', '😶‍🌫️', '👽', '🤖', '🚀', '(づ￣ 3￣)づ', '╰(*°▽°*)╯' ];
     return emojis[ Math.floor(Math.random() * emojis.length) ];
 }
 

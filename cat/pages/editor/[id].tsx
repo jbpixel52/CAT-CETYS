@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Cartas } from '@prisma/client';
 import NewField from "../../components/editor/NewField";
 import Preview from "../../components/editor/Preview";
+import Forms from '../../components/editor/Forms'
 const fetchCarta = async (id: string) => {
     const req: Cartas = await fetch('http://localhost:3000/api/db/cartas/get-syllabus', { method: 'POST', body: JSON.stringify({ "syllabusId": id }) }).then(r => r.json());
     return req;
@@ -12,19 +13,19 @@ export default function Editor() {
     const router = useRouter();
     const pid = router.query;
     const { data: syllabusData } = useQuery([ `${pid?.id}` ], () => fetchCarta(pid?.id?.toString()));
-    return (<div>
-        <NavBar />
-        <h1 className="text-2xl font-bold m-2 underline">Editor para la carta     {syllabusData ? syllabusData.NOMBRE_CARTA : '...'}</h1>
-        <div className="bg-amber-100 flex flex-row space-x-10">
 
-            <div className="bg-sky-200 w-1/2">
+    return (<div className="p-2 h-screen ">
+        <NavBar />
+        <h1 className="text-2xl bg-amber-200 p-1 rounded-sm font-bold m-2">{syllabusData ? syllabusData.NOMBRE_CARTA : '...'}</h1>
+        <div className=" flex flex-row space-x-10 place-content-center" >
+            <div className=" w-3/5">
                 {/* THE FORM FIELDS GO HERE*/}
-                LEFT SIDE  FORM SIDE
+                {syllabusData ? <Forms props={syllabusData} /> : null}
                 <NewField syllabusData={syllabusData} />
 
             </div>
 
-            <div className="bg-slate-100 w-1/2">
+            <div className=" w-2/5">
                 {/** THE CARD PREVIEW GOES HERE */}
                 <h2>RIGHT SIDE PREVIEW SIDE</h2>
                 <div>
@@ -33,5 +34,7 @@ export default function Editor() {
             </div>
         </div>
 
-    </div>);
+    </div>)
+
+
 }

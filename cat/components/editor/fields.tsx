@@ -2,8 +2,7 @@
 //workspace => terminal => npx prisma studio para ver la info de cartas
 import { Cartas, filasCartas, camposBase, camposCartas } from '@prisma/client';
 import { useQuery } from '@tanstack/react-query';
-import { match } from 'assert';
-import { useState } from 'react';
+
 const fetchFila = async (id: string) => {
     const filasData = [];
     const req: filasCartas = await fetch('http://localhost:3000/api/db/filas/getRow',
@@ -91,14 +90,14 @@ const CamposFormas = async (filas: string[], filasData: filasCartas[], camposBas
                 let matchedObj: filasCartas = filasData.find((fila) => fila.campoBase == campoBase.id);
                 console.log(matchedObj);
                 blocks.push(
-                    <div>
-                        <form >
-                            <label>
-                                {campoBase.DESCRIPCION_CAMPO}
-                                <textarea value={matchedObj.filaJSON.toString()}></textarea>
-                            </label>
-                        </form>
-                    </div>
+
+                    <form >
+                        <label>
+                            {campoBase.DESCRIPCION_CAMPO}
+                            <textarea value={matchedObj.filaJSON.toString()}></textarea>
+                        </label>
+                    </form>
+
                 )
             }
         }
@@ -108,13 +107,17 @@ const CamposFormas = async (filas: string[], filasData: filasCartas[], camposBas
 }
 
 export default function Forms(FormsProps: { filas: any[] }) {
-    let FieldsList = [];
+    console.log('Forms');
     const { data: camposBaseData } = useQuery([ 'camposBase' ], () => getCamposBase());
     const { data: filasData } = useQuery([ 'filasData' ], () => fetchFilas(FormsProps.filas));
-    
+
     const { data: blocks } = useQuery([ 'blocks' ], () => CamposFormas(FormsProps.filas, filasData, camposBaseData), { enabled: !!filasData && !!camposBaseData });
 
 
-
-    if (blocks) { return blocks };
+    if (blocks) {
+        console.log('returning blocks')
+        return (<>{blocks}</>)
+    };
+    return (<>Forma</>)
 }
+
