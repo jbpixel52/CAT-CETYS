@@ -9,15 +9,16 @@ export default function Avatar() {
     return (
         <Popover className="relative">
             <Popover.Button className={"rounded-full overflow-clip"}>
-                <Image src={session ? session.user.image : '/favicon.ico'} alt={`Foto perfil de ${session?.user?.name}`} width={30} height={30}></Image></Popover.Button>
+                <div className="avatar">
+                    <div className="w-24 rounded-full">
+                        <Image src={session ? session.user.image : '/favicon.ico'} alt={`Foto perfil de ${session?.user?.name}`} width={30} height={30}>
+                        </Image>
+                    </div>
+                </div>
+            </Popover.Button>
 
             <Popover.Panel className="absolute z-30">
-                <div className="bg-pink-50  flex-row">
-
-                        <Login/>
-                </div>
-
-
+                    <Login />
             </Popover.Panel>
         </Popover>
     )

@@ -7,6 +7,6 @@ export default function BotonNuevaCarta() {
             enabled: false,
         });
     return (
-        <button type="button" className="rounded bg-amber-300 p-1 m-1 hover:bg-amber-400 active:bg-amber-500 hover:font-bold drop-shadow-lg" onClick={() => data()}>CREAR NUEVA CARTA</button>
+        <button type="button" className="" onClick={() => data()}>CREAR NUEVA CARTA</button>
     )
 }

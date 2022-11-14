@@ -1,44 +1,33 @@
 
 import { useSession } from 'next-auth/react'
 import Head from 'next/head'
-
 import NavBar from '../components/NavBar/navigationbar'
-
-
-
-// You should use getServerSideProps when:
-// - Only if you need to pre-render a page whose data must be fetched at request time
-// export const getServerSideProps: GetServerSideProps = async () => {
-
-// }
 
 const randomEmoji = () => {
     const emojis = [ '😺', '🌍', '📂', '😶‍🌫️', '👽', '🤖', '🚀', '(づ￣ 3￣)づ', '╰(*°▽°*)╯' ];
     return emojis[ Math.floor(Math.random() * emojis.length) ];
 }
 
-
-
-export default function Desk() {
+export default function Escritorio() {
     const { data: session } = useSession();
-
     if (session) {
-        //MAIN LANDING PAGE, Desk name is a reference to a desk as the first workspace.
-        return (<div>
+        return (<div className='flex flex-col justify-evenly items-center w-screen'>
             <Head>
                 <title>Editor</title>
             </Head>
             <NavBar />
 
-            <h1 className='text-5xl'>{`Hola ${session?.user?.name} ${randomEmoji()}`}</h1>
-            <div>
+            <h1>{`Hola ${session?.user?.name} ${randomEmoji()}`}</h1>
+            <div className='flex flex-auto justify-between'>
 
                 <div>
                     {/* LEFT SIDE */}
+                    HELLO WORLD
                 </div>
 
                 <div>
                     {/** RIGHT SIDE */}
+                    HELLO WORLD!
                 </div>
             </div>
 

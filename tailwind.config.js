@@ -8,12 +8,22 @@ module.exports = {
   ],
   theme: {
     fontFamily: {
-      "Grotesk":["Space Grotesk"]
+      Grotesk: ["Space Grotesk"],
     },
 
-    extend: {
-
-    },
+    extend: {},
   },
-  plugins: [],
-}
+  variants: {},
+
+  plugins: [require("@tailwindcss/typography"), require("daisyui")],
+  daisyui: {
+    styled: true,
+    themes: true,
+    base: true,
+    utils: true,
+    logs: true,
+    rtl: false,
+    prefix: "",
+    darkTheme: "dark",
+  },
+};

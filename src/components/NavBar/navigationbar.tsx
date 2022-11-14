@@ -1,5 +1,6 @@
 import { useSession } from "next-auth/react";
 import Link from "next/link";
+import ThemeSelector from "../theme/themeSelector";
 import Avatar from "./Avatar";
 import NavBarButton from "./navBarButtons";
 
@@ -7,24 +8,18 @@ export default function NavBar() {
 
   const { data: session, status } = useSession();
   return (
-    <div className="bg-amber-200 h-min flex flex-auto flex-row p-3 content-between justify-around">
-      <div className="font-bold text-4xl">
-        <Link href={'/'}>
-          CAT😺
-        </Link>
+    <div className="flex justify-evenly items-center w-screen item h-auto flex-grow">
 
-      </div>
-
-      <div className="flex flex-row">
-
-        {/* <NavBarButton href="/escritorio" label='Escritorio' /> */}
+      <div className="btn-group">
         <NavBarButton href="/cartas" label='Cartas' />
-        {/* <NavBarButton href="/editor" label='Editor' /> */}
         <NavBarButton href="/historial" label='Historial' />
-
-
       </div>
+      <Link href={'/'}>
+       <h1 className="text-xl font-bold">CAT😺</h1>
+      </Link>
       <Avatar />
+      <ThemeSelector />
+
     </div>
   )
 

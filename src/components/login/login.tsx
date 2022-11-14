@@ -7,13 +7,13 @@ export default function Login() {
   if (session) {
     //CHANGE URL IN THE CALLBACK URL 
     return (
-      <button className="rounded bg-amber-300 p-1 m-1 hover:bg-amber-400 active:bg-amber-500 hover:font-bold drop-shadow-lg" onClick={() => {
+      <button className="btn-accent	" onClick={() => {
         signOut({ callbackUrl: 'http://localhost:3000/' })
       }
       }>Cerrar sesión</button>)
   }
   return (
 
-    <button className="rounded bg-amber-300 p-1 m-1 hover:bg-amber-400 active:bg-amber-500 hover:font-bold drop-shadow-lg" type="button" onClick={() => signIn("google", signInParams)}>Iniciar sesión con Google</button>
+    <button className="btn btn-outline" type="button" onClick={() => signIn("google", signInParams)}>Iniciar sesión con Google</button>
   )
 }

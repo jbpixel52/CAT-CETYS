@@ -37,8 +37,8 @@ const CamposBaseSelectField = () => {
     //TODO MAKE SELECT FIELD WIDTH TO THE MINIMUM SIZE
     if (camposBaseData) {
         return (
-            <select className="flex w-min bg-amber-50 hover:font-bold" value={selection} onChange={(e) => setSelection(e.target.value)} >
-                {camposBaseData ? (camposBaseData.map(campoBase => <option className="block" value={campoBase.id} key={campoBase.id}>{campoBase.DESCRIPCION_CAMPO}</option>)) : null}
+            <select className="" value={selection} onChange={(e) => setSelection(e.target.value)} >
+                {camposBaseData ? (camposBaseData.map(campoBase => <option className="" value={campoBase.id} key={campoBase.id}>{campoBase.DESCRIPCION_CAMPO}</option>)) : null}
             </select>
         )
 
@@ -76,10 +76,10 @@ const NewField = ({ syllabusData }: NewFieldProps) => {
 
     // console.log(syllabusDataRef)
     return (
-        <form className="flex flex-auto">
+        <form className="">
             <CamposBaseSelectField />
             <TextareaAutosize onChange={(e) => setInputAtom(e.target.value)} minRows={1} minLength={1} />
-            <button className="font-bold p-1 rounded-full bg-amber-300" onClick={() => { SendNewField(selectionRef, inputAtomRef) }}>AGREGAR</button>
+            <button className="" onClick={() => { SendNewField(selectionRef, inputAtomRef) }}>AGREGAR</button>
         </form>
     )
 }

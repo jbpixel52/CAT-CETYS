@@ -33,12 +33,12 @@ const Field = ({ fila, camposBase }: FieldProps) => {
     const [ text, settext ] = useState(fila ? fila.filaJSON.toString() : '')
     const matchingBase: camposBase = camposBase.find((campo) => campo.id === fila.campoBase);
     return (
-        <div className='flex justify-between items-center space-x-1 space-y-1 h-auto w-auto'>
+        <div className=''>
             <form id={'form' + fila.id}>
-                <p className='font-bold underline break-all ... '>{matchingBase?.DESCRIPCION_CAMPO ? matchingBase.DESCRIPCION_CAMPO : 'campo sin base'}{ }</p>
-                <label className='flex'>
-                    <TextareaAutosize maxRows={5} autoFocus className='mx-3 mb-2 p-1 bg-slate-200 border-2 rounded-lg border-blue-100	hover:font-bold' value={text} onChange={(e) => { settext(e.target.value) }} />
-                    <button className="bg-amber-300 font-bold h-min mx-1 px-1 my-1 py-1 content-center	 hover:bg-amber-400">GUARDAR</button>
+                <p className=''>{matchingBase?.DESCRIPCION_CAMPO ? matchingBase.DESCRIPCION_CAMPO : 'campo sin base'}{ }</p>
+                <label className=''>
+                    <TextareaAutosize autoFocus className='' value={text} onChange={(e) => { settext(e.target.value) }} />
+                    <button className="bg-amber-30">GUARDAR</button>
 
                 </label>
             </form>

@@ -1,6 +1,4 @@
 import Link from "next/link";
-
-
 interface ButtonType {
     href: string,
     label: string
@@ -8,16 +6,14 @@ interface ButtonType {
 /**
  *
  *
- * @export
  * @param {ButtonType} props
- * @return {*} 
+ * @return {*}  {JSX.Element}
  */
-export default function NavBarButton(props: ButtonType) {
-    return (
-        <button className="bg-amber-300 rounded font-bold mx-2 p-1 content-center	 hover:bg-amber-400">
-            <Link href={props.href}>
-                <p>{props.label}</p>
-            </Link>
-        </button>
-    )
+const NavBarButton = (props: ButtonType): JSX.Element => {
+    return(<button className="btn btn-primary">
+    <Link href={props.href}>
+        <p>{props.label}</p>
+    </Link>
+</button>) 
 }
+export default NavBarButton
