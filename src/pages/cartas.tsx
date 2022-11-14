@@ -1,6 +1,5 @@
-import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 import { useState } from 'react';
-import { useRouter } from 'next/router';
 import NavBar from '../components/NavBar/navigationbar';
 import { Cartas } from '@prisma/client';
 import Link from 'next/link';
@@ -34,7 +33,6 @@ const createBlocks = async (metadata: Cartas[]) => {
 }
 
 export default function CartasPage() {
-    const router = useRouter();
     const [ nuevaCartaQuery, setnuevaCartaQuery ] = useState(false);
     const { isLoading, error, data } = useQuery([ 'cartas' ], () => fetchMetadata());
     const { data: nuevaCartaData, refetch } = useQuery([ 'nuevaCarta' ], () => postCreateSyllabus(),

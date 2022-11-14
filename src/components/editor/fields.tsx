@@ -1,6 +1,6 @@
 //hardcode y luego dinamico
 //workspace => terminal => npx prisma studio para ver la info de cartas
-import { Cartas, filasCartas, camposBase, camposCartas } from '@prisma/client';
+import { filasCartas, camposBase } from '@prisma/client';
 import { useQuery } from '@tanstack/react-query';
 
 const fetchFila = async (id: string) => {

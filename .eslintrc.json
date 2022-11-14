@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "next",
+    "next/core-web-vitals",
+    "next",
+    "prettier"
+  ],
+  "settings": {
+    "next": {
+      "rootDir": "./src"
+    }
+  }
+}
