@@ -17,8 +17,8 @@ export default function Editor() {
     return (<div className="p-2 h-screen ">
         <NavBar />
         <h1 className="text-2xl bg-amber-200 p-1 rounded-sm font-bold m-2">{syllabusData ? syllabusData.NOMBRE_CARTA : '...'}</h1>
-        <body className="grid overflow-hidden grid-cols-2 auto-rows-auto gap-2 w-auto h-auto">
-            <div className="box">
+        <body className="grid grid-cols-2 auto-rows-auto gap-2 w-auto h-auto">
+            <div className="bg-slate-100">
                 {/* THE FORM FIELDS GO HERE*/}
                 {syllabusData ? <Forms props={syllabusData} /> : null}
                 <NewField syllabusData={syllabusData} />
@@ -27,7 +27,7 @@ export default function Editor() {
 
             <section className="box">
                 {/** THE CARD PREVIEW GOES HERE */}
-                    {syllabusData ? <Preview syllabusData={syllabusData} /> : <></>}
+                {syllabusData ? <Preview syllabusData={syllabusData} /> : <></>}
             </section>
         </body>
 

@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { atom, PrimitiveAtom, useAtom } from 'jotai';
 import TextareaAutosize from 'react-textarea-autosize';
 
-const selectedBaseAtom = atom('id');
+const selectedBaseAtom = atom('NUEVO CAMPO');
 const syllabusDataAtom: PrimitiveAtom<Cartas> = atom({ id: null, ANIO_PROGRAMA: null, IDs_FILAS_CARTAS: null, MATERIA: null, NOMBRE_CARRERA: null, NOMBRE_CARTA: null, PROFESOR: null, SEMESTRE: null });
 const inputAtom = atom('');
 
@@ -31,12 +31,34 @@ const SendNewField = async (baseID: string, filaInput: string) => {
 
 const CamposBaseSelectField = () => {
     const [ selection, setSelection ] = useAtom(selectedBaseAtom);
-
     const { data: camposBaseData } = useQuery([ 'camposBaseData' ], () => fetchCamposBase());
-    return (<select value='campo base' onChange={(e) => setSelection(e.target.value)} className='flex w-auto'>
-        {camposBaseData ?
-            (camposBaseData.map(campoBase => <option className='overflow-scroll' value={campoBase.id} key={campoBase.id}>{campoBase.DESCRIPCION_CAMPO}</option>)) : null}
-    </select>)
+
+
+    //TODO MAKE SELECT FIELD WIDTH TO THE MINIMUM SIZE
+    if (camposBaseData) {
+        return (
+            <select className="flex w-min bg-amber-50 hover:font-bold" value={selection} onChange={(e) => setSelection(e.target.value)} >
+                {camposBaseData ? (camposBaseData.map(campoBase => <option className="block" value={campoBase.id} key={campoBase.id}>{campoBase.DESCRIPCION_CAMPO}</option>)) : null}
+            </select>
+        )
+
+    }
+    // return (
+    //     <Listbox value={selection} onChange={setSelection}>
+    //     <Listbox.Button>{selection}</Listbox.Button>
+    //     <Listbox.Options>
+    //       {camposBaseData.map((base) => (
+    //         <Listbox.Option
+    //           key={base?.id}
+    //           value={base?.id}
+    //         >
+    //           {base?.DESCRIPCION_CAMPO}
+    //         </Listbox.Option>
+    //       ))}
+    //     </Listbox.Options>
+    //   </Listbox>
+
+    // )
 
 }
 
@@ -56,8 +78,8 @@ const NewField = ({ syllabusData }: NewFieldProps) => {
     return (
         <form className="flex flex-auto">
             <CamposBaseSelectField />
-            <TextareaAutosize onChange={(e) => setInputAtom(e.target.value)} />
-            <button className="font-bold p-1 rounded-full overflow-hidden bg-amber-300" onClick={() => { SendNewField(selectionRef, inputAtomRef) }}>AGREGAR</button>
+            <TextareaAutosize onChange={(e) => setInputAtom(e.target.value)} minRows={1} minLength={1} />
+            <button className="font-bold p-1 rounded-full bg-amber-300" onClick={() => { SendNewField(selectionRef, inputAtomRef) }}>AGREGAR</button>
         </form>
     )
 }
