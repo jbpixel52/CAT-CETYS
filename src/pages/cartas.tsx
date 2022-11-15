@@ -56,8 +56,6 @@ export default function CartasPage() {
                     {loadingBlock ? "cargando lista de cartas..." :
                         errorBlocks ? 'error cargando cartas' : blockElements ? blockElements : null}
                 </div>
-
-
                 <button type="button" className="rounded bg-amber-300 p-1 m-1 hover:bg-amber-400 active:bg-amber-500 hover:font-bold drop-shadow-lg" onClick={() => refetch}>CREAR NUEVA CARTA</button>
 
             </div>

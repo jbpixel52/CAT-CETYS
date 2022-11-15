@@ -58,7 +58,7 @@ function Forms(props: FormsProps) {
 
     if (filasData && camposBase) {
         blocks = filasData.map(fila => {
-            return <Field fila={fila} camposBase={camposBase} />
+            return <Field key={fila.id} fila={fila} camposBase={camposBase} />
         })
         return (<div> {blocks}</div>)
     }

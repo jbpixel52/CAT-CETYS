@@ -7,13 +7,15 @@ export default function Login() {
   if (session) {
     //CHANGE URL IN THE CALLBACK URL 
     return (
-      <button className="btn-accent	" onClick={() => {
+      <button className="btn btn-accent" onClick={() => {
         signOut({ callbackUrl: 'http://localhost:3000/' })
       }
       }>Cerrar sesión</button>)
   }
   return (
+    <button className="btn btn-accent" type="button" onClick={() => signIn("google", signInParams)}>
+      Iniciar sesión con Google
+    </button>
 
-    <button className="btn btn-outline" type="button" onClick={() => signIn("google", signInParams)}>Iniciar sesión con Google</button>
   )
 }

@@ -74,7 +74,6 @@ const NewField = ({ syllabusData }: NewFieldProps) => {
     const [ inputAtomRef, setInputAtom ] = useAtom(inputAtom);
     setSyllabusDataRef(syllabusData);
 
-    // console.log(syllabusDataRef)
     return (
         <form className="">
             <CamposBaseSelectField />
