@@ -2,7 +2,7 @@ import { DbMakerInfrastructure } from "./dbMakerInfrastructure"
 import { MakeFieldRequest} from "../makeFieldRequest"
 import { UpdateFieldRequest } from "../updateFieldRequest";
 
-let dbMakerInfrastructure = new DbMakerInfrastructure;
+const dbMakerInfrastructure: DbMakerInfrastructure = DbMakerInfrastructure.getInstance();
 
 export class DbMakerService{
 

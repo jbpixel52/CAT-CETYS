@@ -2,7 +2,7 @@ import { DbMakerInfrastructure } from "./dbMakerInfrastructure"
 import { MakeRowRequest } from "../makeRowRequest";
 import { UpdateRowRequest } from "../updateRowRequest";
 
-let dbMakerInfrastructure = new DbMakerInfrastructure;
+const dbMakerInfrastructure: DbMakerInfrastructure = DbMakerInfrastructure.getInstance();
 
 export class DbMakerService{
 

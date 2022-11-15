@@ -7,8 +7,17 @@ const prisma = new PrismaClient()
 
 export class DbMakerInfrastructure{
 
-  public dbMakerInfrastucture(){
+  static instance: DbMakerInfrastructure;
 
+  private constructor() {
+      console.log("--");
+  }
+
+  public static getInstance(): DbMakerInfrastructure {
+      if (!DbMakerInfrastructure.instance) {
+        DbMakerInfrastructure.instance = new DbMakerInfrastructure();
+      }
+      return DbMakerInfrastructure.instance;
   }
 
   public async makeSyllabusField(createSyllabusFieldRequest: MakeFieldRequest){

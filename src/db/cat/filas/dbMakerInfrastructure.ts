@@ -12,10 +12,19 @@ export const enum fieldTypes {
 
 
 export class DbMakerInfrastructure {
+  static instance: DbMakerInfrastructure;
 
-  public dbMakerInfrastucture() {
-
+  private constructor() {
+      console.log("--");
   }
+
+  public static getInstance(): DbMakerInfrastructure {
+      if (!DbMakerInfrastructure.instance) {
+        DbMakerInfrastructure.instance = new DbMakerInfrastructure();
+      }
+      return DbMakerInfrastructure.instance;
+  }
+
 
   public async makeRow(createRowRequest: MakeRowRequest) {
     await prisma.filasCartas.create({

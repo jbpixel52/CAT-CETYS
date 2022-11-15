@@ -3,7 +3,7 @@ import { MakeRowRequest } from "../makeRowRequest";
 import { UpdateRowRequest } from "../updateRowRequest";
 import { MakeSyllabusRequest } from "../makeSyllabusRequest";
 
-let dbMakerInfrastructure = new DbMakerInfrastructure;
+const dbMakerInfrastructure: DbMakerInfrastructure = DbMakerInfrastructure.getInstance();
 
 export class DbMakerService {
     static instance: DbMakerService;
