@@ -5,7 +5,7 @@ export default function Login(): JSX.Element {
   const signInParams = { callbackUrl: 'http://localhost:3000/escritorio' };
   const signInCallback = () => (signIn("google", signInParams));
   const signOutCallback = () => (signOut({ callbackUrl: 'http://localhost:3000/' }));
-
+  //TODO: FIND OUT WHY TAILWIND+DAISYUI cant theme the Login button
   return (!session ?
     <button type="button" className="btn rounded-full btn-xl" onClick={() => signInCallback()
     }> Iniciar sesion con Google</button> :
