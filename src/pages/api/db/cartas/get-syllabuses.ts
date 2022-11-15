@@ -9,7 +9,7 @@ import { getServerAuthSession } from '../../../../server/common/get-server-auth-
  * @param {Cartas[]} res Cartas[....] as JSON
  */
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-    const dbMakerApplication = new DbMakerApplication();
+    const dbMakerApplication: DbMakerApplication = DbMakerApplication.getInstance();
     const session = await getServerAuthSession({ req, res })
     //author OMAR
     try {

@@ -5,6 +5,19 @@ const dbMakerService = new DbMakerService();
 
 
 export class DbMakerApplication {
+    static instance: DbMakerApplication;
+
+    private constructor() {
+        console.log("--");
+    }
+
+    public static getInstance(): DbMakerApplication {
+        if (!DbMakerApplication.instance) {
+            DbMakerApplication.instance = new DbMakerApplication();
+        }
+        return DbMakerApplication.instance;
+    }
+    
     public async createSyllabus(createSyllabusRequestDTO: string) {
         const createSyllabusRequestDTOJSON = JSON.parse(createSyllabusRequestDTO)
         console.log(createSyllabusRequestDTOJSON)

@@ -8,8 +8,17 @@ let dbMakerService = new DbMakerService();
 
 export class DbMakerApplication{
 
-    public dbMakerApplication(){
+    static instance: DbMakerApplication;
 
+    private constructor() {
+        console.log("--");
+    }
+
+    public static getInstance(): DbMakerApplication {
+        if (!DbMakerApplication.instance) {
+            DbMakerApplication.instance = new DbMakerApplication();
+        }
+        return DbMakerApplication.instance;
     }
 
     public async createSyllabusField(createSyllabusRequestDTO: string){
