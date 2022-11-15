@@ -5,13 +5,22 @@ import { MakeSyllabusRequest } from "../makeSyllabusRequest";
 
 let dbMakerInfrastructure = new DbMakerInfrastructure;
 
-export class DbMakerService{
-    editRow(editSyallabus: any) {
-        throw new Error("Method not implemented.");
+export class DbMakerService {
+    static instance: DbMakerService;
+
+    private constructor() {
+        console.log("--");
     }
 
-    public dbMakerService(){
+    public static getInstance(): DbMakerService {
+        if (!DbMakerService.instance) {
+            DbMakerService.instance = new DbMakerService();
+        }
+        return DbMakerService.instance;
+    }
 
+    editRow(editSyallabus: any) {
+        throw new Error("Method not implemented.");
     }
 
     public async createSyllabus(createSyllabusRequest: MakeSyllabusRequest){

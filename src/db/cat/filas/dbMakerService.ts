@@ -6,8 +6,17 @@ let dbMakerInfrastructure = new DbMakerInfrastructure;
 
 export class DbMakerService{
 
-    public dbMakerService(){
+    static instance: DbMakerService;
 
+    private constructor() {
+        console.log("--");
+    }
+
+    public static getInstance(): DbMakerService {
+        if (!DbMakerService.instance) {
+            DbMakerService.instance = new DbMakerService();
+        }
+        return DbMakerService.instance;
     }
 
     public async createRow(createRowRequest: MakeRowRequest){

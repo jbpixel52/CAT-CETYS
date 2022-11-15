@@ -1,8 +1,7 @@
 import { MakeSyllabusRequest } from "../makeSyllabusRequest";
 import { DbMakerService } from "./dbMakerService";
 
-const dbMakerService = new DbMakerService();
-
+const dbMakerService: DbMakerService = DbMakerService.getInstance();
 
 export class DbMakerApplication {
     static instance: DbMakerApplication;

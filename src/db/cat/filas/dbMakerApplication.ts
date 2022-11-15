@@ -2,8 +2,7 @@ import { MakeRowRequest } from "../makeRowRequest";
 import { UpdateRowRequest } from "../updateRowRequest";
 import { DbMakerService } from "./dbMakerService";
 
-let dbMakerService = new DbMakerService();
-
+const dbMakerService: DbMakerService = DbMakerService.getInstance();
 
 export class DbMakerApplication {
     static instance: DbMakerApplication;

@@ -3,8 +3,7 @@ import { MakeFieldRequest } from "../makeFieldRequest";
 import { UpdateFieldRequest } from "../updateFieldRequest";
 import { DbMakerService } from "./dbMakerService";
 
-let dbMakerService = new DbMakerService();
-
+const dbMakerService: DbMakerService = DbMakerService.getInstance();
 
 export class DbMakerApplication{
 
