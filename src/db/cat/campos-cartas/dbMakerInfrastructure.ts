@@ -3,12 +3,6 @@ import { MakeFieldRequest } from '../makeFieldRequest';
 import { UpdateFieldRequest } from '../updateFieldRequest';
 
 const prisma = new PrismaClient()
-const noValueGlobal: string = "NONE";
-export const enum fieldTypes {
-  soloTexto = "SOLO_TEXTO",
-  simple = "VALOR_SIMPLE",
-  oneToTable = "VALOR_TABLA",
-}
 
 
 export class DbMakerInfrastructure{
@@ -23,7 +17,7 @@ export class DbMakerInfrastructure{
       {
         NOMBRE_CAMPO: {
           CETYS: createSyllabusFieldRequest.nombreCampo["CETYS"],
-          CACEI: createSyllabusFieldRequest.nombreCampo["CACEI"],  
+          CACEI: createSyllabusFieldRequest.nombreCampo["CACEI"],
           WASC: createSyllabusFieldRequest.nombreCampo["WASC"],
           ABET: createSyllabusFieldRequest.nombreCampo["ABET"]
         },
@@ -31,7 +25,7 @@ export class DbMakerInfrastructure{
         TIPO_CAMPO: createSyllabusFieldRequest.tipoCampo,
         CONTENIDO_CAMPO:{
           CETYS: createSyllabusFieldRequest.contenidoCampo["CETYS"],
-          CACEI: createSyllabusFieldRequest.contenidoCampo["CACEI"],  
+          CACEI: createSyllabusFieldRequest.contenidoCampo["CACEI"],
           WASC: createSyllabusFieldRequest.contenidoCampo["WASC"],
           ABET: createSyllabusFieldRequest.contenidoCampo["ABET"]
         },
