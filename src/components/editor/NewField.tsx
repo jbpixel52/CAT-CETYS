@@ -37,7 +37,7 @@ const CamposBaseSelectField = () => {
     //TODO MAKE SELECT FIELD WIDTH TO THE MINIMUM SIZE
     if (camposBaseData) {
         return (
-            <select className="" value={selection} onChange={(e) => setSelection(e.target.value)} >
+            <select className="select select-bordered w-full max-w-xs" value={selection} onChange={(e) => setSelection(e.target.value)} >
                 {camposBaseData ? (camposBaseData.map(campoBase => <option className="" value={campoBase.id} key={campoBase.id}>{campoBase.DESCRIPCION_CAMPO}</option>)) : null}
             </select>
         )
@@ -75,11 +75,11 @@ const NewField = ({ syllabusData }: NewFieldProps) => {
     setSyllabusDataRef(syllabusData);
 
     return (
-        <form className="">
+        <div className="form-control">
             <CamposBaseSelectField />
             <TextareaAutosize onChange={(e) => setInputAtom(e.target.value)} minRows={1} minLength={1} />
             <button className="" onClick={() => { SendNewField(selectionRef, inputAtomRef) }}>AGREGAR</button>
-        </form>
+        </div>
     )
 }
 

@@ -32,19 +32,27 @@ type FieldProps = {
 const Field = ({ fila, camposBase }: FieldProps) => {
     const [ text, settext ] = useState(fila ? fila.filaJSON.toString() : '')
     const matchingBase: camposBase = camposBase.find((campo) => campo.id === fila.campoBase);
-    return (
-        <div className=''>
-            <form id={'form' + fila.id}>
-                <p className=''>{matchingBase?.DESCRIPCION_CAMPO ? matchingBase.DESCRIPCION_CAMPO : 'campo sin base'}{ }</p>
-                <label className=''>
-                    <TextareaAutosize autoFocus className='' value={text} onChange={(e) => { settext(e.target.value) }} />
-                    <button className="bg-amber-30">GUARDAR</button>
+    // return (
+    //     <div className=''>
+    //         <form id={'form' + fila.id}>
+    //             <p className=''>{matchingBase?.DESCRIPCION_CAMPO ? matchingBase.DESCRIPCION_CAMPO : 'campo sin base'}{ }</p>
+    //             <label className=''>
+    //                 <TextareaAutosize autoFocus className='' value={text} onChange={(e) => { settext(e.target.value) }} />
+    //                 <button className="bg-amber-30">GUARDAR</button>
 
-                </label>
-            </form>
+    //             </label>
+    //         </form>
 
-        </div>
-    )
+    //     </div>
+    // );
+
+    return(<>
+        <label className="label">
+            <span className="label-text">{matchingBase?.DESCRIPCION_CAMPO ? matchingBase.DESCRIPCION_CAMPO : null}</span>
+        </label>
+        <TextareaAutosize className="textarea textarea-bordered h-24 W-auto" placeholder="mucho texto..." value={text} onChange={(e) => { settext(e.target.value) }}/>
+        <button className="bg-amber-30">GUARDAR</button>
+    </>)
 }
 
 
@@ -60,7 +68,7 @@ function Forms(props: FormsProps) {
         blocks = filasData.map(fila => {
             return <Field key={fila.id} fila={fila} camposBase={camposBase} />
         })
-        return (<div> {blocks}</div>)
+        return (<div className='flex flex-col justify-between h-auto w-auto'> {blocks}</div>)
     }
     //TODO MAKE ONCLICK ADD FILA TO CARTA
 }

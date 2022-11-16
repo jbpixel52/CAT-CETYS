@@ -18,19 +18,20 @@ export default function Editor() {
         <div className="">
             <NavBar />
             <h1 className="">{syllabusData ? syllabusData.NOMBRE_CARTA : '...'}</h1>
-            <body className="">
-                <div className="">
+            <div className="grid overflow-hidden grid-cols-2 auto-rows-auto gap-2 grid-flow-row w-screen h-auto"> {/**here starts the body of the page */}
+                <section className="box">
                     {/* THE FORM FIELDS GO HERE*/}
                     {syllabusData ? <Forms props={syllabusData} /> : null}
+                    <br />
                     <NewField syllabusData={syllabusData} />
 
-                </div>
+                </section>
 
-                <section className="">
+                <section className="box">
                     {/** THE CARD PREVIEW GOES HERE */}
                     {syllabusData ? <Preview syllabusData={syllabusData} /> : <></>}
                 </section>
-            </body>
+            </div>
 
         </div>
     )

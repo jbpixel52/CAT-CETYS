@@ -13,13 +13,13 @@ export default function NewFields() {
     return (
 
         <div className="bg-amber-300">
-            <h1 className="text-5xl">LAB</h1>
+            <h1>LAB</h1>
             <label htmlFor="newField">NEW FIELD</label>
 
             <textarea name="newField" id="newField" cols={30} rows={3} onChange={(e) => { setInput(e.target.value) }}></textarea>
 
 
-            <button className="bg-amber-400 p-3" onClick={() => { void makeRow((Input)) }}>ADD FIELD</button>
+            <button onClick={() => { void makeRow((Input)) }}>ADD FIELD</button>
         </div>
 
     )

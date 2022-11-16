@@ -9,5 +9,8 @@ export default function Login(): JSX.Element {
   return (!session ?
     <button type="button" className="btn rounded-full btn-xl" onClick={() => signInCallback()
     }> Iniciar sesion con Google</button> :
-    <button type="button" className="btn btn-secondary" onClick={() => signOutCallback()}>cerrar sesion</button>);
+    <div className="btn-group btn-group-vertical lg:btn-group-horizontal">
+      <button type="button" className="btn btn-secondary" onClick={() => signOutCallback()}>cerrar sesion</button>
+    </div>
+  );
 }
