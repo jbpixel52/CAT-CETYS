@@ -15,7 +15,7 @@ export default function NavBar() {
         <NavBarButton href="/historial" label='Historial' />
       </div>
       <Link href={'/'}>
-       <h1 className="text-xl font-bold">CAT😺</h1>
+        <h1 className="text-4xl font-bold">CAT😺</h1>
       </Link>
       <Avatar />
       <ThemeSelector />
