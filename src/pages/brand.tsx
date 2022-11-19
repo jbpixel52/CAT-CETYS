@@ -1,6 +1,14 @@
+import { useSession } from 'next-auth/react';
 import Login from '../components/login/login';
 import ThemeSelector from '../components/theme/themeSelector';
+import Escritorio from './escritorio';
+import { useRouter } from "next/router";
+
+
 export default function BrandPage() {
+    const { data: session } = useSession();
+    const router = useRouter();
+
     return (
 
         <div className='bg-base-200'>
@@ -13,6 +21,7 @@ export default function BrandPage() {
                         <h1 className="text-5xl font-bold p-5">CAT😼</h1>
                         <h2 className="text-3xl font-bold">Cartas Académicas Transcritas</h2>
                         <Login />
+                        {session ? <button type='button' className='btn' onClick={()=>router.push('/escritorio')}>Abrir CAT</button>: null}
                         <div className="py-10 ">
                             Esta aplicacion permite generar cartas descriptivas de los distintos cursos de la escuela de ingenieria, hace lo siguiente:
                             <ul>

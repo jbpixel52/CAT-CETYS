@@ -4,6 +4,9 @@
 html {
   max-width: 100vw;
   font-family: Space Grotesk;
+  padding: 1rem;
+  -webkit-tap-highlight-color: transparent;
+
 }
 
 p,

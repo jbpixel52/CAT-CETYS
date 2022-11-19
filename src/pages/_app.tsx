@@ -1,7 +1,5 @@
 import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
-import { useEffect } from 'react';
-import '../styles/globals.css'
 import {
   QueryClient,
   QueryClientProvider,

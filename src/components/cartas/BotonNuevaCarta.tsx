@@ -11,61 +11,81 @@
 //     }).then(r => r.json());
 // }
 
-// export default function BotonNuevaCarta() {
-//     // const { data } = useQuery([ 'nuevaCarta' ], () => fetch('http://localhost:3000/api/db/cartas/get-syllabuses').then(r => r.json()),
-//     //     {
-//     //         enabled: false,
-//     //     });
-
-//     return (
-// <></>
-//     )
-
-// }
+import React, { useState } from 'react';
 
 
-import React from 'react';
-import * as Dialog from '@radix-ui/react-dialog';
+
+const BotonNuevaCarta = () => {
+
+    const [ dialogState, setdialogState ] = useState<boolean>(false);
+
+    // if (dialogState === false) {
+    //     return (
+    //         <button type='button' className="btn btn-accent" onClick={() => { setdialogState(true) }}>
+    //             crear nueva carta
+    //         </button>
+    //     )
+    // } else if (dialogState === true)
+
+    //     return (
+    //         <div tabIndex={0} className="collapse collapse-plus border border-base-300 bg-base-100 rounded-box">
+    //             <div className="collapse-title text-xl font-medium">
+    //                 Focus me to see content
+    //             </div>
+    //             <div className="collapse-content">
+    //                 <div className="form-control w-full max-w-xs">
+    //                     <label className="label" htmlFor="NOMBRE_CARTA">
+    //                         <span className="label-text">Nombre de la carta</span>
+    //                     </label>
+    //                     <input className="input input-bordered w-full input-xs" id="NOMBRE_CARTA" defaultValue="carta descriptiva..." />
+    //                 </div>
 
 
-const DialogDemo = () => (
-    <Dialog.Root>
-        <Dialog.Trigger asChild>
-            <button className="btn">
-                Edit profile
-            </button>
-        </Dialog.Trigger>
-        <Dialog.Portal>
-            <Dialog.Overlay className="DialogOverlay" />
-            <Dialog.Content className="DialogContent">
-                <Dialog.Title className="DialogTitle">Edit profile</Dialog.Title>
-                <Dialog.Description className="DialogDescription">
-                    Make changes to your profile here. Click save when you're done.
-                </Dialog.Description>
-                <fieldset className="Fieldset">
-                    <label className="Label" htmlFor="name">
-                        Name
-                    </label>
-                    <input className="Input" id="name" defaultValue="Pedro Duarte" />
-                </fieldset>
-                <fieldset className="Fieldset">
-                    <label className="Label" htmlFor="username">
-                        Username
-                    </label>
-                    <input className="Input" id="username" defaultValue="@peduarte" />
-                </fieldset>
-                <div style={{ display: 'flex', marginTop: 25, justifyContent: 'flex-end' }}>
-                    <Dialog.Close asChild>
-                        <button className="Button green">Save changes</button>
-                    </Dialog.Close>
+    //                 <div className="form-control w-full max-w-xs">
+    //                     <label className=" font-bold" htmlFor="SEMESTRE">
+    //                         Semestre
+    //                     </label>
+    //                     <input type={'number'} className="Input input input-bordered w-full max-w-xs" id="username" defaultValue="0" />
+    //                 </div>
+    //                 <div className="form-control w-full max-w-xs">
+    //                     <label className=" font-bold" htmlFor="MATERIA">
+    //                         Materia
+    //                     </label>
+    //                     <input type={'text'} className="Input input input-bordered w-full max-w-xs" id="MATERIA" defaultValue="Pociones" />
+    //                 </div>
+    //                 <div className="form-control w-full max-w-xs">
+    //                     <label className=" font-bold" htmlFor="NOMBRE_CARRERA">
+    //                         Carrera
+    //                     </label>
+    //                     <input type={'text'} className="Input input input-bordered w-full max-w-xs" id="NOMBRE_CARRERA" defaultValue="0" />
+    //                 </div>
+    //                 <div className="form-control w-full max-w-xs">
+    //                     <label className=" font-bold" htmlFor="AÑO_PROGRAMA">
+    //                         Año del programa
+    //                     </label>
+    //                     <input type={'number'} className="Input input input-bordered w-full max-w-xs" id="AÑO_PROGRAMA" defaultValue={new Date().getFullYear()} />
+    //                 </div>
+    //                 <div className="form-control w-full max-w-xs">
+    //                     <label className=" font-bold" htmlFor="PROFESOR">
+    //                         Profesor
+    //                     </label>
+    //                     <input type={'text'} className="Input input input-bordered w-full max-w-xs" id="PROFESOR" defaultValue="Hasbulla Magomedov" />
+    //                 </div>
+    //             </div>
+    //         </div>
+    //     )
+
+    return (
+        <div className="dropdown">
+            <label tabIndex={0} className="btn m-1">Click</label>
+            <div tabIndex={0} className="dropdown-content card card-compact w-64 p-2 shadow bg-primary text-primary-content">
+                <div className="card-body">
+                    <h3 className="card-title">Card title!</h3>
+                    <p>you can use any element as a dropdown.</p>
                 </div>
-                <Dialog.Close asChild>
-                    <button className="IconButton" aria-label="Close">
-                    </button>
-                </Dialog.Close>
-            </Dialog.Content>
-        </Dialog.Portal>
-    </Dialog.Root>
-);
+            </div>
+        </div>
+    )
+}
 
-export default DialogDemo;
+export default BotonNuevaCarta;

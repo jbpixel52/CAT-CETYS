@@ -16,7 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         if (session) {
             if (req.method === 'GET') {
                 const fields = await dbMakerApplication.getSyllabuses();
-                console.log(fields)
+                //console.log(fields)
                 res.status(200).json(fields)
             } else {
                 res.status(400).json("DENIED: FOR GET REQUESTS ONLY")

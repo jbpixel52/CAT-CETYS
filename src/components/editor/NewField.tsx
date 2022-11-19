@@ -64,10 +64,6 @@ const CamposBaseSelectField = () => {
 
 const fetchCamposBase = async () => { const req: camposBase[] = await fetch('http://localhost:3000/api/db/templetes/getFields', { method: "GET" }).then(r => r.json()); return req; }
 
-
-
-
-
 const NewField = ({ syllabusData }: NewFieldProps) => {
     const [ selectionRef, setSelection ] = useAtom(selectedBaseAtom);
     const [ syllabusDataRef, setSyllabusDataRef ] = useAtom(syllabusDataAtom);

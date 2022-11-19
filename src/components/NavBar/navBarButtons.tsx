@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { useRouter } from 'next/router';
 interface ButtonType {
     href: string,
     label: string
@@ -10,10 +10,11 @@ interface ButtonType {
  * @return {*}  {JSX.Element}
  */
 const NavBarButton = (props: ButtonType): JSX.Element => {
-    return(<button className="btn btn-primary">
-    <Link href={props.href}>
-        <p>{props.label}</p>
-    </Link>
-</button>) 
+    const router = useRouter();
+    return (
+        <button onClick={() => router.push(props.href)} className='btn btn-accent' type='button'>
+           {props.label}
+        </button>
+    )
 }
 export default NavBarButton

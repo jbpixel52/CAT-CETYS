@@ -10,5 +10,9 @@
     "next": {
       "rootDir": "./src"
     }
+  },
+  "globals": {
+    "React": true,
+    "JSX": true
   }
 }
