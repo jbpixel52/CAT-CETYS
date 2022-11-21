@@ -1,23 +1,20 @@
 import Link from "next/link";
-import ThemeSelector from "../theme/themeSelector";
 import Avatar from "./Avatar";
 import NavBarButton from "./navBarButtons";
 
-export default function NavBar() {
+export default function NavBar(): JSX.Element {
   return (
-    <div className="w-screen p-1 m-2 rounded gap-5 justify-between items-center flex">
+    <div className=" rounded gap-10 justify-between items-center flex shadow-sm">
       <div className="btn-group">
         <NavBarButton href="/cartas" label='Cartas' />
-        <NavBarButton href="/historial" label='Historial' />
+        <NavBarButton href="/historial/404" label='Historial' />
       </div>
-      <Link href={'/'}>
-        CAT😺
+      <Link href={'/'} >
+        <p className="text-3xl font-bold text-center ">CAT😺</p>
       </Link>
-      <div className="flex">
+      <span className="flex gap-1 w-fit">
         <Avatar />
-        <ThemeSelector />
-      </div>
-
+      </span>
     </div>
   )
 

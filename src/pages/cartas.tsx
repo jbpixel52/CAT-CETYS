@@ -1,11 +1,9 @@
 import { useQuery } from '@tanstack/react-query'
-import { useState } from 'react';
 import NavBar from '../components/NavBar/navigationbar';
 import { Cartas } from '@prisma/client';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import BotonNuevaCarta from '../components/cartas/BotonNuevaCarta';
-import '../styles/globals.css'
 
 const fetchMetadata = async (): Promise<Cartas[]> => await fetch('http://localhost:3000/api/db/cartas/get-syllabuses').then(r => r.json());
 
@@ -44,22 +42,20 @@ const createBlocks = async (metadata: Cartas[]) => {
 }
 
 export default function CartasPage() {
-    const [ nuevaCartaQuery, setnuevaCartaQuery ] = useState(false);
-    const { isLoading, error, data } = useQuery([ 'cartas' ], () => fetchMetadata());
-    //HELLO WORLD!!
+    const { data } = useQuery([ 'cartas' ], () => fetchMetadata());
     const { data: blockElements, isLoading: loadingBlock, error: errorBlocks } = useQuery([ 'cartasBlocks' ], () => createBlocks(data), { enabled: !!data, })
-
     return (
         <div className="flex justify-between flex-col">
             <NavBar />
             <div className='p-4'>
-                <h1 className="text-3xl font-extrabold">CARTAS 🗃️</h1>
-                {/* <div className='w-fit'>
+                <span className='flex flex-auto justify-between'>
+                    <h1 className="text-3xl font-extrabold">CARTAS 🗃️</h1>
+                    <BotonNuevaCarta />
+                </span>
+                <div className='w-fit'>
                     {loadingBlock ? "cargando lista de cartas..." :
                         errorBlocks ? 'error cargando cartas' : blockElements ? blockElements : null}
-                </div> */}
-
-                <BotonNuevaCarta />
+                </div>
             </div>
         </div>
     )

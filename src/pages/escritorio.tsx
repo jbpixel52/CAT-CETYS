@@ -11,7 +11,7 @@ const randomEmoji = () => {
 export default function Escritorio() {
     const { data: session } = useSession();
     if (session) {
-        return (<div className='flex flex-col justify-evenly items-center w-screen'>
+        return (<div className='flex justify-between flex-col py-2 px-10 gap-5'>
             <Head>
                 <title>Editor</title>
             </Head>

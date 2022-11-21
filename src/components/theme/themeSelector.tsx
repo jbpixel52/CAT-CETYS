@@ -9,7 +9,7 @@ export default function ThemeSelector(): JSX.Element {
         themeChange(false);
     });
     return (
-        <select className="glass" data-choose-theme>
+        <select className="select w-fit text-center" data-choose-theme>
             <option value="">default theme</option>
             {themeValues.map((value) => (
                 <option className="text-primary" key={value.toLowerCase()} value={value.toLowerCase()}>
