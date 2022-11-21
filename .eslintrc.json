@@ -14,5 +14,8 @@
   "globals": {
     "React": true,
     "JSX": true
+  },
+  "env": {
+    "node": true
   }
 }
