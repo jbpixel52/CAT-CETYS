@@ -1,3 +1,4 @@
+import '../styles/global.css';
 import { type Session } from "next-auth";
 import { SessionProvider } from "next-auth/react";
 import {
@@ -5,7 +6,6 @@ import {
   QueryClientProvider,
 } from "@tanstack/react-query";
 const queryClient = new QueryClient();
-
 
 
 

@@ -1,19 +1,10 @@
 module.exports = {
-    //...
-    content: ['./index.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+  content: [
+    './pages/**/*.{html,js}',
+    './components/**/*.{html,js}',
+    './src/pages/**/*.{html,js,jsx,ts,tsx}',
+    './src/components/**/*.{html,js,jsx,ts,tsx}'
 
-    // add daisyUI plugin
-    plugins: [require('@tailwindcss/typography'), require('daisyui')]
-  
-    // daisyUI config (optional)
-    daisyui: {
-      styled: true,
-      themes: true,
-      base: true,
-      utils: true,
-      logs: true,
-      rtl: false,
-      prefix: "",
-      darkTheme: "dark",
-    },
-  }
+  ],
+  plugins: [require("daisyui")],
+};
