@@ -52,10 +52,10 @@ export default function CartasPage() {
                     <h1 className="text-3xl font-extrabold">CARTAS 🗃️</h1>
                     <BotonNuevaCarta />
                 </span>
-                <div className='w-fit'>
+                {/* <div className='w-fit'>
                     {loadingBlock ? "cargando lista de cartas..." :
                         errorBlocks ? 'error cargando cartas' : blockElements ? blockElements : null}
-                </div>
+                </div> */}
             </div>
         </div>
     )
