@@ -55,8 +55,8 @@ const SearchBar = () => {
     const handleSearch = (searchInput: string) => {
         setSearch(searchInput);
         console.log(search);
-        let filtered = filterCartas({ data: options, search: searchInput });
-        setOptions(filtered);
+        //let filtered = filterCartas({ data: options, search: searchInput });
+        //setOptions(filtered);
     }
     useEffect(() => {
         console.log('OPTIONS ARE');
