@@ -18,7 +18,9 @@ export default function Editor() {
         <div className="">
             <NavBar />
             <h1 className="font-bold text-2xl p-2 shadow-xl">{syllabusData ? syllabusData.NOMBRE_CARTA : '...'}</h1>
-            <button className="btn" type="button" href
+            <button className="btn" type="button" onClick={ router.query(`/carta/${}`)}>
+                Historial de la carta
+            </button>
             <div className="flex"> {/**here starts the body of the page */}
                 <section className="box m-auto">
                     {/* THE FORM FIELDS GO HERE*/}
