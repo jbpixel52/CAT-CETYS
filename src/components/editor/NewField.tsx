@@ -1,5 +1,5 @@
 
-import { camposBase, Cartas } from "@prisma/client";
+import { camposBase, Cartas, filasCartas } from '@prisma/client';
 import { useQuery } from "@tanstack/react-query";
 import { atom, PrimitiveAtom, useAtom } from 'jotai';
 import TextareaAutosize from 'react-textarea-autosize';
@@ -10,21 +10,34 @@ const inputAtom = atom('');
 
 type NewFieldProps = { syllabusData: Cartas };
 
+const patchFila = async (syllabusID: string, rowID: string) => {
 
-
-const SendNewField = async (baseID: string, filaInput: string) => {
-
-
-    const req = await fetch('http://localhost:3000/api/db/filas/createRow', {
-        method: "POST",
+    const req = await fetch('http://localhost:3000/api/db/cartas/addRow', {
+        method: "PATCH",
         body: JSON.stringify({
-            filaJSON: filaInput,
-            ACREDITADORA: 'CETYS',
-            HIDE_FLAG: true,
-            CAMPO_BASE: baseID,
+            "rowId": rowID, "id": syllabusID
         })
-    }).then(r => r.json())
+    }).then(r => r.json());
+    console.log('PATCHED fila into syllabus', req);
+
+    return req;
+}
+
+const SendNewField = async (baseID: string, filaInput: string, syllabus: Cartas) => {
+    let req = await fetch('http://localhost:3000/api/db/filas/createRow', {
+        method: 'POST',
+        body: JSON.stringify({
+            "filaJSON": "MEOW MEOW!",
+            "ACREDITADORA": "CETYS",
+            "HIDE_FLAG": false,
+            "CAMPO_BASE": baseID
+        })
+    }).then(r => r.json());
     console.log(req);
+
+    //const reqRowId: filasCartas = await fetch("http://localhost:3000/api/db/filas/latestById", { method: "GET" }).then(r => r.json());
+    //const reqPatchFila = await patchFila(syllabus.id, reqRowId.id);
+    //console.log(reqPatchFila);
 }
 
 
@@ -32,9 +45,6 @@ const SendNewField = async (baseID: string, filaInput: string) => {
 const CamposBaseSelectField = () => {
     const [ selection, setSelection ] = useAtom(selectedBaseAtom);
     const { data: camposBaseData } = useQuery([ 'camposBaseData' ], () => fetchCamposBase());
-
-
-    //TODO MAKE SELECT FIELD WIDTH TO THE MINIMUM SIZE
     if (camposBaseData) {
         return (
             <select className="select select-bordered w-full max-w-xs" value={selection} onChange={(e) => setSelection(e.target.value)} >
@@ -43,22 +53,8 @@ const CamposBaseSelectField = () => {
         )
 
     }
-    // return (
-    //     <Listbox value={selection} onChange={setSelection}>
-    //     <Listbox.Button>{selection}</Listbox.Button>
-    //     <Listbox.Options>
-    //       {camposBaseData.map((base) => (
-    //         <Listbox.Option
-    //           key={base?.id}
-    //           value={base?.id}
-    //         >
-    //           {base?.DESCRIPCION_CAMPO}
-    //         </Listbox.Option>
-    //       ))}
-    //     </Listbox.Options>
-    //   </Listbox>
 
-    // )
+    return <p>cargando campos base...</p>
 
 }
 
@@ -74,7 +70,7 @@ const NewField = ({ syllabusData }: NewFieldProps) => {
         <div className="form-control">
             <CamposBaseSelectField />
             <TextareaAutosize onChange={(e) => setInputAtom(e.target.value)} minRows={1} minLength={1} />
-            <button className="" onClick={() => { SendNewField(selectionRef, inputAtomRef) }}>AGREGAR</button>
+            <button type="button" className='btn btn-accent'  onClick={() => { SendNewField(selectionRef, inputAtomRef, syllabusData) }}>AGREGAR</button>
         </div>
     )
 }

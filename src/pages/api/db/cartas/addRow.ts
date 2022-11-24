@@ -11,7 +11,7 @@ import { prisma } from '../../../../db/client';
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
     const session = await getServerAuthSession({ req, res })
     try {
-        if (session) {
+        if (true) {
             if (req.method === 'PATCH') {
                 try {
                     console.log('finding carta')
@@ -22,6 +22,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                             }
                         }
                     });
+
                     const update = await prisma.cartas.update({
                         where: {
                             id: carta.id

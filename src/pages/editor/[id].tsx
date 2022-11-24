@@ -17,19 +17,15 @@ export default function Editor() {
     return (
         <div className="">
             <NavBar />
-            <h1 className="">{syllabusData ? syllabusData.NOMBRE_CARTA : '...'}</h1>
-            <div className="grid overflow-hidden grid-cols-2 auto-rows-auto gap-2 grid-flow-row w-screen h-auto"> {/**here starts the body of the page */}
-                <section className="box">
+            <h1 className="font-bold text-2xl p-2 shadow-xl">{syllabusData ? syllabusData.NOMBRE_CARTA : '...'}</h1>
+            <button className="btn" type="button" href
+            <div className="flex"> {/**here starts the body of the page */}
+                <section className="box m-auto">
                     {/* THE FORM FIELDS GO HERE*/}
                     {syllabusData ? <Forms props={syllabusData} /> : null}
                     <br />
                     <NewField syllabusData={syllabusData} />
 
-                </section>
-
-                <section className="box">
-                    {/** THE CARD PREVIEW GOES HERE */}
-                    {syllabusData ? <Preview syllabusData={syllabusData} /> : <></>}
                 </section>
             </div>
 
