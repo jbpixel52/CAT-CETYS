@@ -32,6 +32,11 @@ model Cartas {
   SEMESTRE                               Int
 }
 
+model nombresCarrera{
+  id                                     String                                      @id @default(auto()) @map("_id") @db.ObjectId
+  NOMBRE                                String  
+}
+
 model camposBase{
   id                                     String                                      @id @default(auto()) @map("_id") @db.ObjectId
   NOMBRE_CAMPO                           NombresCampo
