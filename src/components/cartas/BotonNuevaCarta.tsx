@@ -9,6 +9,9 @@ const postCreateSyllabus = async (syllabus: Cartas) => {
         body: JSON.stringify(syllabus)
     }).then(r => r.json());
 }
+
+
+
 const BotonNuevaCarta = () => {
     const [ tempSyllabus, settempSyllabus ] = useState<Cartas>({ id: null, ANIO_PROGRAMA: null, IDs_FILAS_CARTAS: [], MATERIA: null, NOMBRE_CARRERA: null, NOMBRE_CARTA: null, PROFESOR: null, SEMESTRE: null });
     const changeValue = (e: ChangeEvent<HTMLInputElement>) => {

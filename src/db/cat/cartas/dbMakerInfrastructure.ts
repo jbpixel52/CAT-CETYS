@@ -23,7 +23,7 @@ export class DbMakerInfrastructure {
                 ANIO_PROGRAMA: createSyllabusRequest.ANIO_PROGRAMA,
                 MATERIA: createSyllabusRequest.MATERIA,
                 NOMBRE_CARRERA: createSyllabusRequest.NOMBRE_CARRERA,
-                NOMBRE_CARTA: createSyllabusRequest.NOMBRE_CARRERA,
+                NOMBRE_CARTA: createSyllabusRequest.NOMBRE_CARTA,
                 PROFESOR: createSyllabusRequest.PROFESOR,
                 SEMESTRE: createSyllabusRequest.SEMESTRE,
                 IDs_FILAS_CARTAS: createSyllabusRequest.IDs_FILAS_CARTAS
