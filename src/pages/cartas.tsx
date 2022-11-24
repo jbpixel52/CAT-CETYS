@@ -21,7 +21,10 @@ const CreateBlocksFC = (_props: Cartas): JSX.Element => {
     const router = useRouter();
     const handleDeletionCallback = () => {
         refetch();
-        if (res) { console.log(res) };
+        if (res) {
+            console.log(res);
+            router.reload(); //ugly solution 
+        }
     }
 
 
@@ -29,7 +32,7 @@ const CreateBlocksFC = (_props: Cartas): JSX.Element => {
     return (
         <div key={_props.id} className='p-1 m-2 rounded gap-5 justify-between items-center flex w-auto'>
             <input type="checkbox" />
-            <Link href={`/carta/${_props.id}`} className={'text-center align-baseline self-center'}>{_props.NOMBRE_CARTA }</Link>
+            <Link href={`/carta/${_props.id}`} className={'text-center align-baseline self-center'}>{_props.NOMBRE_CARTA}</Link>
             <div className="btn-group">
                 <button className='btn flex' type='button' onClick={() => { router.push(`/editor/${_props.id}`) }}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">

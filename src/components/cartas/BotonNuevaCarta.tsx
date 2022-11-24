@@ -1,6 +1,8 @@
 import { Cartas } from '@prisma/client';
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, useEffect, useState } from 'react';
 import { useQuery } from '@tanstack/react-query';
+import { useRouter } from 'next/router';
+import NextApiResponse from 'next';
 
 const postCreateSyllabus = async (syllabus: Cartas) => {
     console.log(syllabus);
@@ -12,7 +14,40 @@ const postCreateSyllabus = async (syllabus: Cartas) => {
 
 
 
+const validationProcess = async (tempSyllabus: Cartas) => {
+
+    const validateInput = () => {
+        //checks if all the neccesary fields have been field
+        let validation: boolean = true;
+        for (const property in tempSyllabus) {
+            if (property != 'id') {
+                tempSyllabus[ property ] == null ? validation = false : null;
+            }
+            return validation
+        }
+    }
+    let response;
+    let valid = validateInput();
+    if (valid) {
+        let response = await postCreateSyllabus(tempSyllabus);
+        console.log(response.status);
+        if (response === 'Sucessful wrtite operation, or was it? thuuuuuum') {
+            return true
+        } else {
+            return false;
+        }
+    } else {
+        console.log('Syllabus was not valid');
+        return false
+    }
+}
+
+
+
+
 const BotonNuevaCarta = () => {
+    const router = useRouter();
+    const [ alertStatus, setAlertStatus ] = useState(false);
     const [ tempSyllabus, settempSyllabus ] = useState<Cartas>({ id: null, ANIO_PROGRAMA: null, IDs_FILAS_CARTAS: [], MATERIA: null, NOMBRE_CARRERA: null, NOMBRE_CARTA: null, PROFESOR: null, SEMESTRE: null });
     const changeValue = (e: ChangeEvent<HTMLInputElement>) => {
         let localSyllabus = tempSyllabus;
@@ -26,35 +61,21 @@ const BotonNuevaCarta = () => {
             settempSyllabus(tempSyllabus => ({ ...tempSyllabus, localSyllabus }));
             console.log(`UPDATED prop ${e.currentTarget.id} to ${e.currentTarget.value}`);
         }
-
     }
-
-    const { data: creationResponse } = useQuery([ 'cartaNueva' ], () => validationProcess(),
+    const { data: creationResponse, refetch } = useQuery([ 'cartaNueva' ], () => validationProcess(tempSyllabus),
         {
             enabled: false,
         });
-    if (creationResponse) { console.log(creationResponse) }
-    const validationProcess = () => {
-        let response;
-        let valid = validateInput();
-        if (valid) {
-            let response = postCreateSyllabus(tempSyllabus);
-            return response;
-        } else {
-            console.log('Syllabus was not valid');
+
+    useEffect(() => {
+        if (creationResponse === true) {
+            setAlertStatus(false);
+            router.reload();
+        } else if (creationResponse === false) {
+            setAlertStatus(false);
         }
-        return response
-    }
-    const validateInput = () => {
-        //checks if all the neccesary fields have been field
-        let validation: boolean = true;
-        for (const property in tempSyllabus) {
-            if (property != 'id') {
-                tempSyllabus[ property ] == null ? validation = false : null;
-            }
-            return validation
-        }
-    }
+    }, [creationResponse])
+
     return (
         <div>
             <label htmlFor="my-modal-4" className="btn" >crear nueva carta</label >
@@ -64,7 +85,6 @@ const BotonNuevaCarta = () => {
                 <label className="modal-box relative" htmlFor="">
                     <h3 className="text-lg font-bold">Datos de la nueva carta</h3>
                     <p className="py-4">Llena los datos base de la nueva carta</p>
-
                     <div className="flex flex-col flex-wrap gap-2 items-center w-auto h-auto">
                         <div className="form-control w-auto">
                             <label className="label" htmlFor="NOMBRE_CARTA">
@@ -102,7 +122,16 @@ const BotonNuevaCarta = () => {
                             </label>
                             <input type={'text'} className="Input input input-bordered w-auto" id="PROFESOR" maxLength={31} minLength={1} onChange={(e) => changeValue(e)} defaultValue="Hasbulla Magomedov" />
                         </div>
-                        <button type='button' onClick={() => { validationProcess() }} className="btn flex btn-primary font-bold text-xl w-auto p-1 h-auto">Guardar Carta</button>
+                        <button type='button' onClick={() => { refetch() }} className="btn flex btn-primary font-bold text-xl w-auto p-1 h-auto">Guardar Carta</button>
+                        <>
+                            {alertStatus ?
+                                <div className="alert alert-error shadow-lg">
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                        <span>Error! Task failed successfully.</span>
+                                    </div>
+                                </div> : <></>}
+                        </>
                     </div>
                 </label>
             </label>

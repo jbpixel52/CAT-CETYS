@@ -17,10 +17,18 @@ export default function Editor() {
     return (
         <div className="">
             <NavBar />
-            <h1 className="font-bold text-2xl p-2 shadow-xl">{syllabusData ? syllabusData.NOMBRE_CARTA : '...'}</h1>
-            <button className="btn" type="button" onClick={ router.query(`/carta/${}`)}>
-                Historial de la carta
-            </button>
+            <span className="flex justify-evenly p-2">
+                <h1 className="font-bold text-2xl p-2 shadow-xl">{syllabusData ? syllabusData.NOMBRE_CARTA : '...'}</h1>
+                <div className="btn-group">
+                    <button className="btn" type="button" onClick={() => router.push(`/historial/${pid?.id?.toString()}`)}>
+                        Historial de la carta
+                    </button>
+                    <button className="btn" type="button" onClick={() => router.push(`/carta/${pid?.id?.toString()}`)}>
+                        Ver carta
+                    </button>
+                </div>
+            </span>
+
             <div className="flex"> {/**here starts the body of the page */}
                 <section className="box m-auto">
                     {/* THE FORM FIELDS GO HERE*/}
