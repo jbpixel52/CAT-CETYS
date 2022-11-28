@@ -16,6 +16,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
                 try {
                     console.log('finding carrera list')
                     const carreras: any = await prisma.nombresCarrera.findMany({});
+                    res.status(200).json(carreras)
                 } catch (error) { res.status(400).json(error); }
             } else { res.status(400).json("Este endpoint es solo para solicitudes PATCH para algo de nombres de carreras") }
         } else { res.status(401).json("Unathourized access.") }

@@ -14,7 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         if (session) {
             if (req.method === 'PATCH') {
                 try {
-                    console.log('finding carrera list')
+                    console.log('patching carrera list')
                     const carreras: any = await prisma.nombresCarrera.findFirst({
                         where: {
                             id: {
