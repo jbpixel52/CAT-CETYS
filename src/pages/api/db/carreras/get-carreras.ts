@@ -12,7 +12,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const session = await getServerAuthSession({ req, res })
     try {
         if (session) {
-            if (req.method === 'PATCH') {
+            if (req.method === 'GET') {
                 try {
                     console.log('finding carrera list')
                     const carreras: any = await prisma.nombresCarrera.findMany({});
